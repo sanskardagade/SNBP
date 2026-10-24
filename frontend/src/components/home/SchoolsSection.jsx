@@ -7,7 +7,7 @@ export default function SchoolsSection({ schools = [] }) {
   const [active, setActive] = useState(schools[0]?.id || "");
 
   return (
-    <section className="section-pad bg-purplebrand text-white">
+    <section className="section-pad bg-purplebrand text-white" id="schools">
       <div className="container-width">
         <SectionHeading
           eyebrow="Explore Our Schools"
@@ -51,7 +51,10 @@ export default function SchoolsSection({ schools = [] }) {
                         <a href="#brochure" className="inline-flex items-center gap-2 text-xs font-bold uppercase text-gold">
                           <Download size={14} /> Download Brochure
                         </a>
-                        <Link to="/academics" className="text-xs font-bold uppercase text-white/90 hover:text-gold">
+                        <Link
+                          to={school.id === "technology" ? "/school-of-technology" : "/school-of-arts-commerce-science"}
+                          className="text-xs font-bold uppercase text-white/90 hover:text-gold"
+                        >
                           Explore more
                         </Link>
                       </div>

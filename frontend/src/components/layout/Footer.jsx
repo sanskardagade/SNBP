@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
-import { footerQuickLinks, regulatoryLinks } from "../../constants/navigation.js";
+import { Mail, Phone } from "lucide-react";
+import { wordmarkBanner } from "../../constants/assets.js";
+import { footerQuickLinks, regulatoryLinks, socialLinks } from "../../constants/navigation.js";
 import { siteMeta as defaultMeta } from "../../constants/siteMeta.js";
 
 export default function Footer({ meta = defaultMeta }) {
@@ -12,15 +13,15 @@ export default function Footer({ meta = defaultMeta }) {
 
   return (
     <footer className="bg-purpledark pb-20 text-white lg:pb-0">
-      <div className="border-b border-white/10 bg-purplebrand/40 py-8">
-        <div className="container-width text-center">
-          <p className="text-xs uppercase tracking-[.2em] text-gold">SNBP brand banner</p>
+      <div className="border-b border-white/10 bg-purplebrand/40 py-8" aria-label="SNBP brand banner">
+        <div className="container-width flex justify-center">
+          <img src={wordmarkBanner} alt="SNBP University" className="max-h-16 w-auto object-contain opacity-95" loading="lazy" />
         </div>
       </div>
 
       <div className="container-width grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
-          <div className="heading-serif text-xl font-bold text-gold">SNBP University</div>
+          <div className="font-heading text-xl font-semibold text-gold">SNBP University</div>
           <p className="mt-4 text-sm leading-7 text-white/70">{legal}</p>
           <p className="mt-4 text-sm leading-7 text-white/70">{address}</p>
         </div>
@@ -72,14 +73,16 @@ export default function Footer({ meta = defaultMeta }) {
           </ul>
           <p className="mt-4 text-xs text-white/55">Office Hours: {hours}</p>
           <div className="mt-5 flex gap-3">
-            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
+            {socialLinks.map((s) => (
               <a
-                key={i}
-                href="#social"
-                aria-label={["Facebook", "Instagram", "LinkedIn"][i]}
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/20 hover:border-gold hover:text-gold"
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                target="_blank"
+                rel="noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full border border-white/20 text-xs font-bold hover:border-gold hover:text-gold"
               >
-                <Icon size={16} />
+                {s.label[0]}
               </a>
             ))}
           </div>

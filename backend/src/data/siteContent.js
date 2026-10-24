@@ -14,8 +14,7 @@ export const hero = {
   title: "Degree Is The Beginning, Character Is The Destination.",
   subtitle:
     "At SNBP University, education transcends classrooms; it shapes character and creates leaders",
-  image:
-    "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2200&q=85",
+  poster: "https://snbpuniversity.com/assets/SNBP-INTRO-6-C8yC5Nx3.gif",
   societyLabel: "Subhadra Educational Society."
 };
 
@@ -30,10 +29,10 @@ export const about = {
   title: "A Legacy of Excellence, A Vision for Tomorrow",
   paragraphs: [
     "SNBP University is more than an institute. It is a movement rooted in the wisdom of ancient Indian philosophy and powered by modern, world-class education. Founded on the vision of Shri Dasharath K. Bhosale, we nurture leaders who combine knowledge with character.",
-    "For nearly three decades, we have been shaping brilliant minds across Arts, Commerce, and Science. Our track record speaks through the careers built, innovations sparked, and communities strengthened by our graduates."
+    "For nearly three decades, we have been shaping brilliant minds across Arts, Commerce, and Science. Our 29-year track record speaks not only through numbers, but also through the careers built, innovations created, and communities strengthened by our graduates."
   ],
   image:
-    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85"
+    "https://snbpuniversity.com/assets/School-Of-Arts-Commerce-Science-SNBP-University-BqD54UwP.webp"
 };
 
 export const schools = [
