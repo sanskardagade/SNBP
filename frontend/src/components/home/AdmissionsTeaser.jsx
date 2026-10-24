@@ -3,7 +3,7 @@ import SectionHeading from "../common/SectionHeading.jsx";
 
 export default function AdmissionsTeaser({ admissions }) {
   return (
-    <section className="section-pad bg-mist" id="admissions">
+    <section className="section-pad bg-mist !pt-28 md:!pt-32" id="admissions">
       <div className="container-width grid items-start gap-10 lg:grid-cols-2">
         <SectionHeading
           eyebrow={admissions?.eyebrow || "Admissions Open 2026"}

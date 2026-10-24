@@ -9,13 +9,26 @@
   color: #2a1a3e;
   background: #fff;
 }
-html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; min-width: 320px; overflow-x: clip; }
 button, input, textarea, select { font: inherit; }
 ::selection { background: #c9a227; color: #2d1b4d; }
 
 .container-width { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
 .section-pad { padding-block: 84px; }
+
+.hero-overlay {
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 18%, rgba(45, 27, 77, 0.55), transparent 55%),
+    linear-gradient(
+      180deg,
+      rgba(45, 27, 77, 0.93) 0%,
+      rgba(45, 27, 77, 0.88) 38%,
+      rgba(45, 27, 77, 0.82) 62%,
+      rgba(61, 32, 102, 0.75) 82%,
+      rgba(247, 244, 251, 1) 100%
+    );
+}
 .eyebrow {
   display: inline-flex; align-items: center; gap: 9px;
   color: #5c3d8f; font-size: .76rem; font-weight: 800;

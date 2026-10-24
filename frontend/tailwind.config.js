@@ -15,6 +15,7 @@ export default {
       },
       fontFamily: {
         serif: ['"Libre Baskerville"', "Georgia", "serif"],
+        heading: ['"Libre Baskerville"', "Georgia", "serif"],
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
       },
       boxShadow: {

@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import { heroIntroGif, heroIntroVideo } from "../../constants/assets.js";
 
 export default function HeroSection({ hero, stats }) {
   if (!hero) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#f7f4fb]">
-      <div className="absolute inset-0">
+    <section className="relative isolate min-h-[540px] overflow-hidden bg-purpledark sm:min-h-[620px]">
+      <div className="absolute inset-0" aria-hidden>
         <video
-          className="hidden h-full w-full object-cover md:block"
+          className="hidden h-full w-full object-cover object-[center_32%] md:block"
           autoPlay
           muted
           loop
@@ -16,30 +17,53 @@ export default function HeroSection({ hero, stats }) {
         >
           <source src={heroIntroVideo} type="video/mp4" />
         </video>
-        <img src={hero.poster || heroIntroGif} alt="" className="h-full w-full object-cover md:hidden" />
+        <img
+          src={hero.poster || heroIntroGif}
+          alt=""
+          className="h-full w-full object-cover md:hidden"
+        />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/78 to-white/95" />
+      <div className="hero-overlay absolute inset-0" aria-hidden />
 
-      <div className="container-width relative pb-16 pt-12 text-center sm:pt-16">
-        <h1 className="font-heading mx-auto max-w-4xl text-3xl font-semibold leading-snug text-purpledark sm:text-4xl lg:text-[2.75rem]">
+      <div className="container-width relative z-10 flex flex-col items-center px-4 pb-8 pt-10 text-center sm:pt-12 md:pb-10 md:pt-14 lg:pt-16">
+        <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold/95">SNBP University · Pune</p>
+        <h1 className="heading-serif mx-auto mt-5 max-w-4xl text-balance text-[1.65rem] font-bold leading-tight text-white sm:text-4xl lg:text-[2.85rem] lg:leading-[1.15]">
           {hero.title}
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-700 sm:text-lg">{hero.subtitle}</p>
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg sm:leading-8">
+          {hero.subtitle}
+        </p>
         {hero.societyLabel ? (
-          <p className="mt-6 text-sm font-semibold text-purplebrand/90">{hero.societyLabel}</p>
+          <p className="heading-serif mt-6 text-sm font-bold tracking-wide text-gold sm:text-base">
+            {hero.societyLabel}
+          </p>
         ) : null}
 
-        {stats?.length ? (
-          <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-3">
-            {stats.map((item) => (
-              <div key={item.label} className="rounded-xl bg-white/90 px-4 py-6 shadow-soft backdrop-blur-sm">
-                <div className="font-heading text-3xl font-semibold text-gold sm:text-4xl">{item.value}</div>
-                <div className="mt-2 text-xs font-bold uppercase tracking-wide text-purplebrand">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        ) : null}
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+          <Link to="/admissions" className="btn-primary min-w-[160px]">
+            Enquire Now
+          </Link>
+          <Link to="/about" className="btn-outline min-w-[160px] border-white/40">
+            About SNBP
+          </Link>
+        </div>
       </div>
+
+      {stats?.length ? (
+        <div className="container-width relative z-10 -mb-16 grid gap-4 pb-6 sm:grid-cols-3 sm:gap-5 md:-mb-20">
+          {stats.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-2xl border border-purplebrand/10 bg-white px-5 py-7 text-center shadow-soft"
+            >
+              <div className="heading-serif text-4xl font-bold text-gold sm:text-[2.75rem]">{item.value}</div>
+              <div className="mt-2 text-[0.68rem] font-extrabold uppercase leading-snug tracking-wide text-purplebrand sm:text-xs">
+                {item.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }

@@ -183,10 +183,13 @@ export default function Navbar() {
 
       <div className="bg-purpledark text-white">
         <div className="container-width flex min-h-[72px] items-center justify-between gap-4 lg:min-h-[88px]">
-          <Link to="/" className="relative shrink-0" onClick={closeMenu}>
-            <span className="flex h-[72px] w-[118px] items-center justify-center bg-[#2e1a47] md:h-[90px] md:w-[140px]">
-              <img src={logoWebp} alt="SNBP University" className="h-full w-full object-contain" fetchPriority="high" />
-            </span>
+          <Link to="/" className="relative shrink-0 py-2" onClick={closeMenu}>
+            <img
+              src={logoWebp}
+              alt="SNBP University"
+              className="h-14 w-auto max-w-[130px] object-contain sm:h-16 md:h-[72px] md:max-w-[150px]"
+              fetchPriority="high"
+            />
           </Link>
 
           <nav className="hidden items-center gap-6 xl:flex">
