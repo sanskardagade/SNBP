@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { heroIntroGif, heroIntroVideo } from "../../constants/assets.js";
 
-export default function HeroSection({ hero, stats }) {
+export default function HeroSection({ hero }) {
   if (!hero) return null;
 
   return (
@@ -49,21 +49,6 @@ export default function HeroSection({ hero, stats }) {
         </div>
       </div>
 
-      {stats?.length ? (
-        <div className="container-width relative z-10 -mb-16 grid gap-4 pb-6 sm:grid-cols-3 sm:gap-5 md:-mb-20">
-          {stats.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-2xl border border-purplebrand/10 bg-white px-5 py-7 text-center shadow-soft"
-            >
-              <div className="heading-serif text-4xl font-bold text-gold sm:text-[2.75rem]">{item.value}</div>
-              <div className="mt-2 text-[0.68rem] font-extrabold uppercase leading-snug tracking-wide text-purplebrand sm:text-xs">
-                {item.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : null}
     </section>
   );
 }

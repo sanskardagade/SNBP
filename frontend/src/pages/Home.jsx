@@ -1,6 +1,7 @@
 import { useHomeContent } from "../hooks/useHomeContent.js";
 import HeroSection from "../components/home/HeroSection.jsx";
 import AdmissionsTeaser from "../components/home/AdmissionsTeaser.jsx";
+import StatsSection from "../components/home/StatsSection.jsx";
 import AboutSection from "../components/home/AboutSection.jsx";
 import SchoolsSection from "../components/home/SchoolsSection.jsx";
 import PillarsSection from "../components/home/PillarsSection.jsx";
@@ -26,8 +27,9 @@ export default function Home() {
 
   return (
     <>
-      <HeroSection hero={data.hero} stats={data.stats} />
+      <HeroSection hero={data.hero} />
       <AdmissionsTeaser admissions={data.admissions} />
+      <StatsSection stats={data.stats} />
       <AboutSection about={data.about} />
       <SchoolsSection schools={data.schools} />
       <PillarsSection pillars={data.pillars} />
