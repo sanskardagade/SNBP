@@ -69,9 +69,9 @@ export const footerQuickLinks = [
 ];
 
 export const regulatoryLinks = [
-  { label: "University Act", href: "#regulatory" },
-  { label: "Gazette Notification", href: "#regulatory" },
-  { label: "Fee Structure", href: "#regulatory" }
+  { label: "University Act", href: "/mandatory-disclosure?doc=university-act" },
+  { label: "Gazette Notification", href: "/mandatory-disclosure?doc=gazette-notification" },
+  { label: "Fee Structure", href: "/scholarships" }
 ];
 
 export const socialLinks = [
