@@ -104,27 +104,6 @@ export const staticPages = {
       }
     ]
   },
-  "/placements": {
-    title: "Placements",
-    eyebrow: "Careers",
-    lead: "Build a strong professional profile from day one with portfolios, internships, and corporate partnerships.",
-    image: asset("/assets/business-people-handshake-partnership-b2b-deal-agreement-corporate-growth-office-employees-shaking-hands-collaboration-teamwork-welcome-hiring-recruitment-meeting-DR1Se33L.webp"),
-    sections: [
-      {
-        heading: "Our Partnership Ecosystem",
-        body: [
-          "Students develop industry-ready portfolios through resume building, LinkedIn optimisation, project showcases, and career branding.",
-          "Corporate collaborations, certification partners, internship partners, and research partners create multiple pathways to employment."
-        ]
-      },
-      {
-        heading: "Centre of Excellence",
-        body: [
-          "Expert masterclasses, technology bootcamps, hackathons, project mentoring, portfolio reviews, internship readiness, and placement-focused training."
-        ]
-      }
-    ]
-  },
   "/life-at-snbp": {
     title: "Life at SNBP",
     eyebrow: "Campus",

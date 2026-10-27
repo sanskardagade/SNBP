@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
-import { wordmarkBanner } from "../../constants/assets.js";
 import { footerQuickLinks, regulatoryLinks, socialLinks } from "../../constants/navigation.js";
 import { siteMeta as defaultMeta } from "../../constants/siteMeta.js";
 
@@ -13,12 +12,6 @@ export default function Footer({ meta = defaultMeta }) {
 
   return (
     <footer className="bg-purpledark pb-20 text-white lg:pb-0">
-      <div className="border-b border-white/10 bg-purplebrand/40 py-8" aria-label="SNBP brand banner">
-        <div className="container-width flex justify-center">
-          <img src={wordmarkBanner} alt="SNBP University" className="max-h-16 w-auto object-contain opacity-95" loading="lazy" />
-        </div>
-      </div>
-
       <div className="container-width grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="font-heading text-xl font-semibold text-gold">SNBP University</div>
