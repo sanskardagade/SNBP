@@ -7,6 +7,7 @@ import Admissions from "./pages/Admissions.jsx";
 import Contact from "./pages/Contact.jsx";
 import StaticPage from "./pages/StaticPage.jsx";
 import Placements from "./pages/Placements.jsx";
+import AboutUniversity from "./pages/AboutUniversity.jsx";
 import MandatoryDisclosure from "./pages/MandatoryDisclosure.jsx";
 import ProgramPage, { SchoolPage } from "./pages/ProgramPage.jsx";
 import { programPages, schoolPages } from "./content/programs.js";
@@ -29,7 +30,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<StaticPage pageKey="/about" />} />
+          <Route path="/about" element={<AboutUniversity />} />
           <Route path="/our-journey" element={<StaticPage pageKey="/our-journey" />} />
           <Route path="/sponsoring-body" element={<StaticPage pageKey="/sponsoring-body" />} />
           <Route path="/snbp-leadership" element={<StaticPage pageKey="/snbp-leadership" />} />
