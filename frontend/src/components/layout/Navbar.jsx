@@ -4,6 +4,8 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { logoWebp } from "../../constants/assets.js";
 import { primaryNav, secondaryNav, socialLinks } from "../../constants/navigation.js";
 
+const mobileNavLinkClass = "block py-2 text-sm font-bold leading-5 text-white";
+
 function isActivePath(pathname, to) {
   if (to.includes("#")) return false;
   if (to === "/") return pathname === "/";
@@ -96,13 +98,13 @@ function MobileNavGroup({ item, onNavigate }) {
   if (!item.children?.length) {
     if (item.to.includes("#")) {
       return (
-        <a href={item.to} className="nav-link !text-white" onClick={onNavigate}>
+        <a href={item.to} className={mobileNavLinkClass} onClick={onNavigate}>
           {item.label}
         </a>
       );
     }
     return (
-      <Link to={item.to} className="nav-link !text-white" onClick={onNavigate}>
+      <Link to={item.to} className={mobileNavLinkClass} onClick={onNavigate}>
         {item.label}
       </Link>
     );
@@ -112,7 +114,7 @@ function MobileNavGroup({ item, onNavigate }) {
     <div className="border-b border-white/10 pb-3">
       <button
         type="button"
-        className="flex w-full items-center justify-between py-2 text-left font-bold text-white"
+        className={`${mobileNavLinkClass} flex w-full items-center justify-between text-left`}
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
@@ -128,7 +130,7 @@ function MobileNavGroup({ item, onNavigate }) {
               <Link
                 key={child.to}
                 to={child.to}
-                className="block text-sm text-white/80 hover:text-gold"
+                className={`${mobileNavLinkClass} text-white/80 hover:text-gold`}
                 onClick={onNavigate}
               >
                 {child.label}
@@ -217,17 +219,14 @@ export default function Navbar() {
       </div>
 
       {menuOpen ? (
-        <div className="fixed inset-0 top-[72px] z-40 overflow-y-auto bg-purpledark px-5 py-6 lg:hidden">
+        <div className="fixed inset-0 top-[72px] z-40 overflow-y-auto bg-purpledark px-5 pb-24 pt-6 lg:hidden">
           <div className="container-width flex flex-col gap-4">
-            <Link to="/" className="nav-link !text-white" onClick={closeMenu}>
+            <Link to="/" className={mobileNavLinkClass} onClick={closeMenu}>
               Home
             </Link>
             {allMobileLinks.map((item) => (
               <MobileNavGroup key={item.label} item={item} onNavigate={closeMenu} />
             ))}
-            <Link to="/admissions" className="btn-primary w-full" onClick={closeMenu}>
-              Enquire Now
-            </Link>
           </div>
         </div>
       ) : null}

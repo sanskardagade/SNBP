@@ -61,7 +61,7 @@ export const secondaryNav = [
   { label: "Admissions", to: "/admissions", children: admissionsLinks },
   { label: "Mandatory Disclosure", to: "/mandatory-disclosure" },
   { label: "Scholarships", to: "/scholarships" },
-  { label: "CONTACT US", to: "/contact-us" }
+  { label: "Contact Us", to: "/contact-us" }
 ];
 
 export const footerQuickLinks = [
