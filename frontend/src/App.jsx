@@ -13,6 +13,7 @@ import ProgramPage, { SchoolPage } from "./pages/ProgramPage.jsx";
 import Scholarships from "./pages/Scholarships.jsx";
 import OurJourney from "./pages/OurJourney.jsx";
 import SponsoringBody from "./pages/SponsoringBody.jsx";
+import OurTeam from "./pages/OurTeam.jsx";
 import { programPages, schoolPages } from "./content/programs.js";
 function NotFound() {
   return (
@@ -37,7 +38,7 @@ export default function App() {
           <Route path="/our-journey" element={<OurJourney />} />
           <Route path="/sponsoring-body" element={<SponsoringBody />} />
           <Route path="/snbp-leadership" element={<StaticPage pageKey="/snbp-leadership" />} />
-          <Route path="/our-team" element={<StaticPage pageKey="/our-team" />} />
+          <Route path="/our-team" element={<OurTeam />} />
           <Route path="/chancellor-message" element={<StaticPage pageKey="/chancellor-message" />} />
           <Route path="/vice-chancellor-message" element={<StaticPage pageKey="/vice-chancellor-message" />} />
           <Route path="/placements" element={<Placements />} />

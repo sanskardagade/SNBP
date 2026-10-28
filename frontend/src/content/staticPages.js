@@ -31,20 +31,6 @@ export const staticPages = {
       }
     ]
   },
-  "/our-team": {
-    title: "Our Team",
-    eyebrow: "SNBP Leadership",
-    lead: "Faculty, administrators, and mentors who support every stage of the student journey.",
-    sections: [
-      {
-        heading: "People behind SNBP University",
-        body: [
-          "Academic leaders, programme coordinators, and student services teams work together to deliver industry-aligned education.",
-          "Explore leadership messages from the Chancellor and Vice Chancellor for the university's strategic direction."
-        ]
-      }
-    ]
-  },
   "/chancellor-message": {
     title: "Chancellor's Message",
     eyebrow: "Leadership",
