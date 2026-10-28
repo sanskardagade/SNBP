@@ -17,20 +17,6 @@ export const staticPages = {
       }
     ]
   },
-  "/sponsoring-body": {
-    title: "Sponsoring Body",
-    eyebrow: "Governance",
-    lead: "Subhadra Educational Society sponsors SNBP University under Maharashtra private university legislation.",
-    sections: [
-      {
-        heading: "Subhadra Educational Society",
-        body: [
-          "The sponsoring body provides governance oversight, infrastructure investment, and the values framework that guides SNBP institutions.",
-          "Established as a State Private University under the Maharashtra Private Universities Act, 2023, as amended by Maharashtra Act No. IX of 2026."
-        ]
-      }
-    ]
-  },
   "/snbp-leadership": {
     title: "SNBP Leadership",
     eyebrow: "Leadership",

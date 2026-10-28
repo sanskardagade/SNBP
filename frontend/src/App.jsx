@@ -12,6 +12,7 @@ import MandatoryDisclosure from "./pages/MandatoryDisclosure.jsx";
 import ProgramPage, { SchoolPage } from "./pages/ProgramPage.jsx";
 import Scholarships from "./pages/Scholarships.jsx";
 import OurJourney from "./pages/OurJourney.jsx";
+import SponsoringBody from "./pages/SponsoringBody.jsx";
 import { programPages, schoolPages } from "./content/programs.js";
 function NotFound() {
   return (
@@ -34,7 +35,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUniversity />} />
           <Route path="/our-journey" element={<OurJourney />} />
-          <Route path="/sponsoring-body" element={<StaticPage pageKey="/sponsoring-body" />} />
+          <Route path="/sponsoring-body" element={<SponsoringBody />} />
           <Route path="/snbp-leadership" element={<StaticPage pageKey="/snbp-leadership" />} />
           <Route path="/our-team" element={<StaticPage pageKey="/our-team" />} />
           <Route path="/chancellor-message" element={<StaticPage pageKey="/chancellor-message" />} />
