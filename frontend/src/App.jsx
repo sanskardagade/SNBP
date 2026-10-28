@@ -10,6 +10,7 @@ import Placements from "./pages/Placements.jsx";
 import AboutUniversity from "./pages/AboutUniversity.jsx";
 import MandatoryDisclosure from "./pages/MandatoryDisclosure.jsx";
 import ProgramPage, { SchoolPage } from "./pages/ProgramPage.jsx";
+import Scholarships from "./pages/Scholarships.jsx";
 import { programPages, schoolPages } from "./content/programs.js";
 function NotFound() {
   return (
@@ -40,7 +41,7 @@ export default function App() {
           <Route path="/placements" element={<Placements />} />
           <Route path="/life-at-snbp" element={<StaticPage pageKey="/life-at-snbp" />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
-          <Route path="/scholarships" element={<StaticPage pageKey="/scholarships" />} />
+          <Route path="/scholarships" element={<Scholarships />} />
           {Object.keys(schoolPages).map((key) => (
             <Route key={key} path={key} element={<SchoolPage pageKey={key} />} />
           ))}

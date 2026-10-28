@@ -132,19 +132,5 @@ export const staticPages = {
         ]
       }
     ]
-  },
-  "/scholarships": {
-    title: "Scholarships",
-    eyebrow: "Admissions",
-    lead: "Financial support and merit-based schemes for eligible programmes.",
-    sections: [
-      {
-        heading: "Fees & Scholarships",
-        body: [
-          "Scholarship availability varies by programme, merit, and category. Contact the admissions office for current schemes.",
-          "Combine scholarship enquiries with your admission application so our team can guide you on eligibility and documentation."
-        ]
-      }
-    ]
   }
 };
