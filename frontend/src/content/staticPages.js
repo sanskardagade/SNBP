@@ -1,8 +1,6 @@
 import { asset } from "../constants/assets.js";
 
 const campus = asset("/assets/shot-young-student-with-college-certifiicate-standing-studio-high-quality-photo-D1Z7fejE.webp");
-const journey = asset("/assets/SNBP-INTRO-6-C8yC5Nx3.gif");
-
 export const staticPages = {
   "/about": {
     title: "About SNBP University",
@@ -15,21 +13,6 @@ export const staticPages = {
         body: [
           "SNBP University is more than an institute. It is a movement rooted in the wisdom of ancient Indian philosophy and powered by modern, world-class education. Founded on the vision of Shri Dasharath K. Bhosale, we nurture leaders who combine knowledge with character.",
           "For nearly three decades, we have been shaping brilliant minds across Arts, Commerce, and Science. Our 29-year track record speaks not only through numbers, but also through the careers built, innovations created, and communities strengthened by our graduates."
-        ]
-      }
-    ]
-  },
-  "/our-journey": {
-    title: "SNBP Group",
-    eyebrow: "Our Journey",
-    lead: "From a single educational vision to a group of institutions serving learners across Maharashtra.",
-    image: journey,
-    sections: [
-      {
-        heading: "Three decades of impact",
-        body: [
-          "The SNBP Group spans schools, junior colleges, and higher education institutes — united by a commitment to holistic development and academic rigour.",
-          "SNBP University extends that legacy as a State Private University in Pune, connecting students to industry, research, and global perspectives."
         ]
       }
     ]
