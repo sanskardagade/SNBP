@@ -14,6 +14,8 @@ import Scholarships from "./pages/Scholarships.jsx";
 import OurJourney from "./pages/OurJourney.jsx";
 import SponsoringBody from "./pages/SponsoringBody.jsx";
 import OurTeam from "./pages/OurTeam.jsx";
+import ChancellorMessage from "./pages/ChancellorMessage.jsx";
+import ViceChancellorMessage from "./pages/ViceChancellorMessage.jsx";
 import { programPages, schoolPages } from "./content/programs.js";
 function NotFound() {
   return (
@@ -39,8 +41,8 @@ export default function App() {
           <Route path="/sponsoring-body" element={<SponsoringBody />} />
           <Route path="/snbp-leadership" element={<StaticPage pageKey="/snbp-leadership" />} />
           <Route path="/our-team" element={<OurTeam />} />
-          <Route path="/chancellor-message" element={<StaticPage pageKey="/chancellor-message" />} />
-          <Route path="/vice-chancellor-message" element={<StaticPage pageKey="/vice-chancellor-message" />} />
+          <Route path="/chancellor-message" element={<ChancellorMessage />} />
+          <Route path="/vice-chancellor-message" element={<ViceChancellorMessage />} />
           <Route path="/placements" element={<Placements />} />
           <Route path="/life-at-snbp" element={<StaticPage pageKey="/life-at-snbp" />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />

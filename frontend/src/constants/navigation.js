@@ -2,15 +2,18 @@ export const aboutLinks = [
   { label: "About SNBP University", to: "/about" },
   { label: "SNBP Group", to: "/our-journey" },
   { label: "Sponsoring Body", to: "/sponsoring-body" },
-  {
-    label: "SNBP Leadership",
-    to: "/snbp-leadership",
-    children: [
-      { label: "Our Team", to: "/our-team" },
-      { label: "Chancellor's Message", to: "/chancellor-message" },
-      { label: "Vice Chancellor's Message", to: "/vice-chancellor-message" }
-    ]
-  }
+  { label: "Our Team", to: "/our-team" },
+  { label: "Chancellor's Message", to: "/chancellor-message" },
+  { label: "Vice Chancellor's Message", to: "/vice-chancellor-message" }
+  // {
+  //   label: "SNBP Leadership",
+  //   to: "/snbp-leadership",
+  //   children: [
+  //     { label: "Our Team", to: "/our-team" },
+  //     { label: "Chancellor's Message", to: "/chancellor-message" },
+  //     { label: "Vice Chancellor's Message", to: "/vice-chancellor-message" }
+  //   ]
+  // }
 ];
 
 export const programLinks = [

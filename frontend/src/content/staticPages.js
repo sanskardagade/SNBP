@@ -31,34 +31,6 @@ export const staticPages = {
       }
     ]
   },
-  "/chancellor-message": {
-    title: "Chancellor's Message",
-    eyebrow: "Leadership",
-    lead: "Education that shapes intellect, character, and contribution to society.",
-    sections: [
-      {
-        heading: "A note from the Chancellor",
-        body: [
-          "At SNBP University we believe degree is the beginning and character is the destination — preparing graduates who lead with integrity.",
-          "We invite you to explore our schools, partnerships, and campus life as you plan your academic future."
-        ]
-      }
-    ]
-  },
-  "/vice-chancellor-message": {
-    title: "Vice Chancellor's Message",
-    eyebrow: "Leadership",
-    lead: "Academic innovation, student success, and industry collaboration at the heart of our mission.",
-    sections: [
-      {
-        heading: "Building tomorrow's professionals",
-        body: [
-          "Our programmes integrate masterclasses, bootcamps, internships, and placement-focused training from day one.",
-          "We welcome curious learners ready to grow in Pune's vibrant education and technology ecosystem."
-        ]
-      }
-    ]
-  },
   "/life-at-snbp": {
     title: "Life at SNBP",
     eyebrow: "Campus",
