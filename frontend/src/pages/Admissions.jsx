@@ -1,28 +1,320 @@
-import { useState } from "react";
-import { CheckCircle2, Send } from "lucide-react";
-import SectionHeading from "../components/common/SectionHeading.jsx";
-import { sendAdmissionEnquiry } from "../services/api.js";
+import {
+  BadgeCheck,
+  BookOpenCheck,
+  ClipboardCheck,
+  GraduationCap,
+  MessageCircle,
+  UserRoundCheck
+} from "lucide-react";
+import { asset } from "../constants/assets.js";
+
+const admissionHero = asset("/assets/admission-hero-DPe1ntg_.jpeg");
+const admissionChakra = asset("/assets/ADMISN%20HALF%20CHAKRA%20copy-BFgFHIyr.png");
+
+const technologyHeaders = [
+  "Specialisation / Program",
+  "Academic Qualification",
+  "Mandatory Subjects",
+  "Minimum Percentage (General)",
+  "Minimum Percentage (Reserved / EWS / PwD – Maharashtra)",
+  "Entrance Exam Requirement"
+];
+
+const technologyPrograms = [
+  "B.Tech Computer Science Engineering",
+  "B.Tech Information Technology",
+  "B.Tech CSE (AI & Machine Learning)",
+  "B.Tech CSE (Data Science)",
+  "B.Tech CSE (Cyber Security)"
+].map((program) => ({
+  program,
+  qualification: "Passed 10+2 / HSC Science",
+  subjects: "Physics & Mathematics + Chemistry / Biology / CS / IT",
+  general: "45%",
+  reserved: "40%",
+  entrance: "Valid score in MHT-CET / JEE Main / University Entrance"
+}));
+
+const artsHeaders = [
+  "Degree",
+  "Program / Specialization",
+  "Duration",
+  "Minimum Academic Requirement",
+  "General Category",
+  "Reserved / EWS / PwD (Maharashtra)"
+];
+
+const artsPrograms = [
+  ["B.Sc.", "Computer Science", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
+  ["B.A.", "Psychology", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
+  ["B.A.", "Economics", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
+  ["B.A.", "English", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
+  ["BCA", "Computer Applications", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
+  ["B.Com", "Commerce", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
+  ["MCA", "Computer Applications", "2 Years", "Passed relevant Graduation / Bachelor's Degree"]
+].map(([degree, program, duration, qualification]) => ({
+  degree,
+  program,
+  duration,
+  qualification,
+  general: "45%",
+  reserved: "40%"
+}));
+
+const admissionSteps = [
+  {
+    title: "Enquire",
+    description:
+      "Connect with the admissions team to understand programs, eligibility, fees, scholarships and career pathways.",
+    imageIcon: "/assets/chat_13691894-Bq2xrZhB.png",
+    icon: MessageCircle
+  },
+  {
+    title: "Counselling",
+    description: "Get guidance on the right program based on your interests, aptitude and career goals.",
+    imageIcon: "/assets/check_11547409-07v2izVJ.png",
+    icon: UserRoundCheck
+  },
+  {
+    title: "Apply",
+    description: "Submit the application form and required documents.",
+    imageIcon: "/assets/conversation_17948881-DhYbw7Ed.png",
+    icon: ClipboardCheck
+  },
+  {
+    title: "Verify",
+    description: "Complete eligibility and document verification.",
+    imageIcon: "/assets/graduation-hat_10760667-GhSkmGcT.png",
+    icon: BadgeCheck
+  },
+  {
+    title: "Confirm Admission",
+    description: "Complete fee payment as per university norms and admission formalities.",
+    imageIcon: "/assets/man_11898054-C598qYF-.png",
+    icon: BookOpenCheck
+  },
+  {
+    title: "Begin the Journey",
+    description: "Start with orientation, academic on boarding and student induction.",
+    imageIcon: "/assets/verify_5254524-Bqk6igLK.png",
+    icon: GraduationCap
+  }
+];
+
+const admissionProcessPositions = [
+  { textLeft: 11, textTop: 4, iconLeft: 20.5, iconTop: 34.5 },
+  { textLeft: 27, textTop: 19, iconLeft: 31.4, iconTop: 35.8 },
+  { textLeft: 37.5, textTop: 34, iconLeft: 40.6, iconTop: 40.7 },
+  { textLeft: 45.5, textTop: 49, iconLeft: 48.3, iconTop: 47.6 },
+  { textLeft: 50, textTop: 64, iconLeft: 51.8, iconTop: 57.4 },
+  { textLeft: 51.5, textTop: 79, iconLeft: 52.2, iconTop: 68.5 }
+];
+
+function EligibilityTable({ title, headers, rows, minWidth, technology = false }) {
+  return (
+    <section>
+      <div className="mb-6 text-center md:mb-8">
+        <div aria-hidden="true" className="mb-3 flex justify-center">
+          <span className="h-3 w-3 rotate-45 bg-[#c9a84c]" />
+        </div>
+        <h2 className="placement-heading text-[1.75rem] font-semibold text-[#2e1a47] md:text-[2.15rem] lg:text-[2.35rem]">
+          {title}
+        </h2>
+      </div>
+
+      <div className="overflow-hidden rounded-[1.25rem] border border-[#2e1a47]/10 shadow-[0_12px_40px_rgba(46,26,71,0.08)] md:rounded-[1.5rem]">
+        <div className="overflow-x-auto">
+          <table className={`w-full border-collapse text-left ${minWidth}`}>
+            <thead>
+              <tr className="bg-[#2e1a47]">
+                {headers.map((header) => (
+                  <th
+                    key={header}
+                    scope="col"
+                    className="px-4 py-4 font-heading text-[0.95rem] font-semibold leading-snug text-[#f3e8c8] md:px-5 md:py-5 md:text-[1.05rem] lg:px-6"
+                  >
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, index) => {
+                const cells = technology
+                  ? [row.program, row.qualification, row.subjects, row.general, row.reserved, row.entrance]
+                  : [row.degree, row.program, row.duration, row.qualification, row.general, row.reserved];
+
+                return (
+                  <tr
+                    key={`${row.degree ?? "technology"}-${row.program}`}
+                    className={index % 2 === 0 ? "bg-white" : "bg-[#e8d9ef]/55"}
+                  >
+                    {cells.map((cell, cellIndex) => (
+                      <td
+                        key={`${row.program}-${cellIndex}`}
+                        className={`px-4 py-4 leading-relaxed md:px-5 md:py-5 lg:px-6 ${
+                          cellIndex === 0
+                            ? "font-heading text-[0.98rem] font-semibold text-[#2e1a47] md:text-[1.05rem]"
+                            : "font-sans text-[14px] font-light text-[#3a3a3a] md:text-[15px]"
+                        }`}
+                      >
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AdmissionStep({ step, index }) {
+  const Icon = step.icon;
+
+  return (
+    <li className="flex min-w-0 items-start gap-4 rounded-2xl border border-[#2e1a47]/10 bg-white p-5 shadow-[0_12px_35px_rgba(46,26,71,0.07)] sm:p-6">
+      <span
+        aria-hidden="true"
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#2e1a47] text-[#d4b85a] sm:h-14 sm:w-14"
+      >
+        <Icon size={23} />
+      </span>
+      <div className="min-w-0">
+        <h3 className="placement-heading flex flex-wrap items-baseline gap-x-2.5 gap-y-1 text-[#2e1a47]">
+          <span className="text-2xl font-semibold leading-none text-[#802030]">{index + 1}</span>
+          <span className="text-xl font-semibold leading-tight sm:text-[1.35rem]">{step.title}</span>
+        </h3>
+        <p className="mt-2 text-[14px] font-light leading-relaxed text-[#6b6575]">{step.description}</p>
+      </div>
+    </li>
+  );
+}
+
+function AdmissionProcessStep({ step, index }) {
+  const { textLeft, textTop } = admissionProcessPositions[index];
+
+  return (
+    <li
+      className="absolute z-30 pr-4"
+      style={{ left: `${textLeft}%`, top: `${textTop}%`, right: "2%" }}
+    >
+      <h3 className="placement-heading flex flex-nowrap items-baseline gap-3 whitespace-nowrap text-[#2e1a47]">
+        <span className="text-[2.55rem] font-semibold leading-none text-[#802030] lg:text-[2.9rem]">
+          {index + 1}
+        </span>
+        <span className="text-[1.3rem] font-semibold leading-none lg:text-[1.5rem]">{step.title}</span>
+      </h3>
+      <p className="mt-2 text-[13px] font-light leading-[1.55] text-[#6b6575] lg:text-[15px]">
+        {step.description}
+      </p>
+    </li>
+  );
+}
+
+function AdmissionProcess() {
+  return (
+    <section id="admission-process" className="bg-white px-4 py-14 md:px-6 md:py-16 lg:px-10 lg:py-20">
+      <div className="mx-auto max-w-[1200px]">
+        <div className="mb-8 text-center md:mb-10">
+          <p className="eyebrow !text-[#802030]">Your next steps</p>
+          <h2 className="placement-heading mt-3 text-3xl font-semibold text-[#2e1a47] sm:text-4xl">
+            Admission Process
+          </h2>
+        </div>
+        <ol className="mx-auto max-w-[420px] space-y-7 md:hidden">
+          {admissionSteps.map((step, index) => (
+            <AdmissionStep key={step.title} step={step} index={index} />
+          ))}
+        </ol>
+        <div className="relative mx-auto hidden h-[780px] w-full max-w-[1280px] md:block lg:h-[840px]">
+          <div
+            aria-hidden="true"
+            className="absolute bottom-0 left-[-13%] z-0 translate-y-[20%]"
+            style={{ width: "1392px", height: "1392px" }}
+          >
+            <img
+              alt=""
+              className="pointer-events-none absolute inset-0 h-full w-full select-none object-contain object-left"
+              src={admissionChakra}
+              style={{ mixBlendMode: "screen" }}
+            />
+          </div>
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20">
+            {admissionSteps.map((step, index) => {
+              const { iconLeft, iconTop } = admissionProcessPositions[index];
+
+              return (
+                <span
+                  key={step.title}
+                  className="absolute flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:h-12 lg:w-12"
+                  style={{ left: `${iconLeft}%`, top: `${iconTop}%` }}
+                >
+                  <span
+                    className="block h-[55%] w-[55%] bg-[#d4b85a]"
+                    style={{
+                      maskImage: `url("${asset(step.imageIcon)}")`,
+                      maskSize: "contain",
+                      maskRepeat: "no-repeat",
+                      maskPosition: "center"
+                    }}
+                  />
+                </span>
+              );
+            })}
+          </div>
+          <ol className="absolute inset-0">
+            {admissionSteps.map((step, index) => (
+              <AdmissionProcessStep key={step.title} step={step} index={index} />
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Admissions() {
-  const [form,setForm] = useState({name:"",email:"",phone:"",program:"",message:""});
-  const [status,setStatus] = useState({loading:false,error:"",success:""});
-  const update = e => setForm({...form,[e.target.name]:e.target.value});
-  async function submit(e) {
-    e.preventDefault(); setStatus({loading:true,error:"",success:""});
-    try { const {data} = await sendAdmissionEnquiry(form); setStatus({loading:false,error:"",success:data.message || "Thank you. Your enquiry has been received."}); setForm({name:"",email:"",phone:"",program:"",message:""}); }
-    catch (err) { setStatus({loading:false,error:err.response?.data?.message || "Could not send the enquiry. Please make sure the backend is running.",success:""}); }
-  }
-  return <><section className="bg-navy py-20 text-white"><div className="container-width"><div className="eyebrow !text-gold">Admissions</div><h1 className="mt-4 max-w-3xl text-4xl font-black sm:text-6xl">Your next chapter starts here.</h1><p className="mt-5 max-w-2xl leading-8 text-white/70">Tell us a little about yourself and the program you're interested in. Our demo form sends your enquiry to the Express API.</p></div></section>
-    <section className="section-pad bg-mist"><div className="container-width grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><SectionHeading eyebrow="Take the first step" title="Let's help you find your way" description="Share your details and areas of interest. For production, replace this demo form with the university's approved admissions workflow."/><div className="mt-8 space-y-4">{["Explore programs that fit your goals","Ask questions about the application process","Get guidance on your next steps"].map(t=><div key={t} className="flex gap-3 text-sm font-semibold text-slate-700"><CheckCircle2 size={19} className="shrink-0 text-bluebrand"/>{t}</div>)}</div></div>
-      <form onSubmit={submit} className="rounded-2xl bg-white p-6 shadow-soft sm:p-9"><h2 className="text-2xl font-black text-navy">Admission enquiry</h2><p className="mt-2 text-sm text-slate-500">Fields marked * are required.</p>
-        {status.success && <div role="status" className="mt-5 rounded-lg bg-green-50 p-3 text-sm text-green-800">{status.success}</div>}{status.error && <div role="alert" className="mt-5 rounded-lg bg-red-50 p-3 text-sm text-red-700">{status.error}</div>}
-        <div className="mt-6 grid gap-5 sm:grid-cols-2">
-          <label className="text-sm font-bold text-slate-700">Full name *<input required name="name" value={form.name} onChange={update} className="mt-2 w-full rounded-lg border border-slate-200 px-4 py-3 font-normal outline-none focus:border-bluebrand" placeholder="Your full name"/></label>
-          <label className="text-sm font-bold text-slate-700">Email address *<input required type="email" name="email" value={form.email} onChange={update} className="mt-2 w-full rounded-lg border border-slate-200 px-4 py-3 font-normal outline-none focus:border-bluebrand" placeholder="you@example.com"/></label>
-          <label className="text-sm font-bold text-slate-700">Phone number<input name="phone" value={form.phone} onChange={update} className="mt-2 w-full rounded-lg border border-slate-200 px-4 py-3 font-normal outline-none focus:border-bluebrand" placeholder="Phone number"/></label>
-          <label className="text-sm font-bold text-slate-700">Interested program<select name="program" value={form.program} onChange={update} className="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 font-normal outline-none focus:border-bluebrand"><option value="">Select a program</option><option>B.Tech Computer Science Engineering</option><option>B.Tech CSE AI & ML</option><option>BCA</option><option>B.Com</option><option>MCA</option><option>Other / Not sure yet</option></select></label>
-          <label className="text-sm font-bold text-slate-700 sm:col-span-2">Message<textarea name="message" value={form.message} onChange={update} rows="4" className="mt-2 w-full rounded-lg border border-slate-200 px-4 py-3 font-normal outline-none focus:border-bluebrand" placeholder="What would you like to know?"/></label>
-        </div><button disabled={status.loading} className="btn-primary mt-6 disabled:cursor-wait disabled:opacity-60">{status.loading ? "Sending..." : "Send enquiry"} <Send size={16}/></button>
-      </form>
-    </div></section></>;
+  return (
+    <>
+      <section
+        className="admissions-hero bg-[#2e1a47]"
+        style={{
+          backgroundImage: `linear-gradient(90deg, rgba(46, 26, 71, 0.9), rgba(46, 26, 71, 0.65) 55%, rgba(46, 26, 71, 0.3)), url("${admissionHero}")`
+        }}
+      >
+        <div className="container-width py-12 md:py-16">
+          <h1 className="placement-heading max-w-4xl text-[2.35rem] font-medium leading-[1.15] sm:text-5xl lg:text-[3.75rem]">
+            Admission Process and Eligibility Criteria
+          </h1>
+        </div>
+      </section>
+
+      <div
+        id="eligibility-criteria"
+        className="relative overflow-hidden bg-[#faf8f5] px-4 py-12 md:px-6 md:py-16 lg:px-10 lg:py-20"
+      >
+        <div className="mx-auto max-w-[1400px] space-y-14 md:space-y-16 lg:space-y-20">
+          <EligibilityTable
+            title="Eligibility Criteria — School of Technology"
+            headers={technologyHeaders}
+            rows={technologyPrograms}
+            minWidth="min-w-[980px]"
+            technology
+          />
+          <EligibilityTable
+            title="Eligibility Criteria — School of Arts, Commerce & Science"
+            headers={artsHeaders}
+            rows={artsPrograms}
+            minWidth="min-w-[920px]"
+          />
+        </div>
+      </div>
+
+      <AdmissionProcess />
+    </>
+  );
 }

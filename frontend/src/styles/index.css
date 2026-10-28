@@ -53,6 +53,23 @@ button, input, textarea, select { font: inherit; }
 .heading-serif { font-family: "Libre Baskerville", Georgia, serif; }
 .placement-heading { font-family: "Cormorant Garamond", Georgia, serif; }
 
+.admissions-hero {
+  display: flex;
+  min-height: 360px;
+  align-items: flex-start;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+.admissions-hero h1 { color: #f3e8c8; }
+
+@media (min-width: 768px) {
+  .admissions-hero { min-height: 420px; align-items: center; }
+}
+@media (min-width: 1024px) {
+  .admissions-hero { min-height: 480px; background-position: center 20%; }
+}
+
 @media (max-width: 640px) {
   .container-width { width: min(100% - 30px, 1180px); }
   .section-pad { padding-block: 58px; }
