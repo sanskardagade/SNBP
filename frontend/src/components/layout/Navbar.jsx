@@ -201,7 +201,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <Link to="/contact-us" className="btn-primary hidden !py-2.5 !text-xs lg:inline-flex">
+          <Link to="/contact-us" className="btn-primary !hidden !py-2.5 !text-xs lg:!inline-flex">
             Contact
           </Link>
 
