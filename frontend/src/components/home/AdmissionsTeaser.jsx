@@ -16,11 +16,25 @@ export default function AdmissionsTeaser({ admissions }) {
         }}
       />
 
-      {/* Dark Purple Overlay - Desktop Only */}
+      {/* Darken the photo so the copy remains readable. */}
       <div className="absolute inset-0 -z-10 hidden bg-[#21143b]/60 md:block" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-[#21143b]/80 via-[#21143b]/55 to-[#21143b]/20 md:hidden"
+      />
 
-      {/* Mobile: Show Only the Background Image */}
-      <div className="h-[280px] w-full sm:h-[350px] md:hidden" />
+      {/* Mobile hero copy sits over the open sky in the campus image. */}
+      <div className="flex min-h-[280px] w-full items-center justify-center px-5 py-8 text-center sm:min-h-[350px] md:hidden">
+        <div className="max-w-[340px] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.55)]">
+          <h1 className="heading-serif text-[1.45rem] font-bold leading-[1.3] sm:text-[1.7rem]">
+            Degree Is The Beginning, Character Is The Destination.
+          </h1>
+          <p className="mt-4 text-sm leading-relaxed text-white/95 sm:text-base">
+            At SNBP University, education transcends classrooms. It shapes character and creates
+            leaders.
+          </p>
+        </div>
+      </div>
 
       {/* Desktop and Tablet: Show Heading and Form */}
       <div className="container-width hidden items-start gap-10 py-28 md:grid md:grid-cols-2 lg:py-32">
