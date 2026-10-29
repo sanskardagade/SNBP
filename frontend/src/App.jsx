@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Home from "./pages/Home.jsx";
@@ -16,6 +17,17 @@ import OurTeam from "./pages/OurTeam.jsx";
 import ChancellorMessage from "./pages/ChancellorMessage.jsx";
 import ViceChancellorMessage from "./pages/ViceChancellorMessage.jsx";
 import { programPages, schoolPages } from "./content/programs.js";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function NotFound() {
   return (
     <main className="container-width py-24 text-center">
@@ -31,6 +43,7 @@ function NotFound() {
 export default function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <main>
         <Routes>
