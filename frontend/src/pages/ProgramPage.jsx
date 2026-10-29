@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import PageHero from "../components/common/PageHero.jsx";
 import { programPages, schoolPages } from "../content/programs.js";
 import BtechCsePage from "./BtechCsePage.jsx";
+import BtechCseAimlPage from "./BtechCseAimlPage.jsx";
 import SchoolTechnologyPage from "./SchoolTechnologyPage.jsx";
 import BtechItPage from "./BtechItPage.jsx";
 
@@ -40,6 +41,9 @@ export default function ProgramPage({ pageKey }) {
   if (!program) return null;
   if (pageKey === "/school-of-technology/btech-cse") {
     return <BtechCsePage />;
+  }
+  if (pageKey === "/school-of-technology/btech-cse-aiml") {
+    return <BtechCseAimlPage />;
   }
   if (pageKey === "/school-of-technology/btech-it") {
     return <BtechItPage />;
