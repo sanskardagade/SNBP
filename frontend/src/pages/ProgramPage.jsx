@@ -11,6 +11,8 @@ import BtechItPage from "./BtechItPage.jsx";
 import BscComputerSciencePage from "./BscComputerSciencePage.jsx";
 
 const BAPsychologyPage = lazy(() => import("./BAPsychologyPage.jsx"));
+const BAEnglishPage = lazy(() => import("./BAEnglishPage.jsx"));
+const BAEconomicsPage = lazy(() => import("./BAEconomicsPage.jsx"));
 
 export function SchoolPage({ pageKey }) {
   const school = schoolPages[pageKey];
@@ -58,6 +60,32 @@ export default function ProgramPage({ pageKey }) {
         }
       >
         <BAPsychologyPage />
+      </Suspense>
+    );
+  }
+  if (pageKey === "/school-of-arts-commerce-science/ba-english") {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
+            Loading programme…
+          </div>
+        }
+      >
+        <BAEnglishPage />
+      </Suspense>
+    );
+  }
+  if (pageKey === "/school-of-arts-commerce-science/ba-economics") {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
+            Loading programme…
+          </div>
+        }
+      >
+        <BAEconomicsPage />
       </Suspense>
     );
   }
