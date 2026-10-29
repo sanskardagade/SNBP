@@ -141,8 +141,8 @@ export default function AdmissionEnquiryForm({ compact = false, variant = "defau
           </div>
         ) : null}
 
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          <label className={`${labelClass} sm:col-span-2`}>
+        <div className={`mt-5 grid gap-4 ${compact ? "grid-cols-2" : "sm:grid-cols-2"}`}>
+          <label className={`${labelClass} ${compact ? "col-span-2" : "sm:col-span-2"} min-w-0`}>
             <span className={labelTextClass}>Applicant Full Name *</span>
             <input
               required
@@ -153,7 +153,7 @@ export default function AdmissionEnquiryForm({ compact = false, variant = "defau
               placeholder="Enter Student Full Name*"
             />
           </label>
-          <label className={labelClass}>
+          <label className={`${labelClass} min-w-0`}>
             <span className={labelTextClass}>Mobile No. *</span>
             <input
               required
@@ -164,7 +164,7 @@ export default function AdmissionEnquiryForm({ compact = false, variant = "defau
               placeholder="Enter Mobile No.*"
             />
           </label>
-          <label className={labelClass}>
+          <label className={`${labelClass} min-w-0`}>
             <span className={labelTextClass}>Email Id *</span>
             <input
               required
@@ -176,7 +176,7 @@ export default function AdmissionEnquiryForm({ compact = false, variant = "defau
               placeholder="Enter Email Id*"
             />
           </label>
-          <label className={labelClass}>
+          <label className={`${labelClass} min-w-0`}>
             <span className={labelTextClass}>Select State *</span>
             <select required name="state" value={form.state} onChange={updateField} className={inputClass}>
               <option value="">Select State*</option>
@@ -187,7 +187,7 @@ export default function AdmissionEnquiryForm({ compact = false, variant = "defau
               ))}
             </select>
           </label>
-          <label className={labelClass}>
+          <label className={`${labelClass} min-w-0`}>
             <span className={labelTextClass}>Select City *</span>
             <input
               required
@@ -198,7 +198,7 @@ export default function AdmissionEnquiryForm({ compact = false, variant = "defau
               placeholder="Select City*"
             />
           </label>
-          <label className={labelClass}>
+          <label className={`${labelClass} min-w-0`}>
             <span className={labelTextClass}>Select School *</span>
             <select required name="school" value={form.school} onChange={updateField} className={inputClass}>
               {schools.map((s) => (
@@ -208,7 +208,7 @@ export default function AdmissionEnquiryForm({ compact = false, variant = "defau
               ))}
             </select>
           </label>
-          <label className={labelClass}>
+          <label className={`${labelClass} min-w-0`}>
             <span className={labelTextClass}>Select Course *</span>
             <select required name="course" value={form.course} onChange={updateField} className={inputClass}>
               {coursesForSchool.map((c) => (

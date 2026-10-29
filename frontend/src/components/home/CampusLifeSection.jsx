@@ -1,37 +1,53 @@
+import { useState } from "react";
 import SectionHeading from "../common/SectionHeading.jsx";
 
-const galleryImages = [
-  "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=80"
-];
-
 export default function CampusLifeSection({ campusGalleries = [] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const active = campusGalleries[activeIndex] || campusGalleries[0];
+  if (!active) return null;
+
   return (
-    <section className="section-pad">
+    <section className="section-pad" id="campus-life">
       <div className="container-width">
         <SectionHeading
           eyebrow="Life At SNBP"
-          title="Where modern amenities meet an inspiring community"
-          description="Unforgettable student experiences on campus — galleries and highlights inspired by the official SNBP University site."
+          title="A community full of possibility"
+          description="Discover the campus spaces and student experiences that make life at SNBP memorable."
           center
         />
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          {galleryImages.map((src, i) => (
-            <img key={src} src={src} alt="" className="h-56 w-full rounded-xl object-cover shadow-soft" loading="lazy" />
-          ))}
+        <div className="mt-10 overflow-hidden rounded-2xl bg-purpledark shadow-soft">
+          <img
+            src={active.image}
+            alt={`${active.title} ${active.count}`}
+            className="h-[260px] w-full object-cover sm:h-[420px] lg:h-[520px]"
+            loading="lazy"
+          />
         </div>
-
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {campusGalleries.map((g) => (
-            <a
-              key={g.title}
-              href="#gallery"
-              className="rounded-lg border border-purplebrand/15 bg-white px-4 py-3 text-sm font-bold text-purplebrand shadow-sm hover:border-gold"
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {campusGalleries.map((gallery, index) => (
+            <button
+              key={`${gallery.title}-${gallery.count}`}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              aria-pressed={index === activeIndex}
+              className={`group overflow-hidden rounded-xl border text-left transition ${
+                index === activeIndex
+                  ? "border-gold bg-white shadow-sm"
+                  : "border-transparent bg-white hover:border-purplebrand/20"
+              }`}
             >
-              Open {g.title} · {g.count} gallery
-            </a>
+              <img
+                src={gallery.image}
+                alt=""
+                className="h-24 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-32"
+                loading="lazy"
+              />
+              <span className="block p-3">
+                <span className="block text-sm font-bold text-purplebrand">{gallery.title}</span>
+                <span className="mt-1 block text-xs text-slate-500">{gallery.count} photos</span>
+              </span>
+            </button>
           ))}
         </div>
       </div>

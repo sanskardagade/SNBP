@@ -13,7 +13,9 @@ export function useHomeContent() {
       .then(({ data }) => {
         if (active && data) setContent(data);
       })
-      .catch(() => {})
+      .catch((error) => {
+        console.error("Unable to load homepage content; using local defaults.", error);
+      })
       .finally(() => {
         if (active) setLoading(false);
       });
