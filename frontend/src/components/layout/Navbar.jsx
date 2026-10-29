@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import { logoWebp } from "../../constants/assets.js";
 import { primaryNav, secondaryNav, socialLinks } from "../../constants/navigation.js";
 
@@ -10,6 +10,48 @@ function isActivePath(pathname, to) {
   if (to.includes("#")) return false;
   if (to === "/") return pathname === "/";
   return pathname === to || pathname.startsWith(`${to}/`);
+}
+
+function DesktopProgramSchool({ school, onNavigate }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onFocus={() => setOpen(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+      }}
+    >
+      <Link
+        to={school.to}
+        aria-haspopup="true"
+        aria-expanded={open}
+        className="flex items-center justify-between gap-5 rounded px-4 py-2.5 text-sm font-semibold text-white/85 hover:bg-white/10 hover:text-gold focus-visible:bg-white/10 focus-visible:text-gold"
+        onClick={onNavigate}
+      >
+        <span>{school.label}</span>
+        <ChevronRight size={16} className="shrink-0" />
+      </Link>
+      {open ? (
+        <ul className="absolute left-full top-0 z-50 max-h-[calc(100dvh-6rem)] min-w-[280px] overflow-y-auto overscroll-contain rounded-lg border border-white/10 bg-purpledark py-2 shadow-xl">
+          {school.children.map((course) => (
+            <li key={course.to}>
+              <Link
+                to={course.to}
+                className="block px-4 py-2.5 text-sm text-white/85 hover:bg-white/10 hover:text-gold focus-visible:bg-white/10 focus-visible:text-gold"
+                onClick={onNavigate}
+              >
+                {course.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
+  );
 }
 
 function NavDropdown({ item, pathname, onNavigate }) {
@@ -54,27 +96,11 @@ function NavDropdown({ item, pathname, onNavigate }) {
         <div className="absolute left-0 top-full z-50 min-w-[260px] rounded-lg border border-white/10 bg-purpledark py-2 shadow-xl">
           {item.children.map((child) =>
             child.children?.length ? (
-              <div key={child.label} className="border-b border-white/5 px-3 py-2 last:border-0">
-                <Link
-                  to={child.to}
-                  className="block text-xs font-bold uppercase tracking-wide text-gold"
-                  onClick={onNavigate}
-                >
-                  {child.label}
-                </Link>
-                <div className="mt-2 space-y-1">
-                  {child.children.map((sub) => (
-                    <Link
-                      key={sub.to}
-                      to={sub.to}
-                      className="block rounded px-2 py-1.5 text-sm text-white/85 hover:bg-white/10 hover:text-gold"
-                      onClick={onNavigate}
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <DesktopProgramSchool
+                key={child.label}
+                school={child}
+                onNavigate={onNavigate}
+              />
             ) : (
               <Link
                 key={child.to}
