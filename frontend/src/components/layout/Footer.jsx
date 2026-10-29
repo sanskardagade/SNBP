@@ -11,7 +11,7 @@ export default function Footer({ meta = defaultMeta }) {
   const hours = meta.officeHours;
 
   return (
-    <footer className="bg-purpledark pb-20 text-white lg:pb-0">
+    <footer className="bg-purpledark text-white">
       <div className="container-width grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="font-heading text-xl font-semibold text-gold">SNBP University</div>

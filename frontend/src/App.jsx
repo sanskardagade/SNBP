@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
-import EnquireBar from "./components/layout/EnquireBar.jsx";
 import Home from "./pages/Home.jsx";
 import Admissions from "./pages/Admissions.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -61,7 +60,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <EnquireBar />
     </>
   );
 }
