@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/common/PageHero.jsx";
 import { programPages, schoolPages } from "../content/programs.js";
+import BtechCsePage from "./BtechCsePage.jsx";
+import SchoolTechnologyPage from "./SchoolTechnologyPage.jsx";
 
 export function SchoolPage({ pageKey }) {
   const school = schoolPages[pageKey];
   if (!school) return null;
+  if (pageKey === "/school-of-technology") {
+    return <SchoolTechnologyPage />;
+  }
 
   return (
     <>
@@ -32,6 +37,9 @@ export function SchoolPage({ pageKey }) {
 export default function ProgramPage({ pageKey }) {
   const program = programPages[pageKey];
   if (!program) return null;
+  if (pageKey === "/school-of-technology/btech-cse") {
+    return <BtechCsePage />;
+  }
 
   return (
     <>
