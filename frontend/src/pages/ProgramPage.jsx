@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/common/PageHero.jsx";
 import { programPages, schoolPages } from "../content/programs.js";
@@ -7,6 +8,9 @@ import BtechCseDataSciencePage from "./BtechCseDataSciencePage.jsx";
 import BtechCseCyberSecurityPage from "./BtechCseCyberSecurityPage.jsx";
 import SchoolTechnologyPage from "./SchoolTechnologyPage.jsx";
 import BtechItPage from "./BtechItPage.jsx";
+import BscComputerSciencePage from "./BscComputerSciencePage.jsx";
+
+const BAPsychologyPage = lazy(() => import("./BAPsychologyPage.jsx"));
 
 export function SchoolPage({ pageKey }) {
   const school = schoolPages[pageKey];
@@ -41,6 +45,22 @@ export function SchoolPage({ pageKey }) {
 export default function ProgramPage({ pageKey }) {
   const program = programPages[pageKey];
   if (!program) return null;
+  if (pageKey === "/school-of-arts-commerce-science/bsc-computer-science") {
+    return <BscComputerSciencePage />;
+  }
+  if (pageKey === "/school-of-arts-commerce-science/ba-psychology") {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
+            Loading programme…
+          </div>
+        }
+      >
+        <BAPsychologyPage />
+      </Suspense>
+    );
+  }
   if (pageKey === "/school-of-technology/btech-cse") {
     return <BtechCsePage />;
   }
