@@ -188,7 +188,7 @@ export default function Navbar() {
   const allMobileLinks = [...primaryNav.filter((l) => l.to !== "/"), ...secondaryNav];
 
   return (
-    <header className="sticky top-0 z-50 shadow-md">
+    <header className={`${menuOpen ? "fixed inset-x-0 top-0" : "sticky top-0"} z-50 shadow-md`}>
       <div className="hidden border-b border-white/10 bg-[#802030] text-[#f4eac8] lg:block">
         <div className="container-width flex min-h-10 items-center justify-between gap-4 text-xs">
           <span className="font-medium tracking-wide">Connect with us :-</span>
@@ -245,7 +245,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen ? (
-        <div className="fixed inset-0 top-[72px] z-40 overflow-y-auto bg-purpledark px-5 pb-24 pt-6 lg:hidden">
+        <div className="fixed bottom-0 left-0 right-0 top-[72px] z-40 overflow-y-auto bg-purpledark px-5 pb-24 pt-6 lg:hidden">
           <div className="container-width flex flex-col gap-4">
             <Link to="/" className={mobileNavLinkClass} onClick={closeMenu}>
               Home

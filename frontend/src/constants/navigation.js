@@ -60,7 +60,6 @@ export const secondaryNav = [
   { label: "Life at SNBP", to: "/life-at-snbp" },
   { label: "Admissions", to: "/admissions", children: admissionsLinks },
   { label: "Mandatory Disclosure", to: "/mandatory-disclosure" },
-  { label: "Scholarships", to: "/scholarships" },
   { label: "Contact Us", to: "/contact-us" }
 ];
 
