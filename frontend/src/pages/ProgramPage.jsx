@@ -13,6 +13,9 @@ import BscComputerSciencePage from "./BscComputerSciencePage.jsx";
 const BAPsychologyPage = lazy(() => import("./BAPsychologyPage.jsx"));
 const BAEnglishPage = lazy(() => import("./BAEnglishPage.jsx"));
 const BAEconomicsPage = lazy(() => import("./BAEconomicsPage.jsx"));
+const BCAPage = lazy(() => import("./BCAPage.jsx"));
+const BComPage = lazy(() => import("./BComPage.jsx"));
+const MCAPage = lazy(() => import("./MCAPage.jsx"));
 
 export function SchoolPage({ pageKey }) {
   const school = schoolPages[pageKey];
@@ -86,6 +89,45 @@ export default function ProgramPage({ pageKey }) {
         }
       >
         <BAEconomicsPage />
+      </Suspense>
+    );
+  }
+  if (pageKey === "/school-of-arts-commerce-science/bca") {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
+            Loading programme…
+          </div>
+        }
+      >
+        <BCAPage />
+      </Suspense>
+    );
+  }
+  if (pageKey === "/school-of-arts-commerce-science/bcom") {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
+            Loading programme…
+          </div>
+        }
+      >
+        <BComPage />
+      </Suspense>
+    );
+  }
+  if (pageKey === "/school-of-arts-commerce-science/mca") {
+    return (
+      <Suspense
+        fallback={
+          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
+            Loading programme…
+          </div>
+        }
+      >
+        <MCAPage />
       </Suspense>
     );
   }
