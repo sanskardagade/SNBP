@@ -4,30 +4,32 @@ export default function LeadershipSection({ leadership = [] }) {
   if (!leadership.length) return null;
 
   return (
-    <section className="section-pad">
+    <section className="home-leadership section-pad">
       <div className="container-width">
-        <SectionHeading
-          eyebrow="Our Leadership"
-          title="Guiding SNBP University with decades of educational excellence"
-          center
-        />
+        <div className="home-leadership-header">
+          <SectionHeading
+            eyebrow="The people behind the purpose"
+            title="Meet the people helping shape the SNBP story."
+          />
+          <p>Leadership begins with a point of view—and the responsibility to help a learning community grow.</p>
+        </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2">
-          {leadership.map((leader) => (
+        <div className="home-leadership-grid">
+          {leadership.map((leader, index) => (
             <article
               key={leader.name}
-              className="overflow-hidden rounded-2xl border border-[#eee8da] bg-white shadow-sm"
+              className="home-leader"
             >
-              <div className="grid min-h-full sm:grid-cols-[minmax(150px,0.8fr)_1.2fr]">
-                <div className="relative flex min-h-56 items-end justify-center overflow-hidden bg-[#f3efe6] sm:min-h-[300px]">
+              <div className="home-leader-photo relative flex min-h-56 items-end justify-center overflow-hidden bg-[#f3efe6] sm:min-h-[300px]">
                   <img
                     src={leader.image}
                     alt={leader.name}
-                    className="h-full max-h-[330px] w-full object-cover object-top"
+                    className="h-full max-h-[420px] w-full object-cover object-top"
                     loading="lazy"
                   />
-                </div>
-                <div className="flex flex-col justify-center p-5 sm:p-6">
+                  <span className="home-leader-index">0{index + 1}</span>
+              </div>
+              <div className="home-leader-copy">
                   <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#92751e]">
                     {leader.role}
                   </p>
@@ -35,7 +37,6 @@ export default function LeadershipSection({ leadership = [] }) {
                     {leader.name}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-slate-600">{leader.bio}</p>
-                </div>
               </div>
             </article>
           ))}

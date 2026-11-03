@@ -25,16 +25,18 @@ export default function CentreOfExcellenceSection({ items = [] }) {
   if (!items.length) return null;
 
   return (
-    <section className="section-pad bg-[#faf8f3]" id="centre-of-excellence">
+    <section className="home-practice section-pad bg-[#faf8f3]" id="centre-of-excellence">
       <div className="container-width">
-        <SectionHeading
-          eyebrow="Learn by doing"
-          title="Centre of Excellence"
-          description="Industry-led learning and hands-on practice help students build skills for the careers ahead."
-          center
-        />
+        <div className="home-practice-heading">
+          <SectionHeading
+            eyebrow="Try it. Test it. Learn from it."
+            title="Practice is where ideas get interesting."
+            description="From masterclasses and bootcamps to project mentoring, explore hands-on learning opportunities featured at SNBP."
+          />
+          <span className="home-practice-mark" aria-hidden="true">Make<br />learn<br />repeat.</span>
+        </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="home-practice-list">
           {items.map((entry, index) => {
             const title = typeof entry === "string" ? entry : entry.title;
             const Icon = icons[index % icons.length];
@@ -42,12 +44,13 @@ export default function CentreOfExcellenceSection({ items = [] }) {
             return (
               <article
                 key={title}
-                className="flex min-h-40 flex-col justify-between rounded-xl border border-[#e9e2d4] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
+                className="home-practice-item"
               >
-                <span className="grid h-11 w-11 place-items-center rounded-lg bg-[#f4efe4] text-purplebrand">
+                <span className="home-practice-icon">
                   <Icon size={22} strokeWidth={1.8} />
                 </span>
-                <h3 className="mt-6 text-sm font-bold leading-6 text-purplebrand">{title}</h3>
+                <span className="home-practice-index">0{index + 1}</span>
+                <h3>{title}</h3>
               </article>
             );
           })}

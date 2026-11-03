@@ -1,22 +1,74 @@
-import { useEffect } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { MessageCircle } from "lucide-react";
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Home from "./pages/Home.jsx";
-import Admissions from "./pages/Admissions.jsx";
-import Contact from "./pages/Contact.jsx";
-import StaticPage from "./pages/StaticPage.jsx";
-import Placements from "./pages/Placements.jsx";
-import AboutUniversity from "./pages/AboutUniversity.jsx";
-import MandatoryDisclosure from "./pages/MandatoryDisclosure.jsx";
-import ProgramPage, { SchoolPage } from "./pages/ProgramPage.jsx";
-import Scholarships from "./pages/Scholarships.jsx";
-import OurJourney from "./pages/OurJourney.jsx";
-import SponsoringBody from "./pages/SponsoringBody.jsx";
-import OurTeam from "./pages/OurTeam.jsx";
-import ChancellorMessage from "./pages/ChancellorMessage.jsx";
-import ViceChancellorMessage from "./pages/ViceChancellorMessage.jsx";
+import LoadingExperience from "./components/common/LoadingExperience.jsx";
 import { programPages, schoolPages } from "./content/programs.js";
+import { staticPages } from "./content/staticPages.js";
+import { homeDefaults } from "./content/homeDefaults.js";
+const UniversityAssistant = lazy(() => import("./components/assistant/UniversityAssistant.jsx"));
+const Admissions = lazy(() => import("./pages/Admissions.jsx"));
+const Contact = lazy(() => import("./pages/Contact.jsx"));
+const StaticPage = lazy(() => import("./pages/StaticPage.jsx"));
+const Placements = lazy(() => import("./pages/Placements.jsx"));
+const AboutUniversity = lazy(() => import("./pages/AboutUniversity.jsx"));
+const MandatoryDisclosure = lazy(() => import("./pages/MandatoryDisclosure.jsx"));
+const ProgramPage = lazy(() => import("./pages/ProgramPage.jsx"));
+const SchoolPage = lazy(() =>
+  import("./pages/ProgramPage.jsx").then((module) => ({ default: module.SchoolPage }))
+);
+const Scholarships = lazy(() => import("./pages/Scholarships.jsx"));
+const OurJourney = lazy(() => import("./pages/OurJourney.jsx"));
+const SponsoringBody = lazy(() => import("./pages/SponsoringBody.jsx"));
+const OurTeam = lazy(() => import("./pages/OurTeam.jsx"));
+const ChancellorMessage = lazy(() => import("./pages/ChancellorMessage.jsx"));
+const ViceChancellorMessage = lazy(() => import("./pages/ViceChancellorMessage.jsx"));
+
+const routeTitles = {
+  "/": "SNBP University",
+  "/our-journey": "Our Journey",
+  "/sponsoring-body": "Sponsoring Body",
+  "/our-team": "Our Team",
+  "/chancellor-message": "Chancellor’s Message",
+  "/vice-chancellor-message": "Vice Chancellor’s Message",
+  "/placements": "Placements",
+  "/scholarships": "Scholarships",
+  "/admissions": "Admissions",
+  "/contact-us": "Contact Us",
+};
+
+const defaultMetaDescription =
+  "SNBP University — admissions, schools, campus life, and enquiries. Pune, Maharashtra.";
+
+function PageMetadata() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const page = programPages[pathname] || schoolPages[pathname] || staticPages[pathname];
+    const title = page?.title || routeTitles[pathname] || document.querySelector("[data-page-content] h1")?.textContent?.trim();
+    if (!title) return;
+
+    document.title = pathname === "/" ? title : `${title} | SNBP University`;
+    const heading = document.querySelector("[data-page-content] h1");
+    const description = pathname === "/"
+      ? `${homeDefaults.hero.title} ${homeDefaults.hero.subtitle}`
+      : page?.summary ||
+        page?.lead ||
+        heading?.parentElement?.querySelector("p")?.textContent?.trim() ||
+        defaultMetaDescription;
+    const descriptionTag = document.querySelector('meta[name="description"]');
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+
+    if (descriptionTag) descriptionTag.setAttribute("content", description);
+    if (socialTitle) socialTitle.setAttribute("content", document.title);
+    if (socialDescription) socialDescription.setAttribute("content", description);
+  }, [pathname]);
+
+  return null;
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,51 +80,118 @@ function ScrollToTop() {
   return null;
 }
 
+function PageMotion() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    if (!("IntersectionObserver" in window)) return undefined;
+
+    const sections = document.querySelectorAll("[data-page-content] section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+
+    sections.forEach((section) => {
+      section.classList.add("reveal-on-scroll");
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  return null;
+}
+
 function NotFound() {
   return (
-    <main className="container-width py-24 text-center">
+    <section className="container-width py-24 text-center">
       <div className="text-sm font-extrabold uppercase tracking-widest text-gold">404 · Page not found</div>
       <h1 className="font-heading mt-4 text-4xl font-bold text-purplebrand">This page isn&apos;t here.</h1>
-      <a href="/" className="btn-primary mt-7">
+      <Link to="/" className="btn-primary mt-7">
         Back to home
-      </a>
-    </main>
+      </Link>
+    </section>
   );
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+  const [assistantMounted, setAssistantMounted] = useState(false);
+  const [assistantOpen, setAssistantOpen] = useState(false);
+  const assistantLauncherRef = useRef(null);
+
   return (
     <>
+      <PageMetadata />
       <ScrollToTop />
+      <PageMotion />
       <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUniversity />} />
-          <Route path="/our-journey" element={<OurJourney />} />
-          <Route path="/sponsoring-body" element={<SponsoringBody />} />
-          <Route path="/snbp-leadership" element={<StaticPage pageKey="/snbp-leadership" />} />
-          <Route path="/our-team" element={<OurTeam />} />
-          <Route path="/chancellor-message" element={<ChancellorMessage />} />
-          <Route path="/vice-chancellor-message" element={<ViceChancellorMessage />} />
-          <Route path="/placements" element={<Placements />} />
-          <Route path="/life-at-snbp" element={<StaticPage pageKey="/life-at-snbp" />} />
-          <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
-          <Route path="/scholarships" element={<Scholarships />} />
-          {Object.keys(schoolPages).map((key) => (
-            <Route key={key} path={key} element={<SchoolPage pageKey={key} />} />
-          ))}
-          {Object.keys(programPages).map((key) => (
-            <Route key={key} path={key} element={<ProgramPage pageKey={key} />} />
-          ))}
-          <Route path="/admissions" element={<Admissions />} />
-          <Route path="/contact-us" element={<Contact />} />
-          <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
-          <Route path="/academics" element={<Navigate to="/placements" replace />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+      <main key={pathname} className="page-enter" data-page-content>
+        <Suspense fallback={<LoadingExperience />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUniversity />} />
+            <Route path="/our-journey" element={<OurJourney />} />
+            <Route path="/sponsoring-body" element={<SponsoringBody />} />
+            <Route path="/snbp-leadership" element={<StaticPage pageKey="/snbp-leadership" />} />
+            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/chancellor-message" element={<ChancellorMessage />} />
+            <Route path="/vice-chancellor-message" element={<ViceChancellorMessage />} />
+            <Route path="/placements" element={<Placements />} />
+            <Route path="/life-at-snbp" element={<StaticPage pageKey="/life-at-snbp" />} />
+            <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
+            <Route path="/scholarships" element={<Scholarships />} />
+            {Object.keys(schoolPages).map((key) => (
+              <Route key={key} path={key} element={<SchoolPage pageKey={key} />} />
+            ))}
+            {Object.keys(programPages).map((key) => (
+              <Route key={key} path={key} element={<ProgramPage pageKey={key} />} />
+            ))}
+            <Route path="/admissions" element={<Admissions />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
+            <Route path="/academics" element={<Navigate to="/placements" replace />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
+      <div className="assistant-widget">
+        {assistantMounted ? (
+          <Suspense fallback={null}>
+            <UniversityAssistant
+              open={assistantOpen}
+              onClose={() => {
+                setAssistantOpen(false);
+                assistantLauncherRef.current?.focus();
+              }}
+            />
+          </Suspense>
+        ) : null}
+        <button
+          ref={assistantLauncherRef}
+          type="button"
+          className="assistant-launcher"
+          onClick={() => {
+            setAssistantMounted(true);
+            setAssistantOpen((value) => !value);
+          }}
+          aria-expanded={assistantOpen}
+          aria-controls={assistantMounted ? "snbp-assistant-panel" : undefined}
+          aria-label={assistantOpen ? "Close SNBP AI Assistant" : "Open SNBP AI Assistant"}
+        >
+          <MessageCircle size={22} aria-hidden="true" />
+          <span className="assistant-launcher-label">Ask SNBP</span>
+        </button>
+      </div>
     </>
   );
 }

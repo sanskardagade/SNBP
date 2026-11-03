@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-export default function Accordion({ items = [] }) {
+export default function Accordion({ items = [], className = "" }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
+    <div className={`divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white ${className}`.trim()}>
       {items.map((item, index) => {
         const open = openIndex === index;
         return (

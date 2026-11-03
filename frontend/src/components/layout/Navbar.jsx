@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import { logoWebp } from "../../constants/assets.js";
 import { primaryNav, secondaryNav, socialLinks } from "../../constants/navigation.js";
+import UniversitySearch from "../search/UniversitySearch.jsx";
 
 const mobileNavLinkClass = "block py-2 text-sm font-bold leading-5 text-white";
 
@@ -216,7 +217,7 @@ export default function Navbar() {
               src={logoWebp}
               alt="SNBP University"
               className="h-14 w-auto max-w-[130px] object-contain sm:h-16 md:h-[72px] md:max-w-[150px]"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </Link>
 
@@ -229,6 +230,8 @@ export default function Navbar() {
             ))}
           </nav>
 
+          <UniversitySearch />
+
           <Link to="/contact-us" className="btn-primary !hidden !py-2.5 !text-xs lg:!inline-flex">
             Contact
           </Link>
@@ -237,7 +240,9 @@ export default function Navbar() {
             type="button"
             className="grid h-11 w-11 place-items-center rounded-lg border border-white/20 text-white lg:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls={menuOpen ? "mobile-navigation" : undefined}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             {menuOpen ? <X /> : <Menu />}
           </button>
@@ -245,7 +250,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen ? (
-        <div className="fixed bottom-0 left-0 right-0 top-[72px] z-40 overflow-y-auto bg-purpledark px-5 pb-24 pt-6 lg:hidden">
+        <div id="mobile-navigation" className="fixed bottom-0 left-0 right-0 top-[72px] z-40 overflow-y-auto bg-purpledark px-5 pb-24 pt-6 lg:hidden">
           <div className="container-width flex flex-col gap-4">
             <Link to="/" className={mobileNavLinkClass} onClick={closeMenu}>
               Home

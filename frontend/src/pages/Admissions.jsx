@@ -66,37 +66,31 @@ const admissionSteps = [
     title: "Enquire",
     description:
       "Connect with the admissions team to understand programs, eligibility, fees, scholarships and career pathways.",
-    imageIcon: "/assets/chat_13691894-Bq2xrZhB.png",
     icon: MessageCircle
   },
   {
     title: "Counselling",
     description: "Get guidance on the right program based on your interests, aptitude and career goals.",
-    imageIcon: "/assets/check_11547409-07v2izVJ.png",
     icon: UserRoundCheck
   },
   {
     title: "Apply",
     description: "Submit the application form and required documents.",
-    imageIcon: "/assets/conversation_17948881-DhYbw7Ed.png",
     icon: ClipboardCheck
   },
   {
     title: "Verify",
     description: "Complete eligibility and document verification.",
-    imageIcon: "/assets/graduation-hat_10760667-GhSkmGcT.png",
     icon: BadgeCheck
   },
   {
     title: "Confirm Admission",
     description: "Complete fee payment as per university norms and admission formalities.",
-    imageIcon: "/assets/man_11898054-C598qYF-.png",
     icon: BookOpenCheck
   },
   {
     title: "Begin the Journey",
     description: "Start with orientation, academic on boarding and student induction.",
-    imageIcon: "/assets/verify_5254524-Bqk6igLK.png",
     icon: GraduationCap
   }
 ];
@@ -246,6 +240,7 @@ function AdmissionProcess() {
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20">
             {admissionSteps.map((step, index) => {
               const { iconLeft, iconTop } = admissionProcessPositions[index];
+              const Icon = step.icon;
 
               return (
                 <span
@@ -253,15 +248,7 @@ function AdmissionProcess() {
                   className="absolute flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:h-12 lg:w-12"
                   style={{ left: `${iconLeft}%`, top: `${iconTop}%` }}
                 >
-                  <span
-                    className="block h-[55%] w-[55%] bg-[#d4b85a]"
-                    style={{
-                      maskImage: `url("${asset(step.imageIcon)}")`,
-                      maskSize: "contain",
-                      maskRepeat: "no-repeat",
-                      maskPosition: "center"
-                    }}
-                  />
+                  <Icon size={22} className="text-[#d4b85a]" />
                 </span>
               );
             })}

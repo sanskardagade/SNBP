@@ -12,27 +12,34 @@ const icons = [Users, BookOpenCheck, Handshake, Globe2, Lightbulb, MapPin];
 
 export default function PillarsSection({ pillars = [] }) {
   return (
-    <section className="section-pad bg-mist">
+    <section className="home-pillars section-pad bg-mist">
       <div className="container-width">
-        <SectionHeading
-          eyebrow="Pillars of Excellence"
-          title="We don't just educate. We empower."
-          center
-        />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="home-pillars-intro">
+          <SectionHeading
+            eyebrow="More than what fits on a syllabus"
+            title="What you learn matters. How you grow matters too."
+            description="Different ways to learn, question, make and work with others—inside and beyond your programme."
+          />
+          <p className="home-pillars-aside">An education is not one thing. It is the ideas you follow, the people you meet and the work you learn to do.</p>
+        </div>
+        <div className="home-pillars-list">
           {pillars.map((pillar, index) => {
             const Icon = icons[index % icons.length] || Lightbulb;
 
             return (
               <article
                 key={pillar.title}
-                className="group rounded-2xl border border-[#e7e1d4] bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-soft sm:p-7"
+                className="home-pillar group"
               >
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#f5f0e5] text-purplebrand transition group-hover:bg-purplebrand group-hover:text-gold">
+                <span className="home-pillar-number">0{index + 1}</span>
+                <span className="home-pillar-icon">
                   <Icon size={23} strokeWidth={1.8} />
                 </span>
-                <h3 className="heading-serif mt-5 text-lg font-bold text-purplebrand">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{pillar.description}</p>
+                <div className="home-pillar-copy">
+                  <h3 className="heading-serif">{pillar.title}</h3>
+                  <p>{pillar.description}</p>
+                </div>
+                <span className="home-pillar-arrow" aria-hidden="true">↗</span>
               </article>
             );
           })}

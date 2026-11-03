@@ -1,26 +1,32 @@
-import { asset, heroIntroGif, leaderBhosale, leaderVrushali } from "../constants/assets.js";
+import {
+  aboutCampusImage,
+  asset,
+  heroIntroGif,
+  leaderBhosale,
+  leaderVrushali,
+} from "../constants/assets.js";
 
 export const homeDefaults = {
   hero: {
-    title: "Degree Is The Beginning, Character Is The Destination.",
+    title: "Big questions. Clear direction. Your next chapter starts here.",
     subtitle:
-      "At SNBP University, education transcends classrooms; it shapes character and creates leaders",
+      "Explore programmes across technology, arts, commerce and science—and find a next step that feels like yours.",
     poster: heroIntroGif,
     societyLabel: "Subhadra Educational Society.",
   },
   stats: [
-    { value: "29", label: "Years Of Educational Excellence" },
-    { value: "20+", label: "Institutes" },
-    { value: "30000+", label: "Students Across Campuses" },
+    { value: "29", label: "Years in education" },
+    { value: "20+", label: "Institutes across the SNBP Group" },
+    { value: "30000+", label: "Students across SNBP campuses" },
   ],
   about: {
-    eyebrow: "About SNBP University",
-    title: "A Legacy of Excellence, A Vision for Tomorrow",
+    eyebrow: "Our point of view",
+    title: "An environment where curiosity finds direction.",
     paragraphs: [
-      "Inspired by Shri Dasharath K. Bhosale, SNBP University builds on a long-standing commitment to education and prepares students to meet a changing world with confidence.",
-      "Across technology, arts, commerce and science, students develop knowledge, practical skills and character in a community that values curiosity and lifelong learning.",
+      "At SNBP University, learning begins with a question: what could you do with what you discover? Our roots in the Subhadra Educational Society bring a long-standing commitment to education into a university shaped for today's learners.",
+      "Across technology, arts, commerce and science, students can explore ideas, build practical knowledge and develop the character to put learning to thoughtful use.",
     ],
-    image: asset("/assets/Layer%204-clean-BIEAtz-e.webp"),
+    image: aboutCampusImage,
   },
   schools: [
     {
@@ -54,34 +60,34 @@ export const homeDefaults = {
   ],
   pillars: [
     {
-      title: "Holistic Development",
+      title: "Grow beyond the syllabus",
       description:
-        "We nurture the mind, character, creativity, and values that help students grow into well-rounded individuals.",
+        "Build knowledge, character, creativity and values as part of a broader education.",
     },
     {
-      title: "Academic Excellence",
+      title: "Learn with purpose",
       description:
-        "Faculty who are researchers, practitioners, and mentors. Curriculum designed for today's world and tomorrow's possibilities.",
+        "Explore academic foundations with guidance from faculty, researchers and practitioners.",
     },
     {
-      title: "Industry Partnerships",
+      title: "Take ideas into practice",
       description:
-        "Live projects, industry mentors and internship opportunities bring classroom learning closer to professional practice.",
+        "Projects and industry perspectives can connect classroom learning with professional practice.",
     },
     {
-      title: "Global Exposure",
+      title: "Keep a wider view",
       description:
-        "International connections and exchange opportunities broaden students' perspectives while keeping them rooted in Indian values.",
+        "Broaden your perspective while staying grounded in the values and communities around you.",
     },
     {
-      title: "Innovation at Scale",
+      title: "Make room for ideas",
       description:
-        "Research centres and hands-on projects give curious students the space to test ideas and solve real problems.",
+        "Hands-on projects give curious students space to test questions and develop thoughtful solutions.",
     },
     {
-      title: "Location Advantage",
+      title: "Study in Pune",
       description:
-        "Pune's education and technology communities connect students with a wide range of professional opportunities.",
+        "Pune's education and technology communities give students a wider context for their studies.",
     },
   ],
   leadership: [
@@ -101,7 +107,7 @@ export const homeDefaults = {
   partnershipTabs: [
     {
       id: "corporate",
-      title: "Corporate Collaborations",
+      title: "See ideas in practice",
       points: [
         "Live projects and case studies from partner companies",
         "Guest lectures and industry insights",
@@ -111,7 +117,7 @@ export const homeDefaults = {
     },
     {
       id: "certification",
-      title: "Certification Partners",
+      title: "Build a skills toolkit",
       points: [
         "Industry certifications integrated into learning",
         "Preparation courses alongside programme content",
@@ -121,7 +127,7 @@ export const homeDefaults = {
     },
     {
       id: "internship",
-      title: "Internship Partners",
+      title: "Learn beyond the timetable",
       points: [
         "Internship pathways with partner organisations",
         "Mentorship from industry professionals",
@@ -131,7 +137,7 @@ export const homeDefaults = {
     },
     {
       id: "research",
-      title: "Research Partners",
+      title: "Start with a better question",
       points: [
         "Work on relevant research questions",
         "Explore applied research and emerging ideas",
@@ -141,14 +147,14 @@ export const homeDefaults = {
     },
   ],
   centreOfExcellence: [
-    "Expert Masterclasses",
-    "Technology Bootcamps",
-    "Corporate Problem Statements",
-    "Hackathons & Sprint Challenges",
-    "Project Mentoring",
-    "Portfolio Reviews",
-    "Internship Readiness",
-    "Placement-Focused Training",
+    "Masterclasses that open new perspectives",
+    "Technology bootcamps for deeper practice",
+    "Real-world questions to work through",
+    "Hackathons and focused sprint challenges",
+    "Project mentoring, one step at a time",
+    "Portfolio reviews with a fresh perspective",
+    "Get ready to make the most of internships",
+    "Build skills for the move from study to work",
   ],
   recognitions: [
     {
@@ -212,32 +218,32 @@ export const homeDefaults = {
   faqs: [
     {
       question:
-        "What are the undergraduate and postgraduate courses offered at SNBP University, Pune?",
+        "Which programmes can I explore at SNBP University?",
       answer:
         "SNBP University offers programmes through its School of Technology and School of Arts, Commerce & Science. Options include B.Tech specialisations in Computer Science, IT, AI/ML, Data Science and Cyber Security, as well as BCA, MCA, B.Sc. Computer Science, B.Com and BA programmes.",
     },
     {
-      question: "How can I apply for admission to SNBP University?",
+      question: "What is my first step toward applying?",
       answer:
         "Submit the enquiry form or visit the Admissions page to connect with the admissions team about programmes, eligibility and the application process.",
     },
     {
-      question: "Does SNBP University provide placement assistance and internships?",
+      question: "How can I prepare for life after my programme?",
       answer:
         "Students can prepare for careers through industry projects, internships, expert sessions and placement-focused training.",
     },
     {
-      question: "Are there any scholarships available for students at SNBP University?",
+      question: "Can I ask about scholarships and fees?",
       answer:
         "Scholarships may be available based on programme and eligibility. Contact the admissions team for current options and application details.",
     },
     {
-      question: "Where is the SNBP University campus located in Pune?",
+      question: "Where will I be studying?",
       answer:
         "SNBP University is located in Pune, Maharashtra. Visit the Contact page for directions and campus details.",
     },
     {
-      question: "Why should I choose SNBP University over other private universities in Maharashtra?",
+      question: "What makes the SNBP learning experience distinct?",
       answer:
         "Students benefit from a multidisciplinary learning environment, practical projects, industry engagement and the experience of the SNBP education group.",
     },

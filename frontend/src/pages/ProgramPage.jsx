@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/common/PageHero.jsx";
+import LoadingExperience from "../components/common/LoadingExperience.jsx";
 import { programPages, schoolPages } from "../content/programs.js";
 import BtechCsePage from "./BtechCsePage.jsx";
 import BtechCseAimlPage from "./BtechCseAimlPage.jsx";
@@ -55,78 +56,42 @@ export default function ProgramPage({ pageKey }) {
   }
   if (pageKey === "/school-of-arts-commerce-science/ba-psychology") {
     return (
-      <Suspense
-        fallback={
-          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
-            Loading programme…
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingExperience />}>
         <BAPsychologyPage />
       </Suspense>
     );
   }
   if (pageKey === "/school-of-arts-commerce-science/ba-english") {
     return (
-      <Suspense
-        fallback={
-          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
-            Loading programme…
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingExperience />}>
         <BAEnglishPage />
       </Suspense>
     );
   }
   if (pageKey === "/school-of-arts-commerce-science/ba-economics") {
     return (
-      <Suspense
-        fallback={
-          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
-            Loading programme…
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingExperience />}>
         <BAEconomicsPage />
       </Suspense>
     );
   }
   if (pageKey === "/school-of-arts-commerce-science/bca") {
     return (
-      <Suspense
-        fallback={
-          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
-            Loading programme…
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingExperience />}>
         <BCAPage />
       </Suspense>
     );
   }
   if (pageKey === "/school-of-arts-commerce-science/bcom") {
     return (
-      <Suspense
-        fallback={
-          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
-            Loading programme…
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingExperience />}>
         <BComPage />
       </Suspense>
     );
   }
   if (pageKey === "/school-of-arts-commerce-science/mca") {
     return (
-      <Suspense
-        fallback={
-          <div className="min-h-[60vh] bg-[#faf8f5]" role="status">
-            Loading programme…
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingExperience />}>
         <MCAPage />
       </Suspense>
     );

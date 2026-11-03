@@ -40,11 +40,11 @@ export default function HeroSection({ hero }) {
         ) : null}
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-          <Link to="/admissions" className="btn-primary min-w-[160px]">
-            Enquire Now
-          </Link>
+          <a href="#schools" className="btn-primary min-w-[160px]">
+            Explore programmes
+          </a>
           <Link to="/about" className="btn-outline min-w-[160px] border-white/40">
-            About SNBP
+            Meet SNBP
           </Link>
         </div>
       </div>

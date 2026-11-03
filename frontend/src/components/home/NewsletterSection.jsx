@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { subscribeNewsletter } from "../../services/api.js";
+import SectionHeading from "../common/SectionHeading.jsx";
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
@@ -22,9 +23,17 @@ export default function NewsletterSection() {
   }
 
   return (
-    <section className="section-pad">
-      <div className="container-width mx-auto max-w-xl text-center">
-        <form onSubmit={submit} className="rounded-2xl border border-purplebrand/10 bg-white p-8 shadow-soft">
+    <section className="home-newsletter section-pad">
+      <div className="container-width home-newsletter-layout">
+        <div className="home-newsletter-copy">
+          <SectionHeading
+            eyebrow="Keep the conversation going"
+            title="A little closer to what’s next."
+            description="Leave your email to receive university updates, admissions information and campus news."
+            light
+          />
+        </div>
+        <form onSubmit={submit} className="home-newsletter-form">
           <label className="block text-left text-sm font-bold text-purplebrand" htmlFor="newsletter-email">
             Email address
           </label>
@@ -34,11 +43,11 @@ export default function NewsletterSection() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Stay updated with admissions, research, and student stories"
+            placeholder="you@example.com"
             className="mt-2 w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-gold"
           />
           <button type="submit" disabled={status.loading} className="btn-primary mt-4 w-full disabled:opacity-60">
-            {status.loading ? "Subscribing…" : "Subscribe"}
+            {status.loading ? "Signing you up…" : "Keep me in the loop"}
           </button>
           {status.message ? (
             <p className="mt-3 text-sm text-green-700" role="status">

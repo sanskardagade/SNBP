@@ -1,8 +1,4 @@
-const panelStyles = [
-  "bg-[#f4f0e8] text-[#2d1b4d]",
-  "bg-[#dfd2e8] text-[#2d1b4d]",
-  "bg-[#b99738] text-[#2d1b4d]",
-];
+import { useEffect, useRef, useState } from "react";
 
 const defaultStats = [
   { value: "29", label: "Years Of Educational Excellence" },
@@ -10,44 +6,79 @@ const defaultStats = [
   { value: "30000+", label: "Students Across Campuses" },
 ];
 
+function CountUpValue({ value, active }) {
+  const match = String(value).match(/^([^\d]*)([\d,]+)(.*)$/);
+  const [current, setCurrent] = useState(match ? 0 : value);
+
+  useEffect(() => {
+    if (!active || !match) return undefined;
+
+    const target = Number(match[2].replace(/,/g, ""));
+    const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1100;
+    let frame;
+    let start;
+
+    function tick(timestamp) {
+      if (start === undefined) start = timestamp;
+      const progress = duration === 0 ? 1 : Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - (1 - progress) ** 3;
+      const number = Math.round(target * eased);
+      const formatted = match[2].includes(",") ? number.toLocaleString("en-IN") : String(number);
+      setCurrent(`${match[1]}${formatted}${match[3]}`);
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    }
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [active, match?.[0]]);
+
+  return <>{current}</>;
+}
+
 export default function StatsSection({ stats }) {
   const visibleStats = stats?.length ? stats : defaultStats;
+  const sectionRef = useRef(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || !("IntersectionObserver" in window)) {
+      setActive(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setActive(true);
+        observer.disconnect();
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="relative z-10 mt-0 px-4 pb-10 sm:px-6 sm:pb-14 md:-mt-20">
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 top-0 bg-[#faf9f6] md:top-20"
-      />
-      <div className="relative mx-auto max-w-[1120px] overflow-hidden rounded-t-[32px] shadow-soft">
-        <div className="grid grid-cols-2 sm:grid-cols-3">
+    <section ref={sectionRef} className="home-stats relative z-10">
+      <div className="home-stats-inner">
+        <div className="home-stats-grid">
           {visibleStats.map((item, index) => (
             <div
               key={item.label}
-              className={`relative flex min-h-[145px] flex-col items-center overflow-hidden px-4 pt-6 text-center sm:min-h-[274px] sm:px-5 sm:pt-11 ${
-                index === 2 ? "col-span-2 min-h-[170px] sm:col-span-1 sm:min-h-[274px]" : ""
-              } ${panelStyles[index % panelStyles.length]}`}
+              className="home-stat"
             >
-              <p className="heading-serif relative z-10 text-3xl sm:text-[2.75rem]">
-                {item.value}
+              <p className="home-stat-value heading-serif" aria-label={`${item.value} ${item.label}`}>
+                <CountUpValue value={item.value} active={active} />
               </p>
-              <p className="relative z-10 mt-2 max-w-[220px] text-[13px] leading-snug sm:mt-3 sm:text-lg">
+              <p className="home-stat-label">
                 {item.label}
               </p>
-              <div
-                aria-hidden="true"
-                className="absolute -bottom-20 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full border border-[#e4c979]/70 bg-[repeating-conic-gradient(from_0deg,transparent_0deg,transparent_12deg,#e4c97933_13deg,#e4c97933_14deg)] opacity-80 before:absolute before:inset-3 before:rounded-full before:border before:border-[#e4c979]/60 after:absolute after:inset-7 after:rounded-full after:border after:border-[#e4c979]/50 sm:h-40 sm:w-40"
-              />
+              <span className="home-stat-index">0{index + 1}</span>
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-center gap-4 bg-[#2d1b4d] px-5 py-2 text-center">
-          <span aria-hidden="true" className="h-px w-10 bg-gold/70 sm:w-16" />
-          <p className="heading-serif text-[0.65rem] tracking-[0.18em] text-gold sm:text-xs sm:tracking-[0.2em]">
-            SUBHADRA EDUCATIONAL SOCIETY.
-          </p>
-          <span aria-hidden="true" className="h-px w-10 bg-gold/70 sm:w-16" />
-        </div>
+        <p className="home-stats-signature">Subhadra Educational Society</p>
       </div>
     </section>
   );
