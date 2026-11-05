@@ -1,7 +1,7 @@
 export const siteMeta = {
   name: "SNBP University",
   tagline: "Degree Is The Beginning, Character Is The Destination.",
-  email: "office@snbpuniversity.com",
+  email: "snbpwakadcampus@gmail.com",
   phones: ["+91 7058257069", "+91 7058256082"],
   address:
     "SNBP University Chikhali Pune Dehu - Alandi Rd, opp. SNBP College of Pharmacy, near River Residency Road, Jadhav Wadi, Chikhali, Pimpri-Chinchwad, Maharashtra 411062",
