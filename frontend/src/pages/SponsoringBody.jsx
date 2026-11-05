@@ -67,7 +67,7 @@ function LeaderCard({ leader }) {
 
   return (
     <article
-      className={`relative overflow-hidden rounded-[24px] p-5 md:rounded-[30px] md:p-6 lg:p-7 ${
+      className={`ai-tadka relative overflow-hidden rounded-[24px] p-5 md:rounded-[30px] md:p-6 lg:p-7 ${
         isPurple ? "bg-[#3b2160]" : "bg-[#f1e7d7]"
       }`}
     >
@@ -135,7 +135,7 @@ function LeaderCard({ leader }) {
 export default function SponsoringBody() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-white">
+      <section className="ai-tadka relative overflow-hidden bg-white">
         <img
           src={sponsoringHero}
           alt="SNBP University campus illustration"
@@ -169,7 +169,7 @@ export default function SponsoringBody() {
 
       <section
         id="sponsoring-body-leaders"
-        className="bg-[#faf6ef] px-4 py-10 md:px-6 md:py-14 lg:px-10"
+        className="ai-tadka bg-[#faf6ef] px-4 py-10 md:px-6 md:py-14 lg:px-10"
       >
         <div className="mx-auto flex max-w-[1320px] flex-col gap-7 md:gap-8">
           {leaders.map((leader) => (

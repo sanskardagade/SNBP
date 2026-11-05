@@ -82,7 +82,7 @@ export default function Home() {
   };
 
   return (
-    <div className="home-page">
+    <div className="home-page ai-tadka">
       <AdmissionsTeaser admissions={data.admissions} />
       <StatsSection stats={data.stats} />
       <AboutSection about={data.about} />

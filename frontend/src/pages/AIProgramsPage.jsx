@@ -37,7 +37,7 @@ function ProgramDetails({ program, detailed = false }) {
   return (
     <article
       id={program.slug}
-      className="scroll-mt-24 rounded-2xl border border-[#2e1a47]/10 bg-white p-6 shadow-[0_12px_34px_rgba(46,26,71,0.07)] sm:p-8"
+      className="ai-tadka scroll-mt-24 rounded-2xl border border-[#2e1a47]/10 bg-white p-6 shadow-[0_12px_34px_rgba(46,26,71,0.07)] sm:p-8"
     >
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
@@ -95,7 +95,7 @@ function ProgramDetails({ program, detailed = false }) {
 function SharedBenefits() {
   return (
     <>
-      <section className="bg-[#f5f0e8] px-5 py-16 sm:px-8 lg:px-16">
+      <section className="ai-tadka bg-[#f5f0e8] px-5 py-16 sm:px-8 lg:px-16">
         <div className="mx-auto max-w-[1220px]">
           <SectionTitle
             eyebrow="The AI edge"
@@ -111,7 +111,7 @@ function SharedBenefits() {
           </div>
         </div>
       </section>
-      <section className="px-5 py-16 sm:px-8 lg:px-16">
+      <section className="ai-tadka px-5 py-16 sm:px-8 lg:px-16">
         <div className="mx-auto max-w-[1220px]">
           <SectionTitle
             eyebrow="Learn from people who work in the industry"
@@ -134,7 +134,7 @@ function SharedBenefits() {
 
 function ProgramsTable() {
   return (
-    <section className="bg-[#f5f0e8] px-5 py-16 sm:px-8 lg:px-16">
+    <section className="ai-tadka bg-[#f5f0e8] px-5 py-16 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-[1220px]">
         <SectionTitle eyebrow="Find your fit" title="Compare the programs" />
         <div className="overflow-x-auto rounded-xl bg-white shadow-sm">
@@ -171,7 +171,7 @@ function ProgramsTable() {
 
 function CallToAction() {
   return (
-    <section className="bg-[#2e1a47] px-5 py-14 text-center text-[#f3e8c8] sm:px-8">
+    <section className="ai-tadka bg-[#2e1a47] px-5 py-14 text-center text-[#f3e8c8] sm:px-8">
       <h2 className="font-heading text-3xl font-semibold md:text-4xl">Ready to build your AI-powered career?</h2>
       <div className="mt-7 flex flex-wrap justify-center gap-3">
         <Link to="/admissions" className="inline-flex min-h-11 items-center rounded-full bg-[#f3e8c8] px-6 py-2.5 text-sm font-semibold text-[#2e1a47] transition hover:bg-white">
@@ -199,7 +199,7 @@ function CallToAction() {
 export default function AIProgramsLanding() {
   return (
     <div className="bg-[#faf8f5]">
-      <section className="relative overflow-hidden bg-[#2e1a47] px-5 py-16 text-[#f3e8c8] sm:px-8 md:py-24 lg:px-16">
+      <section className="ai-tadka relative overflow-hidden bg-[#2e1a47] px-5 py-16 text-[#f3e8c8] sm:px-8 md:py-24 lg:px-16">
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-[#c9a84c]/20 blur-3xl" />
         <div className="relative mx-auto max-w-[1220px]">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d4b85a]">AI-FIRST PROGRAMS</p>
@@ -218,7 +218,7 @@ export default function AIProgramsLanding() {
           </p>
         </div>
       </section>
-      <section aria-label="Program outcomes" className="px-5 py-8 sm:px-8 lg:px-16">
+      <section aria-label="Program outcomes" className="ai-tadka px-5 py-8 sm:px-8 lg:px-16">
         <div className="mx-auto grid max-w-[1220px] grid-cols-2 overflow-hidden rounded-xl shadow-sm md:grid-cols-4">
           {[
             ["500+", "AI projects built"],
@@ -233,7 +233,7 @@ export default function AIProgramsLanding() {
           ))}
         </div>
       </section>
-      <section className="px-5 py-12 sm:px-8 lg:px-16">
+      <section className="ai-tadka px-5 py-12 sm:px-8 lg:px-16">
         <div className="mx-auto max-w-[1220px]">
           <SectionTitle eyebrow="Choose your program" title="Four ways to build with AI" />
           <div className="space-y-6">
@@ -254,7 +254,7 @@ export function AIProgramPage({ pageKey }) {
 
   return (
     <div className="bg-[#faf8f5]">
-      <section className="bg-[#2e1a47] px-5 py-14 text-[#f3e8c8] sm:px-8 md:py-20 lg:px-16">
+      <section className="ai-tadka bg-[#2e1a47] px-5 py-14 text-[#f3e8c8] sm:px-8 md:py-20 lg:px-16">
         <div className="mx-auto max-w-[1220px]">
           <Link to="/school-of-arts-commerce-science" className="text-sm text-[#d4b85a] hover:underline">
             School of Arts, Commerce &amp; Science
@@ -265,7 +265,7 @@ export function AIProgramPage({ pageKey }) {
           <p className="mt-5 max-w-3xl leading-7 text-[#f3e8c8]/85">{program.description}</p>
         </div>
       </section>
-      <section className="px-5 py-12 sm:px-8 lg:px-16">
+      <section className="ai-tadka px-5 py-12 sm:px-8 lg:px-16">
         <div className="mx-auto max-w-[1220px]">
           <ProgramDetails program={program} detailed />
         </div>

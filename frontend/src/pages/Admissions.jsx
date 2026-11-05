@@ -210,7 +210,7 @@ function AdmissionProcessStep({ step, index }) {
 
 function AdmissionProcess() {
   return (
-    <section id="admission-process" className="bg-white px-4 py-14 md:px-6 md:py-16 lg:px-10 lg:py-20">
+    <section id="admission-process" className="ai-tadka bg-white px-4 py-14 md:px-6 md:py-16 lg:px-10 lg:py-20">
       <div className="mx-auto max-w-[1200px]">
         <div className="mb-8 text-center md:mb-10">
           <p className="eyebrow !text-[#802030]">Your next steps</p>
@@ -281,7 +281,7 @@ export default function Admissions() {
 
       <div
         id="eligibility-criteria"
-        className="relative overflow-hidden bg-[#faf8f5] px-4 py-12 md:px-6 md:py-16 lg:px-10 lg:py-20"
+        className="ai-tadka relative overflow-hidden bg-[#faf8f5] px-4 py-12 md:px-6 md:py-16 lg:px-10 lg:py-20"
       >
         <div className="mx-auto max-w-[1400px] space-y-14 md:space-y-16 lg:space-y-20">
           {/*

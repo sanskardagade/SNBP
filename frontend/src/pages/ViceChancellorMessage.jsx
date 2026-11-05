@@ -8,7 +8,7 @@ const viceChancellorPortrait = asset("/assets/Ashish-MDymOEVi.webp");
 export default function ViceChancellorMessage() {
   return (
     <div className="overflow-hidden bg-[#faf8f5]">
-      <section className="relative overflow-hidden bg-[#f2f1e0]">
+      <section className="ai-tadka relative overflow-hidden bg-[#f2f1e0]">
         <img
           src={viceChancellorBanner}
           alt=""
@@ -40,7 +40,7 @@ export default function ViceChancellorMessage() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden py-14 md:py-20">
+      <section className="ai-tadka relative isolate overflow-hidden py-14 md:py-20">
         <img
           src={asset("/assets/Layer%204-clean-BIEAtz-e.webp")}
           alt=""
@@ -105,8 +105,8 @@ export default function ViceChancellorMessage() {
         </div>
       </section>
 
-      <section className="bg-[#f0e8dc] px-5 py-12 sm:px-8 md:py-16">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 rounded-2xl bg-[#2e1a47] px-6 py-8 text-center text-white md:flex-row md:px-10 md:text-left">
+      <section className="ai-tadka bg-[#f0e8dc] px-5 py-12 sm:px-8 md:py-16">
+        <div className="ai-tadka mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 rounded-2xl bg-[#2e1a47] px-6 py-8 text-center text-white md:flex-row md:px-10 md:text-left">
           <div>
             <h2 className="font-heading text-2xl font-semibold text-[#e6c96f] md:text-3xl">
               Your journey starts here

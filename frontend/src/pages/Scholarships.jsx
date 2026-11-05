@@ -190,7 +190,7 @@ function BenefitCard({ title, children }) {
 
 function ScholarshipHighlights() {
   return (
-    <section className="bg-[#faf8f5] px-4 py-14 md:px-6 md:py-20 lg:px-10">
+    <section className="ai-tadka bg-[#faf8f5] px-4 py-14 md:px-6 md:py-20 lg:px-10">
       <div className="mx-auto max-w-[1320px]">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <BenefitCard title="Scholarships">
@@ -232,7 +232,7 @@ function ScholarshipHighlights() {
 export default function Scholarships() {
   return (
     <div className="bg-[#faf8f5]">
-      <section className="relative overflow-hidden bg-[#2e1a47] md:min-h-[420px] lg:min-h-[480px]">
+      <section className="ai-tadka relative overflow-hidden bg-[#2e1a47] md:min-h-[420px] lg:min-h-[480px]">
         <img
           src={scholarshipHero}
           alt=""
@@ -270,7 +270,7 @@ export default function Scholarships() {
         </div>
       </section>
 
-      <section id="fee-structure" className="bg-[#faf8f5] px-4 py-12 md:px-6 md:py-16 lg:px-10">
+      <section id="fee-structure" className="ai-tadka bg-[#faf8f5] px-4 py-12 md:px-6 md:py-16 lg:px-10">
         <div className="mx-auto max-w-[1320px]">
           <FeeStructureViewer />
         </div>
@@ -278,7 +278,7 @@ export default function Scholarships() {
 
       <ScholarshipHighlights />
 
-      <section className="bg-[#faf8f5] px-4 pb-16 md:px-6 md:pb-24 lg:px-10">
+      <section className="ai-tadka bg-[#faf8f5] px-4 pb-16 md:px-6 md:pb-24 lg:px-10">
         <div className="relative mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-6 overflow-hidden rounded-2xl bg-[#2e1a47] px-6 py-10 text-center text-white shadow-[0_16px_45px_rgba(46,26,71,0.16)] md:flex-row md:px-10 md:py-12 md:text-left">
           <div
             aria-hidden="true"

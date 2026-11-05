@@ -107,7 +107,7 @@ function SkillGrid({ items }) {
 
 function SkillsSection({ eyebrow, title, description, items }) {
   return (
-    <section className="bg-[#faf8f5] px-4 py-8 md:px-6 md:py-10 lg:px-10">
+    <section className="ai-tadka bg-[#faf8f5] px-4 py-8 md:px-6 md:py-10 lg:px-10">
       <div className="relative z-10 mx-auto flex max-w-[1200px] flex-col items-center rounded-[1.25rem] bg-[#d4d1d6] px-5 py-9 text-center shadow-[0_24px_55px_rgba(46,26,71,0.22)] sm:px-8 md:rounded-[1.5rem] md:px-10 md:py-10">
         <SectionMark />
         <p className="text-[11px] font-medium text-[#5a5a5a] md:text-xs">{eyebrow}</p>
@@ -140,7 +140,7 @@ function CareerJourney() {
   ];
 
   return (
-    <section className="bg-[#faf8f5] px-4 pb-14 pt-2 md:px-6 md:pb-20 lg:px-10">
+    <section className="ai-tadka bg-[#faf8f5] px-4 pb-14 pt-2 md:px-6 md:pb-20 lg:px-10">
       <div className="mx-auto max-w-[1080px]">
         <div className="relative hidden aspect-[1.42/1] md:block">
           <svg
@@ -210,7 +210,7 @@ function CareerJourney() {
 export default function Placements() {
   return (
     <>
-      <section className="relative overflow-hidden bg-white">
+      <section className="ai-tadka relative overflow-hidden bg-white">
         <div className="relative mx-auto flex min-h-[480px] max-w-[1600px] flex-col items-center px-4 py-10 md:min-h-[560px] md:flex-row md:px-6 md:py-14 lg:px-10">
           <div className="relative z-10 w-full md:max-w-[48%] lg:max-w-[560px]">
             <h1 className="placement-heading text-[clamp(1.9rem,6.5vw,3.4rem)] font-semibold leading-[1.12] text-[#38244e]">
@@ -228,7 +228,7 @@ export default function Placements() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#faf8f5] px-4 py-14 md:px-6 md:py-20 lg:px-10 lg:py-24">
+      <section className="ai-tadka relative overflow-hidden bg-[#faf8f5] px-4 py-14 md:px-6 md:py-20 lg:px-10 lg:py-24">
         <div className="relative z-10 mx-auto max-w-[1100px]">
           <div className="mb-10 text-center md:mb-14">
             <div className="flex justify-center"><SectionMark /></div>
@@ -241,7 +241,7 @@ export default function Placements() {
 
       <CareerJourney />
 
-      <section className="bg-[#faf8f5] px-4 py-14 md:px-6 md:py-20 lg:px-10 lg:py-24">
+      <section className="ai-tadka bg-[#faf8f5] px-4 py-14 md:px-6 md:py-20 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-[1000px] text-center">
           <h2 className="placement-heading text-[1.45rem] font-semibold uppercase leading-[1.3] tracking-[0.02em] text-[#2e1a47] sm:text-2xl md:text-[2rem]">
             Your First Interview Is
@@ -255,7 +255,7 @@ export default function Placements() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#faf8f5] px-4 py-14 md:px-6 md:py-20 lg:px-10 lg:py-24">
+      <section className="ai-tadka relative overflow-hidden bg-[#faf8f5] px-4 py-14 md:px-6 md:py-20 lg:px-10 lg:py-24">
         <div className="relative z-10 mx-auto max-w-[1100px]">
           <div className="mb-10 text-center md:mb-14">
             <div className="flex justify-center"><SectionMark /></div>
@@ -306,7 +306,7 @@ export default function Placements() {
         items={digitalSkills}
       />
 
-      <section className="bg-[#faf8f5] px-4 pb-10 pt-2 md:px-6 md:pb-14 lg:px-10">
+      <section className="ai-tadka bg-[#faf8f5] px-4 pb-10 pt-2 md:px-6 md:pb-14 lg:px-10">
         <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-5 rounded-xl bg-[#2e1a47] px-6 py-6 text-[#f5f0e8] sm:flex-row sm:items-center sm:px-8 md:rounded-2xl md:px-10">
           <p className="placement-heading max-w-[760px] text-sm font-semibold uppercase leading-relaxed tracking-wide sm:text-base">
             Speak with our admissions team to understand the programme, curriculum and admission pathway

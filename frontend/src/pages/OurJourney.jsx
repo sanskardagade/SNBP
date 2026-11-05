@@ -69,7 +69,7 @@ function JourneyTimeline() {
   return (
     <section
       id="journey-milestones"
-      className="relative overflow-hidden bg-[#faf8f5] py-14 md:py-20"
+      className="ai-tadka relative overflow-hidden bg-[#faf8f5] py-14 md:py-20"
     >
       <img
         src={campusSketch}
@@ -156,7 +156,7 @@ function RecognitionSection() {
   const next = () => setIndex((current) => (current + 1) % recognitions.length);
 
   return (
-    <section className="bg-[#faf8f5] py-14 md:py-20">
+    <section className="ai-tadka bg-[#faf8f5] py-14 md:py-20">
       <div className="mx-auto max-w-[1180px] px-4 md:px-6">
         <div className="text-center">
           <SectionTitle>SNBP Group of Institutions</SectionTitle>
@@ -218,7 +218,7 @@ function RecognitionSection() {
 export default function OurJourney() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-white">
+      <section className="ai-tadka relative overflow-hidden bg-white">
         <img
           src={journeyHero}
           alt=""
@@ -294,7 +294,7 @@ export default function OurJourney() {
         </div>
       </section>
 
-      <section aria-label="SNBP Group at a glance" className="bg-[#2e1a47] py-10 text-white md:py-12">
+      <section aria-label="SNBP Group at a glance" className="ai-tadka bg-[#2e1a47] py-10 text-white md:py-12">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 divide-y divide-white/20 px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:px-6">
           {[
             ["29", "Years Of Educational Excellence"],

@@ -22,7 +22,7 @@ export default function CampusLifeSection({ campusGalleries = [] }) {
   }
 
   return (
-    <section className="home-campus section-pad" id="campus-life">
+    <section className="home-campus section-pad ai-tadka" id="campus-life">
       <div className="container-width">
         <SectionHeading
           eyebrow="Step outside the timetable"

@@ -160,7 +160,7 @@ function DirectorySection({ title, members }) {
 export default function OurTeam() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-white">
+      <section className="ai-tadka relative overflow-hidden bg-white">
         <img
           src={teamHero}
           alt=""
@@ -191,7 +191,7 @@ export default function OurTeam() {
         </div>
       </section>
 
-      <section id="our-team" className="relative overflow-hidden bg-[#faf8f5] py-14 md:py-20">
+      <section id="our-team" className="ai-tadka relative overflow-hidden bg-[#faf8f5] py-14 md:py-20">
         <img
           src={societyEmblem}
           alt=""
@@ -210,7 +210,7 @@ export default function OurTeam() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-white py-14 md:py-20">
+      <section className="ai-tadka relative overflow-hidden bg-white py-14 md:py-20">
         <img
           src={societyEmblem}
           alt=""
@@ -223,8 +223,8 @@ export default function OurTeam() {
         </div>
       </section>
 
-      <section className="bg-[#f0e8dc] px-4 py-14 md:px-6 md:py-20">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 rounded-2xl bg-[#2e1a47] px-6 py-9 text-center text-white md:flex-row md:px-10 md:text-left">
+      <section className="ai-tadka bg-[#f0e8dc] px-4 py-14 md:px-6 md:py-20">
+        <div className="ai-tadka mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 rounded-2xl bg-[#2e1a47] px-6 py-9 text-center text-white md:flex-row md:px-10 md:text-left">
           <div>
             <h2 className="font-heading text-2xl font-semibold text-[#e6c96f] md:text-3xl">
               Continue your journey with SNBP

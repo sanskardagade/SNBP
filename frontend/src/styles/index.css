@@ -44,6 +44,20 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
       rgba(247, 244, 251, 1) 100%
     );
 }
+.ai-tadka {
+  background-image:
+    radial-gradient(ellipse at 14% 18%, rgba(201, 162, 39, 0.12), transparent 38%),
+    radial-gradient(ellipse at 88% 82%, rgba(77, 47, 112, 0.08), transparent 42%);
+  background-size: 180% 180%;
+  animation: ai-tadka-drift 24s ease-in-out infinite alternate;
+}
+@keyframes ai-tadka-drift {
+  from { background-position: 0% 0%, 100% 100%; }
+  to { background-position: 100% 55%, 0% 45%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-tadka { animation: none; }
+}
 .eyebrow {
   display: inline-flex; align-items: center; gap: 9px;
   color: #5c3d8f; font-size: .76rem; font-weight: 800;

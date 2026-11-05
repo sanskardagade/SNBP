@@ -33,7 +33,7 @@ export default function MandatoryDisclosure() {
 
   return (
     <div className="bg-[#f7f5f1]">
-      <header className="bg-purpledark px-5 py-14 text-white sm:py-20">
+      <header className="ai-tadka bg-purpledark px-5 py-14 text-white sm:py-20">
         <div className="container-width">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
             University information
@@ -48,7 +48,7 @@ export default function MandatoryDisclosure() {
         </div>
       </header>
 
-      <section className="container-width py-10 sm:py-14">
+      <section className="ai-tadka container-width py-10 sm:py-14">
         <div className="grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
           <aside className="rounded-2xl border border-purplebrand/10 bg-white p-5 shadow-soft">
             <h2 className="heading-serif text-xl font-bold text-purplebrand">
