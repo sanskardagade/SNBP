@@ -11,31 +11,31 @@ export const siteMeta = {
 };
 
 export const hero = {
-  title: "Degree Is The Beginning, Character Is The Destination.",
+  title: "Big questions. Clear direction. Your next chapter starts here.",
   subtitle:
-    "At SNBP University, education transcends classrooms; it shapes character and creates leaders",
+    "Explore programmes across technology, arts, commerce and science—and find a next step that feels like yours.",
   poster: "https://snbpuniversity.com/assets/SNBP-INTRO-6-C8yC5Nx3.gif",
   societyLabel: "Subhadra Educational Society."
 };
 
 export const stats = [
-  { value: "29", label: "Years Of Educational Excellence" },
-  { value: "20+", label: "Institutes" },
-  { value: "30000+", label: "Students Across Campuses" }
+  { value: "29", label: "Years in education" },
+  { value: "20+", label: "Institutes across the SNBP Group" },
+  { value: "30000+", label: "Students across SNBP campuses" }
 ];
 
 export const about = {
-  eyebrow: "About SNBP University",
-  title: "A Legacy of Excellence, A Vision for Tomorrow",
+  eyebrow: "Our point of view",
+  title: "An environment where curiosity finds direction.",
   paragraphs: [
-    "SNBP University is more than an institute. It is a movement rooted in the wisdom of ancient Indian philosophy and powered by modern, world-class education. Founded on the vision of Shri Dasharath K. Bhosale, we nurture leaders who combine knowledge with character.",
-    "For nearly three decades, we have been shaping brilliant minds across Arts, Commerce, and Science. Our 29-year track record speaks not only through numbers, but also through the careers built, innovations created, and communities strengthened by our graduates."
+    "At SNBP University, learning begins with a question: what could you do with what you discover? Our roots in the Subhadra Educational Society bring a long-standing commitment to education into a university shaped for today's learners.",
+    "Across technology, arts, commerce and science, students can explore ideas, build practical knowledge and develop the character to put learning to thoughtful use."
   ],
-  image:
-    "https://snbpuniversity.com/assets/School-Of-Arts-Commerce-Science-SNBP-University-BqD54UwP.webp"
+  image: ""
 };
 
 export const schools = [
+  /*
   {
     id: "technology",
     name: "School of Technology",
@@ -49,15 +49,15 @@ export const schools = [
     image:
       "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=80"
   },
+  */
   {
     id: "arts-commerce-science",
     name: "School of Arts, Commerce & Science",
     programs: [
-      "B.Sc. Computer Science",
-      "B.A. Psychology / Economics / English",
+      "BBA",
       "BCA",
-      "B.Com",
-      "MCA"
+      "MCA",
+      "MBA"
     ],
     image:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
@@ -66,34 +66,34 @@ export const schools = [
 
 export const pillars = [
   {
-    title: "Holistic Development",
+    title: "Grow beyond the syllabus",
     description:
-      "We nurture the mind, character, creativity, and values that help students grow into well-rounded individuals."
+      "Build knowledge, character, creativity and values as part of a broader education."
   },
   {
-    title: "Academic Excellence",
+    title: "Learn with purpose",
     description:
-      "Faculty who are researchers, practitioners, and mentors. Curriculum designed for today's world and tomorrow's possibilities."
+      "Explore academic foundations with guidance from faculty, researchers and practitioners."
   },
   {
-    title: "Industry Partnerships",
+    title: "Take ideas into practice",
     description:
-      "Real-world exposure. Live projects. Internships with leading organizations. Your career doesn't start after graduation."
+      "Projects and industry perspectives can connect classroom learning with professional practice."
   },
   {
-    title: "Global Exposure",
+    title: "Keep a wider view",
     description:
-      "International collaborations, student exchange programs, and a truly global perspective rooted in Indian values."
+      "Broaden your perspective while staying grounded in the values and communities around you."
   },
   {
-    title: "Innovation at Scale",
+    title: "Make room for ideas",
     description:
-      "From our Incubation Hub to research centers, we encourage curiosity and support student-led ventures from concept to market."
+      "Hands-on projects give curious students space to test questions and develop thoughtful solutions."
   },
   {
-    title: "Location Advantage",
+    title: "Study in Pune",
     description:
-      "Strategically located in India's premier education and tech hub, Pune offers students unparalleled industry exposure."
+      "Pune's education and technology communities give students a wider context for their studies."
   }
 ];
 
@@ -117,7 +117,7 @@ export const leadership = [
 export const partnershipTabs = [
   {
     id: "corporate",
-    title: "Corporate Collaborations",
+    title: "See ideas in practice",
     points: [
       "Live projects and case studies from partner companies",
       "Guest lectures and industry insights",
@@ -127,7 +127,7 @@ export const partnershipTabs = [
   },
   {
     id: "certification",
-    title: "Certification Partners",
+    title: "Build a skills toolkit",
     points: [
       "Integrated certifications (CFA, Google Analytics, AWS, etc.)",
       "Preparation courses embedded in the curriculum",
@@ -137,7 +137,7 @@ export const partnershipTabs = [
   },
   {
     id: "internship",
-    title: "Internship Partners",
+    title: "Learn beyond the timetable",
     points: [
       "Structured internship programs with placements",
       "Pre-placement internship conversations",
@@ -147,7 +147,7 @@ export const partnershipTabs = [
   },
   {
     id: "research",
-    title: "Research Partners",
+    title: "Start with a better question",
     points: [
       "Industry-funded research projects",
       "Co-published papers and findings",
@@ -158,14 +158,14 @@ export const partnershipTabs = [
 ];
 
 export const centreOfExcellence = [
-  "Expert Masterclasses",
-  "Technology Bootcamps",
-  "Corporate Problem Statements",
-  "Hackathons & Sprint Challenges",
-  "Project Mentoring",
-  "Portfolio Reviews",
-  "Internship Readiness",
-  "Placement-Focused Training"
+  "Masterclasses that open new perspectives",
+  "Technology bootcamps for deeper practice",
+  "Real-world questions to work through",
+  "Hackathons and focused sprint challenges",
+  "Project mentoring, one step at a time",
+  "Portfolio reviews with a fresh perspective",
+  "Get ready to make the most of internships",
+  "Build skills for the move from study to work"
 ];
 
 export const recognitions = [
@@ -189,33 +189,33 @@ export const campusGalleries = [
 
 export const faqs = [
   {
-    question: "What are the undergraduate and postgraduate courses offered at SNBP University, Pune?",
+    question: "Which programmes can I explore at SNBP University?",
     answer:
-      "SNBP University offers industry-aligned programmes through the School of Technology (B.Tech in CSE, IT, AI/ML, AI/DS, Cyber Security) and the School of Arts, Commerce & Science (B.Sc CS, B.A., BCA, B.Com, MCA)."
+      "Explore four AI-first programs at the School of Arts, Commerce & Science: BBA, BCA, MCA and MBA."
   },
   {
-    question: "How can I apply for admission to SNBP University?",
+    question: "What is my first step toward applying?",
     answer:
       "Use the Admissions Open 2026 enquiry form on the homepage or visit the Admissions page. Our team will guide you through eligibility, documents, and next steps."
   },
   {
-    question: "Does SNBP University provide placement assistance and internships?",
+    question: "How can I prepare for life after my programme?",
     answer:
-      "Yes. Corporate collaborations, internship partners, and placement-focused training are integrated into the student journey from day one."
+      "Explore the placement preparation, projects and internship information published on our website, and contact the university for details about current opportunities."
   },
   {
-    question: "Are there any scholarships available for students at SNBP University?",
+    question: "Can I ask about scholarships and fees?",
     answer:
       "Scholarship and financial-aid options vary by programme and merit. Contact the admissions office for current schemes and eligibility."
   },
   {
-    question: "Where is the SNBP University campus located in Pune?",
+    question: "Where will I be studying?",
     answer: siteMeta.address
   },
   {
-    question: "Why should I choose SNBP University over other private universities in Maharashtra?",
+    question: "What makes the SNBP learning experience distinct?",
     answer:
-      "Nearly three decades of educational excellence, industry partnerships, holistic development, and a Pune location that connects you to India's education and tech ecosystem."
+      "Explore the programmes, learning approach and campus information on this site, then speak with the university to decide whether SNBP is the right fit for you."
   }
 ];
 
@@ -265,7 +265,8 @@ export const homeContent = {
   faqs,
   admissions: {
     eyebrow: "Admissions Open 2026",
-    title: "Start your SNBP University journey",
-    description: "Share your details and our admissions team will connect with you."
+    title: "You bring the question. We’ll help with the next step.",
+    description:
+      "Tell us what you want to study. Our admissions team can help you explore programmes, eligibility and the application process."
   }
 };

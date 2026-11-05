@@ -415,11 +415,10 @@ main [id] { scroll-margin-top: 6rem; }
   --home-paper: #f7f5f0;
   --home-ink: #28212d;
   color: var(--home-ink);
-  overflow: clip;
 }
 .home-page .section-pad { padding-block: clamp(64px, 8vw, 112px); }
 .home-page .eyebrow { font-size: .68rem; letter-spacing: .16em; }
-.home-page .heading-serif { letter-spacing: -.035em; }
+.home-page .heading-serif { letter-spacing: -.035em; line-height: 1.15; overflow-wrap: break-word; }
 .home-text-link {
   display: inline-flex;
   align-items: center;
@@ -523,10 +522,9 @@ main [id] { scroll-margin-top: 6rem; }
 .home-about { position: relative; background: #fff; }
 .home-about-layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(330px, .95fr); align-items: center; gap: clamp(42px, 8vw, 110px); }
 .home-about-visual { position: relative; min-height: 500px; margin-left: clamp(0px, 3vw, 42px); background: #e9e4dc; }
-.home-about-visual::before { position: absolute; top: 22px; left: -22px; width: 36%; height: 42%; border-top: 1px solid var(--home-gold); border-left: 1px solid var(--home-gold); content: ""; z-index: 1; }
+.home-about-visual::before { position: absolute; top: -22px; left: -22px; width: 36%; height: 42%; border-top: 1px solid var(--home-gold); border-left: 1px solid var(--home-gold); content: ""; z-index: 2; }
 .home-about-visual img { display: block; width: 100%; height: 500px; object-fit: cover; }
 .home-about-image-note { position: absolute; right: -24px; bottom: 34px; padding: 16px 21px; background: var(--home-plum); color: white; font-family: "Libre Baskerville", Georgia, serif; font-size: .82rem; }
-.home-about-image-index { position: absolute; bottom: 13px; left: 18px; color: white; font-size: .61rem; font-weight: 800; letter-spacing: .18em; text-shadow: 0 1px 6px rgba(0,0,0,.7); }
 .home-about-copy { max-width: 550px; }
 .home-about-copy h2 { margin-top: 19px; color: var(--home-plum); font-size: clamp(2rem, 3.2vw, 3.1rem); font-weight: 500; line-height: 1.2; }
 .home-about-prose { display: grid; gap: 15px; margin-top: 24px; color: #625c66; font-size: .91rem; line-height: 1.85; }
@@ -535,7 +533,7 @@ main [id] { scroll-margin-top: 6rem; }
 .home-schools::before { position: absolute; top: 0; left: 0; width: 22%; height: 1px; background: var(--home-gold); content: ""; }
 .home-schools .container-width { position: relative; }
 .home-schools .eyebrow { color: #dfc77c; }
-.home-schools .heading-serif { max-width: 19ch; margin-inline: auto; font-size: clamp(2rem, 3.6vw, 3.25rem); }
+.home-schools > .container-width > .mx-auto .heading-serif { max-width: 19ch; margin-inline: auto; font-size: clamp(2rem, 3.6vw, 3.25rem); }
 .home-schools .academic-explorer { margin-top: 54px; }
 .home-schools .academic-explorer-tools { align-items: center; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.24); }
 .home-schools .academic-search { border-color: rgba(255,255,255,.48); background: rgba(255,255,255,.04); }
@@ -547,7 +545,7 @@ main [id] { scroll-margin-top: 6rem; }
 .home-school-image img { transition: transform 700ms var(--snbp-ease); }
 .home-school-card:hover .home-school-image img { transform: scale(1.04); }
 .home-school-image > div { background: linear-gradient(0deg, rgba(22,14,33,.72), transparent 70%); }
-.home-school-image h3 { bottom: 22px; font-size: clamp(1.35rem, 2vw, 2rem); }
+.home-page .home-school-image h3 { bottom: 22px; max-width: 14ch; font-size: clamp(1.15rem, 1.8vw, 1.5rem); line-height: 1.15; overflow-wrap: normal; word-break: normal; text-wrap: balance; }
 .home-school-content { padding: 23px 26px; }
 .home-school-subhead { font-size: .69rem; letter-spacing: .08em; }
 .home-school-content ul { margin-top: 10px; }
@@ -604,7 +602,7 @@ main [id] { scroll-margin-top: 6rem; }
 .home-practice-item h3 { margin-top: 7px; color: var(--home-plum); font-size: .83rem; line-height: 1.55; }
 
 .home-recognition { background: #eeeae2 !important; }
-.home-recognition-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 48px; }
+.home-recognition-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; gap: 48px; }
 .home-recognition-heading .heading-serif { font-size: clamp(2rem, 3.5vw, 3rem); }
 .home-recognition-controls { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 17px; border-bottom: 1px solid rgba(48,32,71,.2); }
 .home-recognition-controls button { position: relative; padding: 10px 1px 13px; color: #716977; font-size: .66rem; font-weight: 750; text-align: left; }
@@ -701,18 +699,18 @@ main [id] { scroll-margin-top: 6rem; }
   .home-about-layout { grid-template-columns: 1fr; gap: 35px; }
   .home-about-visual { min-height: 320px; margin: 0 14px 0 0; }
   .home-about-visual img { height: min(92vw, 430px); min-height: 320px; }
-  .home-about-visual::before { top: 14px; left: -12px; }
+  .home-about-visual::before { top: -12px; left: -12px; }
   .home-about-image-note { right: -13px; bottom: 25px; padding: 12px 15px; font-size: .72rem; }
   .home-about-copy h2 { font-size: 2rem; }
   .home-about-prose { margin-top: 18px; font-size: .85rem; line-height: 1.78; }
-  .home-schools .heading-serif { font-size: 2rem; }
+  .home-schools > .container-width > .mx-auto .heading-serif { font-size: 2rem; }
   .home-schools .academic-explorer { margin-top: 34px; }
   .home-schools .academic-explorer-tools { gap: 13px; }
   .home-schools .academic-filters { flex-wrap: nowrap; overflow-x: auto; padding: 2px 2px 8px; }
   .home-schools .academic-filters button { flex: 0 0 auto; }
   .home-school-card { grid-template-columns: 1fr; }
   .home-school-image { height: 230px; min-height: 230px; }
-  .home-school-image h3 { font-size: 1.55rem; }
+  .home-page .home-school-image h3 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
   .home-school-content { padding: 18px; }
   .home-school-content li { padding-block: 10px; }
   .home-pillars-intro,.home-leadership-header,.home-recognition-heading,.home-practice-heading { grid-template-columns: 1fr; gap: 20px; }

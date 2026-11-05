@@ -32,7 +32,6 @@ export default function AboutSection({ about }) {
               }}
             />
             <span className="home-about-image-note">The SNBP story</span>
-            <span className="home-about-image-index" aria-hidden="true">01 / 04</span>
           </div>
           <div className="home-about-copy">
             <p className="eyebrow">{content.eyebrow || defaultAbout.eyebrow}</p>

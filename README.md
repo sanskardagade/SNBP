@@ -67,6 +67,8 @@ UI: `http://localhost:5173` (proxies `/api` to the backend)
 | GET | `/api/schools` | Schools and courses |
 | GET | `/api/news` | News highlights |
 | GET | `/api/faqs` | FAQ list |
+| GET | `/api/assistant/status` | Reports whether an AI provider key is configured |
+| POST | `/api/assistant` | Grounded assistant response or published-FAQ fallback |
 | POST | `/api/contact` | Contact form |
 | POST | `/api/admissions` | Admission enquiry |
 | POST | `/api/newsletter` | Email subscribe |
@@ -78,7 +80,12 @@ UI: `http://localhost:5173` (proxies `/api` to the backend)
 ```env
 PORT=5000
 CLIENT_ORIGIN=http://localhost:5173
+AI_API_KEY=
+AI_BASE_URL=https://api.openai.com/v1
+AI_MODEL=gpt-4o-mini
 ```
+
+The assistant accepts an OpenAI-compatible chat-completions endpoint. Keep `AI_API_KEY` only in the backend environment; leave it blank to serve exact published FAQ answers and a contact fallback. Configure a provider and verify a successful response before treating AI answers as available. Requests are rate-limited, bounded in size, and not stored.
 
 ## Notes
 
