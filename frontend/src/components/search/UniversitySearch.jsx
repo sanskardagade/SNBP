@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight, Search, X } from "lucide-react";
-import { programPages, schoolPages } from "../../content/programs.js";
+import { programPages } from "../../content/programs.js";
 import { staticPages } from "../../content/staticPages.js";
 import { homeDefaults } from "../../content/homeDefaults.js";
 import { primaryNav, secondaryNav } from "../../constants/navigation.js";
@@ -21,20 +21,16 @@ function navigationEntries(items, category = "Pages") {
 
 function getSearchEntries() {
   const entries = [
-    ...navigationEntries(primaryNav),
+    ...navigationEntries(primaryNav).filter((entry) => entry.category !== "Programmes"),
     ...navigationEntries(secondaryNav),
-    ...Object.entries(schoolPages).map(([path, page]) => ({
-      title: page.title,
-      description: `${page.lead} ${page.bullets.join(" ")} Departments and programmes at ${page.title}.`,
-      path,
-      category: "Programmes",
-    })),
-    ...Object.entries(programPages).map(([path, program]) => ({
-      title: program.title,
-      description: `${program.school} · ${program.summary} ${program.highlights.join(" ")}`,
-      path,
-      category: "Programmes",
-    })),
+    ...Object.entries(programPages)
+      .sort(([, first], [, second]) => first.title.localeCompare(second.title))
+      .map(([path, program]) => ({
+        title: program.title,
+        description: `${program.school} · ${program.summary} ${program.highlights.join(" ")}`,
+        path,
+        category: "Programmes",
+      })),
     ...Object.entries(staticPages).map(([path, page]) => ({
       title: page.title,
       description: [
@@ -255,7 +251,6 @@ export default function UniversitySearch() {
               <div className="search-panel">
                 <div className="search-heading">
                   <div>
-                    <p className="eyebrow">SNBP University</p>
                     <h2 id="university-search-title">What are you looking for?</h2>
                   </div>
                   <button type="button" className="search-close" onClick={close} aria-label="Close search">
