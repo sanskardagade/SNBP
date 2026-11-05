@@ -82,7 +82,7 @@ export function getLocalAssistantReply(question) {
     const schools = Object.values(schoolPages)
       .map((school) => `${school.title}: ${school.bullets.join(", ")}`)
       .join("\n");
-    return localReply(schools, "/school-of-technology", "Explore programmes");
+    return localReply(schools, "/school-of-arts-commerce-science", "Explore programmes");
   }
 
   if (/admission|apply|application|enrol|enroll/.test(query)) {

@@ -29,6 +29,7 @@ export const homeDefaults = {
     image: aboutCampusImage,
   },
   schools: [
+    /*
     {
       id: "technology",
       name: "School of Technology",
@@ -43,17 +44,17 @@ export const homeDefaults = {
       ],
       image: asset("/assets/Layer%205-clean-CYIX52QV.png"),
     },
+    */
     {
       id: "arts-commerce-science",
       name: "School of Arts, Commerce & Science",
       to: "/school-of-arts-commerce-science",
       brochure: asset("/assets/School-Of-Arts-Commerce-Science-SNBP-University-BqD54UwP.pdf"),
       programs: [
-        { name: "B.Sc. Computer Science", to: "/school-of-arts-commerce-science/bsc-computer-science" },
-        { name: "B.A. Psychology / Economics / English", to: "/school-of-arts-commerce-science/ba-psychology" },
+        { name: "BBA", to: "/school-of-arts-commerce-science/bba" },
         { name: "BCA", to: "/school-of-arts-commerce-science/bca" },
-        { name: "B.Com", to: "/school-of-arts-commerce-science/bcom" },
         { name: "MCA", to: "/school-of-arts-commerce-science/mca" },
+        { name: "MBA", to: "/school-of-arts-commerce-science/mba" },
       ],
       image: asset("/assets/Untitled%20design-CYPUEzTN.webp"),
     },
@@ -220,7 +221,7 @@ export const homeDefaults = {
       question:
         "Which programmes can I explore at SNBP University?",
       answer:
-        "SNBP University offers programmes through its School of Technology and School of Arts, Commerce & Science. Options include B.Tech specialisations in Computer Science, IT, AI/ML, Data Science and Cyber Security, as well as BCA, MCA, B.Sc. Computer Science, B.Com and BA programmes.",
+        "Explore four AI-first programs at the School of Arts, Commerce & Science: BBA, BCA, MCA and MBA.",
     },
     {
       question: "What is my first step toward applying?",

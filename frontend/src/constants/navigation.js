@@ -17,28 +17,25 @@ export const aboutLinks = [
 ];
 
 export const programLinks = [
-  {
-    label: "School of Technology",
-    to: "/school-of-technology",
-    children: [
-      { label: "B.Tech Computer Science Engineering", to: "/school-of-technology/btech-cse" },
-      { label: "B.Tech Information Technology", to: "/school-of-technology/btech-it" },
-      { label: "B.Tech CSE (AI & Machine Learning)", to: "/school-of-technology/btech-cse-aiml" },
-      { label: "B.Tech CSE (Data Science)", to: "/school-of-technology/btech-cse-data-science" },
-      { label: "B.Tech CSE (Cyber Security)", to: "/school-of-technology/btech-cse-cyber-security" }
-    ]
-  },
+  // {
+  //   label: "School of Technology",
+  //   to: "/school-of-technology",
+  //   children: [
+  //     { label: "B.Tech Computer Science Engineering", to: "/school-of-technology/btech-cse" },
+  //     { label: "B.Tech Information Technology", to: "/school-of-technology/btech-it" },
+  //     { label: "B.Tech CSE (AI & Machine Learning)", to: "/school-of-technology/btech-cse-aiml" },
+  //     { label: "B.Tech CSE (Data Science)", to: "/school-of-technology/btech-cse-data-science" },
+  //     { label: "B.Tech CSE (Cyber Security)", to: "/school-of-technology/btech-cse-cyber-security" }
+  //   ]
+  // },
   {
     label: "School of Arts, Commerce & Science",
     to: "/school-of-arts-commerce-science",
     children: [
-      { label: "B.Sc. Computer Science", to: "/school-of-arts-commerce-science/bsc-computer-science" },
-      { label: "BA Psychology", to: "/school-of-arts-commerce-science/ba-psychology" },
-      { label: "BA English", to: "/school-of-arts-commerce-science/ba-english" },
-      { label: "BA Economics", to: "/school-of-arts-commerce-science/ba-economics" },
+      { label: "BBA", to: "/school-of-arts-commerce-science/bba" },
       { label: "BCA", to: "/school-of-arts-commerce-science/bca" },
-      { label: "B.Com", to: "/school-of-arts-commerce-science/bcom" },
-      { label: "MCA", to: "/school-of-arts-commerce-science/mca" }
+      { label: "MCA", to: "/school-of-arts-commerce-science/mca" },
+      { label: "MBA", to: "/school-of-arts-commerce-science/mba" }
     ]
   }
 ];

@@ -1,8 +1,9 @@
-import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/common/PageHero.jsx";
 import LoadingExperience from "../components/common/LoadingExperience.jsx";
 import { programPages, schoolPages } from "../content/programs.js";
+import AIProgramsLanding, { AIProgramPage } from "./AIProgramsPage.jsx";
+/*
 import BtechCsePage from "./BtechCsePage.jsx";
 import BtechCseAimlPage from "./BtechCseAimlPage.jsx";
 import BtechCseDataSciencePage from "./BtechCseDataSciencePage.jsx";
@@ -10,20 +11,21 @@ import BtechCseCyberSecurityPage from "./BtechCseCyberSecurityPage.jsx";
 import SchoolTechnologyPage from "./SchoolTechnologyPage.jsx";
 import BtechItPage from "./BtechItPage.jsx";
 import BscComputerSciencePage from "./BscComputerSciencePage.jsx";
+*/
 
+/*
 const BAPsychologyPage = lazy(() => import("./BAPsychologyPage.jsx"));
 const BAEnglishPage = lazy(() => import("./BAEnglishPage.jsx"));
 const BAEconomicsPage = lazy(() => import("./BAEconomicsPage.jsx"));
 const BCAPage = lazy(() => import("./BCAPage.jsx"));
 const BComPage = lazy(() => import("./BComPage.jsx"));
 const MCAPage = lazy(() => import("./MCAPage.jsx"));
+*/
 
 export function SchoolPage({ pageKey }) {
   const school = schoolPages[pageKey];
   if (!school) return null;
-  if (pageKey === "/school-of-technology") {
-    return <SchoolTechnologyPage />;
-  }
+  if (pageKey === "/school-of-arts-commerce-science") return <AIProgramsLanding />;
 
   return (
     <>
@@ -51,6 +53,10 @@ export function SchoolPage({ pageKey }) {
 export default function ProgramPage({ pageKey }) {
   const program = programPages[pageKey];
   if (!program) return null;
+  if (["bba", "bca", "mca", "mba"].some((slug) => pageKey.endsWith(`/${slug}`))) {
+    return <AIProgramPage pageKey={pageKey} />;
+  }
+  /*
   if (pageKey === "/school-of-arts-commerce-science/bsc-computer-science") {
     return <BscComputerSciencePage />;
   }
@@ -111,6 +117,7 @@ export default function ProgramPage({ pageKey }) {
   if (pageKey === "/school-of-technology/btech-it") {
     return <BtechItPage />;
   }
+  */
 
   return (
     <>

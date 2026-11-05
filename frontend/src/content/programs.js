@@ -10,6 +10,7 @@ function program(slug, title, school, summary, highlights = []) {
 }
 
 export const schoolPages = {
+  /*
   "/school-of-technology": {
     title: "School of Technology",
     eyebrow: "Programs",
@@ -22,20 +23,22 @@ export const schoolPages = {
       "B.Tech CSE (Cyber Security)"
     ]
   },
+  */
   "/school-of-arts-commerce-science": {
     title: "School of Arts, Commerce & Science",
     eyebrow: "Programs",
-    lead: "Multidisciplinary undergraduate and postgraduate programmes for careers in tech, business, and liberal arts.",
+    lead: "Four AI-first programs for future business leaders, developers, AI engineers and managers.",
     bullets: [
-      "B.Sc. Computer Science",
-      "BA Psychology, English & Economics",
-      "BCA & MCA",
-      "B.Com"
+      "BBA: Business + AI",
+      "BCA: Code + AI",
+      "MCA: Advanced Computing + AI",
+      "MBA: Management + AI"
     ]
   }
 };
 
 export const programPages = {
+  /*
   "/school-of-technology/btech-cse": program(
     "btech-cse",
     "B.Tech Computer Science Engineering",
@@ -71,6 +74,36 @@ export const programPages = {
     "Secure digital ecosystems with hands-on security labs and enterprise scenarios.",
     ["Security fundamentals", "Network defence", "Compliance & governance basics"]
   ),
+  */
+  "/school-of-arts-commerce-science/bba": program(
+    "bba",
+    "BBA: Business + AI",
+    "School of Arts, Commerce & Science",
+    "Lead tomorrow’s businesses with today’s AI.",
+    ["AI startup studio", "Marketing with AI", "Data-driven decisions", "Business simulation games"]
+  ),
+  "/school-of-arts-commerce-science/bca": program(
+    "bca",
+    "BCA: Code + AI",
+    "School of Arts, Commerce & Science",
+    "Learn to code. Then teach machines to think.",
+    ["Python and web development", "AI pair-programming", "Semester hackathons", "Applied AI mini projects"]
+  ),
+  "/school-of-arts-commerce-science/mca": program(
+    "mca",
+    "MCA: Advanced Computing + AI",
+    "School of Arts, Commerce & Science",
+    "From developer to AI architect.",
+    ["Generative AI and LLM lab", "MLOps and cloud", "Research track", "Industry capstone"]
+  ),
+  "/school-of-arts-commerce-science/mba": program(
+    "mba",
+    "MBA: Management + AI",
+    "School of Arts, Commerce & Science",
+    "Management for the age of intelligent machines.",
+    ["AI for managers", "Live case lab", "Business analytics studio", "Leadership lab"]
+  ),
+  /*
   "/school-of-arts-commerce-science/bsc-computer-science": program(
     "bsc-computer-science",
     "B.Sc. Computer Science",
@@ -120,4 +153,5 @@ export const programPages = {
     "Postgraduate programme for advanced software, systems, and leadership roles.",
     ["Advanced programming", "Enterprise architecture", "Placement support"]
   )
+  */
 };

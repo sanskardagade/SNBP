@@ -11,6 +11,7 @@ import { asset } from "../constants/assets.js";
 const admissionHero = asset("/assets/admission-hero-DPe1ntg_.jpeg");
 const admissionChakra = asset("/assets/ADMISN%20HALF%20CHAKRA%20copy-BFgFHIyr.png");
 
+/*
 const technologyHeaders = [
   "Specialisation / Program",
   "Academic Qualification",
@@ -34,31 +35,29 @@ const technologyPrograms = [
   reserved: "40%",
   entrance: "Valid score in MHT-CET / JEE Main / University Entrance"
 }));
+*/
 
 const artsHeaders = [
   "Degree",
   "Program / Specialization",
   "Duration",
   "Minimum Academic Requirement",
-  "General Category",
-  "Reserved / EWS / PwD (Maharashtra)"
+  "Entrance / Additional Requirements",
+  "Intake"
 ];
 
 const artsPrograms = [
-  ["B.Sc.", "Computer Science", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
-  ["B.A.", "Psychology", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
-  ["B.A.", "Economics", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
-  ["B.A.", "English", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
-  ["BCA", "Computer Applications", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
-  ["B.Com", "Commerce", "3 Years (4-Yr Hons. Option)", "Passed 10+2 / HSC / equivalent"],
-  ["MCA", "Computer Applications", "2 Years", "Passed relevant Graduation / Bachelor's Degree"]
-].map(([degree, program, duration, qualification]) => ({
+  ["BBA", "Business + AI", "3 Years (6 semesters)", "10+2, any stream; minimum percentage to be confirmed", "To be announced", "To be announced"],
+  ["BCA", "Code + AI", "3 Years (6 semesters)", "10+2; Mathematics/Computer Science preferred; minimum percentage to be confirmed", "To be announced", "To be announced"],
+  ["MCA", "Advanced Computing + AI", "2 Years (4 semesters)", "BCA / B.Sc. / Bachelor’s with Mathematics", "To be announced", "To be announced"],
+  ["MBA", "Management + AI", "2 Years (4 semesters)", "Bachelor’s degree; CAT/MAT/CMAT requirements to be confirmed", "CAT/MAT/CMAT details to be confirmed", "To be announced"]
+].map(([degree, program, duration, qualification, requirements, intake]) => ({
   degree,
   program,
   duration,
   qualification,
-  general: "45%",
-  reserved: "40%"
+  general: requirements,
+  reserved: intake
 }));
 
 const admissionSteps = [
@@ -285,6 +284,7 @@ export default function Admissions() {
         className="relative overflow-hidden bg-[#faf8f5] px-4 py-12 md:px-6 md:py-16 lg:px-10 lg:py-20"
       >
         <div className="mx-auto max-w-[1400px] space-y-14 md:space-y-16 lg:space-y-20">
+          {/*
           <EligibilityTable
             title="Eligibility Criteria — School of Technology"
             headers={technologyHeaders}
@@ -292,6 +292,7 @@ export default function Admissions() {
             minWidth="min-w-[980px]"
             technology
           />
+          */}
           <EligibilityTable
             title="Eligibility Criteria — School of Arts, Commerce & Science"
             headers={artsHeaders}
