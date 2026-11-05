@@ -76,11 +76,11 @@ export const regulatoryLinks = [
 export const socialLinks = [
   {
     label: "Facebook",
-    href: "https://www.facebook.com/people/SNBP-University/61589293958859/"
+    href: "https://www.facebook.com/profile.php?id=61596119767381"
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/snbpuniversity?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+    href: "https://www.instagram.com/snbpwakadcampus/"
   },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/snbp-university/" }
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/snbp-wakad-9565b2449/" }
 ];
