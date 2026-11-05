@@ -1,3 +1,4 @@
+/*
 import {
   ArrowDown,
   ArrowRight,
@@ -108,6 +109,7 @@ function SectionMarker() {
     />
   );
 }
+*/
 
 export default function BtechCseCyberSecurityPage() {
   return (

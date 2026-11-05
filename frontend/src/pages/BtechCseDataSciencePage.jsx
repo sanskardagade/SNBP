@@ -1,3 +1,4 @@
+/*
 import {
   ArrowDown,
   ArrowRight,
@@ -111,6 +112,7 @@ function SectionMarker() {
     />
   );
 }
+*/
 
 export default function BtechCseDataSciencePage() {
   return (

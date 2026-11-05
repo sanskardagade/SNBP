@@ -1,3 +1,4 @@
+/*
 import {
   Building2,
   ChevronLeft,
@@ -96,6 +97,7 @@ function SectionMarker() {
     />
   );
 }
+*/
 
 export default function SchoolTechnologyPage() {
   const labCarouselRef = useRef(null);

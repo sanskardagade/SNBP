@@ -51,6 +51,7 @@ const officers = [
   },
 ];
 
+/*
 const deans = [
   {
     name: "Dr. Abhay Dashrath",
@@ -59,6 +60,7 @@ const deans = [
     imagePosition: "center 35%",
   },
 ];
+*/
 
 function SectionTitle({ children }) {
   return (
@@ -217,7 +219,7 @@ export default function OurTeam() {
         />
         <div className="relative z-10 mx-auto flex max-w-[1400px] flex-col gap-14 px-4 md:gap-16 md:px-6 lg:px-10">
           <DirectorySection title="Officers of the University" members={officers} />
-          <DirectorySection title="Our Deans" members={deans} />
+          {/* <DirectorySection title="Our Deans" members={deans} /> */}
         </div>
       </section>
 
