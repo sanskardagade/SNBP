@@ -82,32 +82,32 @@ function ScrollToTop() {
 }
 
 function OpeningExperience({ stage, onAdvance }) {
+  const invitationAlt =
+    "A New Beginning — Pooja Ceremony, SNBP Wakad Campus, Sunday 8 November at 12:30 PM";
+
   return (
     <section
       className={`opening-experience opening-experience-${stage}`}
       role="dialog"
       aria-modal="true"
-      aria-label={stage === "ribbon" ? "Opening invitation" : "Pooja ceremony invitation"}
+      aria-label={
+        stage === "curtain" ? "Open the pooja ceremony invitation" : "Pooja ceremony invitation"
+      }
     >
-      {stage === "ribbon" ? (
-        <div className="opening-ribbon-scene">
-          <div className="opening-ribbon-garland" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
+      {stage === "curtain" ? (
+        <button type="button" className="opening-curtain-trigger" onClick={onAdvance} autoFocus>
+          <div className="opening-curtain-scene" aria-hidden="true">
+            <span className="opening-curtain-panel opening-curtain-panel-left" />
+            <span className="opening-curtain-panel opening-curtain-panel-right" />
           </div>
-          <div className="opening-ribbon-card">
-            <span className="opening-ribbon-eyebrow">SNBP Wakad Campus</span>
-            <h1>A new beginning</h1>
-            <p>You are warmly invited to our pooja ceremony</p>
-            <button type="button" className="opening-ribbon-button" onClick={onAdvance} autoFocus>
-              <span>Open your invitation</span>
-            </button>
-            <span className="opening-ribbon-date">Sunday · 8 November · 12:30 PM</span>
+          <span className="opening-curtain-hint">Click to open the invitation</span>
+        </button>
+      ) : stage === "opening" ? (
+        <div className="opening-curtain-reveal" aria-hidden="true">
+          <img src="/assets/pooja-ceremony-invitation.png" alt={invitationAlt} />
+          <div className="opening-curtain-scene">
+            <span className="opening-curtain-panel opening-curtain-panel-left" />
+            <span className="opening-curtain-panel opening-curtain-panel-right" />
           </div>
         </div>
       ) : (
@@ -118,10 +118,7 @@ function OpeningExperience({ stage, onAdvance }) {
           aria-label="Enter the SNBP University website"
           autoFocus
         >
-          <img
-            src="/assets/pooja-ceremony-invitation.png"
-            alt="A New Beginning — Pooja Ceremony, SNBP Wakad Campus, Sunday 8 November at 12:30 PM"
-          />
+          <img src="/assets/pooja-ceremony-invitation.png" alt={invitationAlt} />
           <span className="opening-invitation-hint">Click the invitation to enter the website</span>
         </button>
       )}
@@ -173,11 +170,23 @@ function NotFound() {
 
 export default function App() {
   const { pathname } = useLocation();
-  const [openingStage, setOpeningStage] = useState("ribbon");
+  const [openingStage, setOpeningStage] = useState("curtain");
   const [assistantMounted, setAssistantMounted] = useState(false);
   const [assistantOpen, setAssistantOpen] = useState(false);
   const assistantLauncherRef = useRef(null);
   const showOpeningExperience = pathname === "/" && openingStage !== "entered";
+
+  useEffect(() => {
+    if (openingStage !== "opening") return undefined;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const timeoutId = window.setTimeout(
+      () => setOpeningStage("invitation"),
+      reducedMotion ? 50 : 1850
+    );
+
+    return () => window.clearTimeout(timeoutId);
+  }, [openingStage]);
 
   useEffect(() => {
     if (!showOpeningExperience) return undefined;
@@ -263,7 +272,9 @@ export default function App() {
           <OpeningExperience
             stage={openingStage}
             onAdvance={() =>
-              setOpeningStage((currentStage) => (currentStage === "ribbon" ? "invitation" : "entered"))
+              setOpeningStage((currentStage) =>
+                currentStage === "curtain" ? "opening" : "entered"
+              )
             }
           />,
           document.body
