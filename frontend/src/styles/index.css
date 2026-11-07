@@ -449,6 +449,51 @@ main [id] { scroll-margin-top: 6rem; }
   10% { opacity: 1; }
   100% { opacity: 0; transform: translate3d(var(--confetti-drift), 110vh, 0) rotate(620deg); }
 }
+.diwali-firework {
+  position: absolute;
+  bottom: max(76px, calc(env(safe-area-inset-bottom) + 76px));
+  left: var(--firework-x);
+  width: 1px;
+  height: 1px;
+}
+.diwali-firework-rocket {
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  width: 6px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff2b0;
+  box-shadow: 0 0 16px 5px rgba(255, 202, 73, .95);
+  opacity: 0;
+  animation: diwali-firework-launch 2s ease-out var(--firework-delay) 3 both;
+}
+.diwali-firework-spark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffe28a;
+  box-shadow: 0 0 14px 3px rgba(255, 190, 65, .9);
+  opacity: 0;
+  animation: diwali-firework-burst 2s ease-out var(--firework-delay) 3 both;
+}
+.diwali-firework:nth-of-type(even) .diwali-firework-spark { background: #ff9a76; }
+@keyframes diwali-firework-launch {
+  0% { opacity: 1; transform: translateY(0); }
+  48% { opacity: 1; transform: translateY(var(--firework-rise)); }
+  56%, 100% { opacity: 0; transform: translateY(var(--firework-rise)); }
+}
+@keyframes diwali-firework-burst {
+  0%, 49% { opacity: 0; transform: translate(0, var(--firework-rise)) scale(.2); }
+  60% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(var(--spark-x), calc(var(--firework-rise) + var(--spark-y))) scale(.25);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .diwali-celebration { display: none; }
 }

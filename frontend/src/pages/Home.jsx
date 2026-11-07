@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { useHomeContent } from "../hooks/useHomeContent.js";
 import { homeDefaults } from "../content/homeDefaults.js";
 import AdmissionsTeaser from "../components/home/AdmissionsTeaser.jsx";
@@ -22,8 +23,25 @@ const diwaliConfetti = Array.from({ length: 28 }, (_, index) => ({
   duration: `${2.5 + (index % 5) * 0.24}s`,
 }));
 
+const diwaliFireworks = [
+  { x: "88%", rise: "-210px", delay: "0.15s" },
+  { x: "92%", rise: "-290px", delay: "0.65s" },
+  { x: "96%", rise: "-235px", delay: "0.35s" },
+  { x: "90%", rise: "-320px", delay: "0.85s" },
+];
+const fireworkSparks = [
+  ["0px", "-48px"],
+  ["34px", "-34px"],
+  ["48px", "0px"],
+  ["34px", "34px"],
+  ["0px", "48px"],
+  ["-34px", "34px"],
+  ["-48px", "0px"],
+  ["-34px", "-34px"],
+];
+
 function DiwaliCelebration() {
-  return (
+  return createPortal(
     <div className="diwali-celebration" aria-hidden="true">
       {diwaliConfetti.map((piece, index) => (
         <span
@@ -37,7 +55,28 @@ function DiwaliCelebration() {
           }}
         />
       ))}
-    </div>
+      {diwaliFireworks.map((firework, index) => (
+        <div
+          className="diwali-firework"
+          key={`firework-${index}`}
+          style={{
+            "--firework-x": firework.x,
+            "--firework-rise": firework.rise,
+            "--firework-delay": firework.delay,
+          }}
+        >
+          <span className="diwali-firework-rocket" />
+          {fireworkSparks.map(([x, y], sparkIndex) => (
+            <span
+              className="diwali-firework-spark"
+              key={sparkIndex}
+              style={{ "--spark-x": x, "--spark-y": y }}
+            />
+          ))}
+        </div>
+      ))}
+    </div>,
+    document.body
   );
 }
 
