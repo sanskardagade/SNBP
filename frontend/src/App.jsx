@@ -127,7 +127,7 @@ function OpeningExperience({ stage, onAdvance }) {
         >
           <img src="/assets/pooja-ceremony-invitation.png" alt={invitationAlt} />
           <span className="opening-invitation-hint">
-            Your video is next — click to open it now
+            Click here
           </span>
         </button>
       ) : stage === "video" ? (
@@ -209,14 +209,12 @@ export default function App() {
   const showOpeningExperience = pathname === "/" && openingStage !== "entered";
 
   useEffect(() => {
-    if (openingStage !== "opening" && openingStage !== "invitation") return undefined;
+    if (openingStage !== "opening") return undefined;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const nextStage = openingStage === "opening" ? "invitation" : "video";
-    const delay = openingStage === "opening" ? (reducedMotion ? 50 : 3050) : 1500;
     const timeoutId = window.setTimeout(
-      () => setOpeningStage(nextStage),
-      delay
+      () => setOpeningStage("invitation"),
+      reducedMotion ? 50 : 3050
     );
 
     return () => window.clearTimeout(timeoutId);
