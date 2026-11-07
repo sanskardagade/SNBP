@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import AdmissionEnquiryForm from "../forms/AdmissionEnquiryForm.jsx";
 import { asset } from "../../constants/assets.js";
 
@@ -8,6 +10,47 @@ const mobileHeroImage = asset(
 );
 
 export default function AdmissionsTeaser({ admissions }) {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const enquiryButtonRef = useRef(null);
+  const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!isFormOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") setIsFormOpen(false);
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      enquiryButtonRef.current?.focus();
+    };
+  }, [isFormOpen]);
+
+  function trapDialogTab(event) {
+    if (event.key !== "Tab") return;
+
+    const focusableElements = event.currentTarget.querySelectorAll(
+      'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement?.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement?.focus();
+    }
+  }
+
   return (
     <section id="admissions" className="home-admissions relative isolate overflow-hidden">
       <div
@@ -34,13 +77,7 @@ export default function AdmissionsTeaser({ admissions }) {
         </p>
       </div>
 
-      <div className="home-admissions-mobile-form bg-[#f4f1f7] px-4 py-6 md:hidden">
-        <div className="mx-auto max-w-[520px]">
-          <AdmissionEnquiryForm compact />
-        </div>
-      </div>
-
-      <div className="home-admissions-desktop container-width hidden items-center gap-12 py-28 md:grid md:grid-cols-[1.1fr_.9fr] lg:py-32">
+      <div className="home-admissions-desktop container-width hidden items-center gap-12 py-28 md:grid md:grid-cols-1 lg:py-32">
         <div className="home-admissions-copy">
           <p className="home-admissions-kicker">{admissions?.eyebrow || "Admissions Open 2026"}</p>
           <h1 className="home-admissions-title heading-serif">
@@ -53,11 +90,49 @@ export default function AdmissionsTeaser({ admissions }) {
             Explore programmes <span aria-hidden="true">↓</span>
           </a>
         </div>
-
-        <div className="home-admissions-form w-full">
-          <AdmissionEnquiryForm compact />
-        </div>
       </div>
+
+      <button
+        ref={enquiryButtonRef}
+        type="button"
+        className="home-admissions-trigger absolute right-0 top-1/2 z-20 -translate-y-1/2 rounded-l-md bg-[#c9a326] px-4 py-4 font-semibold uppercase tracking-[.12em] text-[#2e1a47] shadow-lg transition hover:bg-[#dfbd45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        onClick={() => setIsFormOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={isFormOpen}
+      >
+        Enquire Now
+      </button>
+
+      {isFormOpen
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-[#160f20]/75 p-3 backdrop-blur-sm sm:p-6"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) setIsFormOpen(false);
+              }}
+            >
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-label="Admissions Open 2026"
+                className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-[560px] overflow-y-auto rounded-lg bg-white shadow-2xl sm:max-h-[calc(100dvh-3rem)]"
+                onKeyDown={trapDialogTab}
+              >
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  className="absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-2xl leading-none text-[#2e1a47] shadow transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2e1a47]"
+                  onClick={() => setIsFormOpen(false)}
+                  aria-label="Close admissions form"
+                >
+                  &times;
+                </button>
+                <AdmissionEnquiryForm compact />
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
     </section>
   );
 }

@@ -524,14 +524,15 @@ main [id] { scroll-margin-top: 6rem; }
 .home-text-link span { color: #a47c24; font-size: 1.15rem; transition: transform 180ms ease; }
 .home-text-link:hover span { transform: translate(3px, -2px); }
 
-.home-admissions { min-height: 610px; background: var(--home-plum); color: white; }
+.home-admissions { min-height: 440px; background: var(--home-plum); color: white; }
 .home-admissions-image { background-position: center 44%; background-size: cover; transform: scale(1.015); }
 .home-admissions-shade {
   background:
     linear-gradient(90deg, rgba(28, 17, 44, .91) 0%, rgba(35, 21, 53, .78) 41%, rgba(34, 20, 49, .34) 74%, rgba(31, 19, 44, .3) 100%),
     linear-gradient(0deg, rgba(22, 16, 29, .45), transparent 55%);
 }
-.home-admissions-desktop { position: relative; z-index: 1; min-height: 610px; padding-top: 72px; padding-bottom: 68px; }
+.home-admissions-desktop { position: relative; z-index: 1; min-height: 440px; padding-top: 40px; padding-bottom: 40px; }
+.home-admissions-trigger { font-size: .72rem; }
 .home-admissions-copy { max-width: 650px; padding: 18px 0 32px; }
 .home-admissions-kicker {
   color: #eed58a;
@@ -569,19 +570,9 @@ main [id] { scroll-margin-top: 6rem; }
 }
 .home-admissions-explore span { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid rgba(255,255,255,.55); color: #e7d29d; font-size: 1.1rem; transition: background 180ms ease; }
 .home-admissions-explore:hover span { background: rgba(255,255,255,.13); }
-.home-admissions-form { max-width: 500px; justify-self: end; padding: 8px; background: rgba(255,255,255,.94); box-shadow: 0 28px 75px rgba(13,8,20,.25); }
-.home-admissions-form form { padding: 24px !important; border-radius: 0 !important; box-shadow: none !important; }
-.home-admissions-form h2 { font-family: "Libre Baskerville", Georgia, serif; font-size: 1.24rem; }
-.home-admissions-form form > div.grid { gap: 11px; }
-.home-admissions-form form input:not([type="checkbox"]),
-.home-admissions-form form select { min-height: 42px; margin-top: 5px; border-radius: 0; border-color: #e4e0e5; padding: 9px 10px; font-size: .76rem; }
-.home-admissions-form form label:has(select[name="course"]) { grid-column: span 2; }
-.home-admissions-form form label { font-size: .72rem; }
-.home-admissions-form form label:has(input[type="checkbox"]) { font-size: .65rem; line-height: 1.5; }
-.home-admissions-form .btn-primary { min-height: 46px; border-radius: 0; font-size: .72rem; }
-.home-admissions-mobile-image { height: min(76svh, 760px); min-height: 490px; object-position: 52% 54%; }
+.home-admissions-mobile-image { height: min(58svh, 600px); min-height: 360px; object-position: 52% 54%; }
 .home-admissions::after { content: ""; }
-.home-admissions-mobile-copy { height: min(76svh, 760px); min-height: 490px; align-items: flex-start; padding: clamp(42px, 9vh, 86px) 25px 24px; text-align: left; }
+.home-admissions-mobile-copy { height: min(58svh, 600px); min-height: 360px; align-items: flex-start; padding: clamp(32px, 7vh, 60px) 25px 20px; text-align: left; }
 .home-admissions-mobile-copy .home-admissions-kicker { color: #fff1bd; }
 .home-admissions-mobile-copy .home-admissions-title { width: 100%; margin-top: 18px; max-width: 16ch; font-size: clamp(2.2rem, 9.5vw, 3.1rem); line-height: 1.1; text-align: left; text-shadow: 0 2px 20px rgba(20,12,30,.25); }
 .home-admissions-mobile-copy .home-admissions-title span { display: block; }
@@ -589,14 +580,6 @@ main [id] { scroll-margin-top: 6rem; }
 .home-admissions-mobile-copy .home-admissions-kicker { text-shadow: 0 1px 12px rgba(20,12,30,.45); }
 .home-admissions-mobile-image { position: relative; }
 .home-admissions-mobile-image ~ .home-admissions-mobile-copy::before { content: ""; }
-.home-admissions-mobile-form { background: var(--home-paper); padding: 25px 15px 34px; }
-.home-admissions-mobile-form form { border: 1px solid #e8e2d9; border-radius: 0 !important; padding: 19px !important; box-shadow: 0 12px 30px rgba(35,25,40,.07) !important; }
-.home-admissions-mobile-form form h2 { font-family: "Libre Baskerville", Georgia, serif; font-size: 1.15rem; }
-.home-admissions-mobile-form form > div.grid { grid-template-columns: minmax(0, 1fr) !important; gap: 12px; }
-.home-admissions-mobile-form form label { grid-column: 1 / -1; }
-.home-admissions-mobile-form form input:not([type="checkbox"]),
-.home-admissions-mobile-form form select { min-height: 44px; margin-top: 5px; border-radius: 0; font-size: .8rem; }
-.home-admissions-mobile-form form .btn-primary { width: 100%; min-height: 48px; border-radius: 0; }
 
 .home-stats { padding: 0 24px 12px; background: var(--home-paper); }
 .home-stats-inner { width: min(1120px, 100%); margin: 0 auto; border-top: 1px solid rgba(48,32,71,.18); border-bottom: 1px solid rgba(48,32,71,.18); }
@@ -747,7 +730,7 @@ main [id] { scroll-margin-top: 6rem; }
 .home-newsletter-form .btn-primary { min-height: 49px; border-radius: 0; }
 
 @media (max-width: 900px) {
-  .home-admissions-desktop { gap: 34px; grid-template-columns: 1fr 1fr; }
+  .home-admissions-desktop { gap: 34px; grid-template-columns: 1fr; }
   .home-admissions-title { font-size: clamp(2.45rem, 5vw, 3.7rem); }
   .home-school-card { grid-template-columns: minmax(150px, .7fr) 1.3fr; }
   .home-school-content { padding: 18px; }
@@ -768,16 +751,15 @@ main [id] { scroll-margin-top: 6rem; }
     left: 0;
     z-index: 1;
     width: 100%;
-    height: calc(100svh - 4.5rem);
-    min-height: 490px;
-    max-height: 820px;
+    height: calc(100svh - 12rem);
+    min-height: 360px;
+    max-height: 620px;
     background: linear-gradient(180deg, rgba(24,16,36,.48), rgba(24,16,36,.08) 57%, rgba(24,16,36,.28));
     pointer-events: none;
   }
-  .home-admissions-mobile-image,.home-admissions-mobile-copy { height: calc(100svh - 4.5rem); max-height: 820px; }
+  .home-admissions-mobile-image,.home-admissions-mobile-copy { height: calc(100svh - 12rem); min-height: 360px; max-height: 620px; }
   .home-admissions-mobile-copy { z-index: 2; }
   .home-admissions-mobile-image ~ .home-admissions-mobile-copy::before { display: none; }
-  .home-admissions-mobile-form { position: relative; z-index: 2; }
   .home-stats { padding: 0 17px 4px; }
   .home-stats-grid { grid-template-columns: 1fr; }
   .home-stat { min-height: 104px; padding: 17px 16px 17px 4px; }
