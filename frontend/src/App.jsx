@@ -84,6 +84,7 @@ function ScrollToTop() {
 }
 
 function OpeningExperience({ stage, onAdvance }) {
+  const [videoError, setVideoError] = useState(false);
   const invitationAlt =
     "A New Beginning — Pooja Ceremony, SNBP Wakad Campus, Sunday 8 November at 12:30 PM";
 
@@ -93,7 +94,11 @@ function OpeningExperience({ stage, onAdvance }) {
       role="dialog"
       aria-modal="true"
       aria-label={
-        stage === "curtain" ? "Open the pooja ceremony invitation" : "Pooja ceremony invitation"
+        stage === "curtain"
+          ? "Open the pooja ceremony invitation"
+          : stage === "video"
+            ? "Pooja ceremony video"
+            : "Pooja ceremony invitation"
       }
     >
       {stage === "curtain" ? (
@@ -112,18 +117,43 @@ function OpeningExperience({ stage, onAdvance }) {
             <span className="opening-curtain-panel opening-curtain-panel-right" />
           </div>
         </div>
-      ) : (
+      ) : stage === "invitation" ? (
         <button
           type="button"
           className="opening-invitation-button"
           onClick={onAdvance}
-          aria-label="Enter the SNBP University website"
+          aria-label="Watch the pooja ceremony video"
           autoFocus
         >
           <img src="/assets/pooja-ceremony-invitation.png" alt={invitationAlt} />
-          <span className="opening-invitation-hint">Click the invitation to enter the website</span>
+          <span className="opening-invitation-hint">
+            Your video is next — click to open it now
+          </span>
         </button>
-      )}
+      ) : stage === "video" ? (
+        <div className="opening-video-panel">
+          <video
+            className="opening-video"
+            controls
+            autoPlay
+            playsInline
+            onEnded={onAdvance}
+            onError={() => setVideoError(true)}
+            aria-label="Pooja ceremony video"
+          >
+            <source src="/assets/WhatsApp-Video-2026-11-07.mp4" type="video/mp4" />
+            Your browser does not support MP4 video playback.
+          </video>
+          {videoError ? (
+            <div className="opening-video-error" role="alert">
+              <p>The ceremony video could not be played.</p>
+              <button type="button" onClick={onAdvance}>
+                Continue to the website
+              </button>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -179,12 +209,14 @@ export default function App() {
   const showOpeningExperience = pathname === "/" && openingStage !== "entered";
 
   useEffect(() => {
-    if (openingStage !== "opening") return undefined;
+    if (openingStage !== "opening" && openingStage !== "invitation") return undefined;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const nextStage = openingStage === "opening" ? "invitation" : "video";
+    const delay = openingStage === "opening" ? (reducedMotion ? 50 : 3050) : 1500;
     const timeoutId = window.setTimeout(
-      () => setOpeningStage("invitation"),
-      reducedMotion ? 50 : 3050
+      () => setOpeningStage(nextStage),
+      delay
     );
 
     return () => window.clearTimeout(timeoutId);
@@ -275,9 +307,11 @@ export default function App() {
           <OpeningExperience
             stage={openingStage}
             onAdvance={() =>
-              setOpeningStage((currentStage) =>
-                currentStage === "curtain" ? "opening" : "entered"
-              )
+              setOpeningStage((currentStage) => {
+                if (currentStage === "curtain") return "opening";
+                if (currentStage === "invitation") return "video";
+                return "entered";
+              })
             }
           />,
           document.body

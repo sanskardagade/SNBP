@@ -1602,6 +1602,44 @@ main [id] { scroll-margin-top: 6rem; }
   outline: 4px solid #d5b347;
   outline-offset: -6px;
 }
+.opening-video-panel {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  overflow: hidden;
+  background: #100707;
+}
+.opening-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.opening-video-error {
+  position: absolute;
+  right: 16px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  left: 16px;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255, 248, 237, .96);
+  color: #53101e;
+  text-align: center;
+}
+.opening-video-error p { margin: 0; }
+.opening-video-error button {
+  padding: 10px 16px;
+  border: 1px solid #c9a227;
+  border-radius: 999px;
+  background: #58101f;
+  color: #fff4d2;
+  cursor: pointer;
+  font-weight: 700;
+}
 @media (max-width: 480px) {
   .opening-ribbon-scene { padding-inline: 16px; }
   .opening-ribbon-garland { top: 9%; }
