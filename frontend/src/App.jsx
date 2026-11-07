@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { createPortal } from "react-dom";
 import { MessageCircle } from "lucide-react";
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
@@ -80,6 +81,54 @@ function ScrollToTop() {
   return null;
 }
 
+function OpeningExperience({ stage, onAdvance }) {
+  return (
+    <section
+      className={`opening-experience opening-experience-${stage}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label={stage === "ribbon" ? "Opening invitation" : "Pooja ceremony invitation"}
+    >
+      {stage === "ribbon" ? (
+        <div className="opening-ribbon-scene">
+          <div className="opening-ribbon-garland" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="opening-ribbon-card">
+            <span className="opening-ribbon-eyebrow">SNBP Wakad Campus</span>
+            <h1>A new beginning</h1>
+            <p>You are warmly invited to our pooja ceremony</p>
+            <button type="button" className="opening-ribbon-button" onClick={onAdvance} autoFocus>
+              <span>Open your invitation</span>
+            </button>
+            <span className="opening-ribbon-date">Sunday · 8 November · 12:30 PM</span>
+          </div>
+        </div>
+      ) : (
+        <button
+          type="button"
+          className="opening-invitation-button"
+          onClick={onAdvance}
+          aria-label="Enter the SNBP University website"
+          autoFocus
+        >
+          <img
+            src="/assets/pooja-ceremony-invitation.png"
+            alt="A New Beginning — Pooja Ceremony, SNBP Wakad Campus, Sunday 8 November at 12:30 PM"
+          />
+          <span className="opening-invitation-hint">Click the invitation to enter the website</span>
+        </button>
+      )}
+    </section>
+  );
+}
+
 function PageMotion() {
   const { pathname } = useLocation();
 
@@ -124,9 +173,26 @@ function NotFound() {
 
 export default function App() {
   const { pathname } = useLocation();
+  const [openingStage, setOpeningStage] = useState("ribbon");
   const [assistantMounted, setAssistantMounted] = useState(false);
   const [assistantOpen, setAssistantOpen] = useState(false);
   const assistantLauncherRef = useRef(null);
+  const showOpeningExperience = pathname === "/" && openingStage !== "entered";
+
+  useEffect(() => {
+    if (!showOpeningExperience) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const rootElement = document.getElementById("root");
+    const previousInert = rootElement?.inert ?? false;
+    document.body.style.overflow = "hidden";
+    if (rootElement) rootElement.inert = true;
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      if (rootElement) rootElement.inert = previousInert;
+    };
+  }, [showOpeningExperience]);
 
   return (
     <>
@@ -192,6 +258,17 @@ export default function App() {
           <span className="assistant-launcher-label">Ask SNBP</span>
         </button>
       </div>
+      {showOpeningExperience ? (
+        createPortal(
+          <OpeningExperience
+            stage={openingStage}
+            onAdvance={() =>
+              setOpeningStage((currentStage) => (currentStage === "ribbon" ? "invitation" : "entered"))
+            }
+          />,
+          document.body
+        )
+      ) : null}
     </>
   );
 }
