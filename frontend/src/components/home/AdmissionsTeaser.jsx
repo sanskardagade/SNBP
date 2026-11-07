@@ -94,16 +94,19 @@ export default function AdmissionsTeaser({ admissions }) {
         <AdvisorCarousel />
       </div>
 
-      <button
-        ref={enquiryButtonRef}
-        type="button"
-        className="home-admissions-trigger absolute right-0 top-[24rem] z-20 rounded-l-md bg-[#c9a326] px-4 py-4 font-semibold uppercase tracking-[.12em] text-[#2e1a47] shadow-lg transition hover:bg-[#dfbd45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:top-14"
-        onClick={() => setIsFormOpen(true)}
-        aria-haspopup="dialog"
-        aria-expanded={isFormOpen}
-      >
-        Enquire Now
-      </button>
+      {createPortal(
+        <button
+          ref={enquiryButtonRef}
+          type="button"
+          className="home-admissions-trigger z-20 rounded-l-md bg-[#c9a326] px-4 py-4 font-semibold uppercase tracking-[.12em] text-[#2e1a47] shadow-lg transition hover:bg-[#dfbd45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          onClick={() => setIsFormOpen(true)}
+          aria-haspopup="dialog"
+          aria-expanded={isFormOpen}
+        >
+          Enquire Now
+        </button>,
+        document.getElementById("root")
+      )}
 
       {isFormOpen
         ? createPortal(

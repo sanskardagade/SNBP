@@ -534,8 +534,14 @@ main [id] { scroll-margin-top: 6rem; }
 .home-admissions-desktop { position: relative; z-index: 1; min-height: 440px; padding-top: 40px; padding-bottom: 40px; }
 @media (min-width: 1024px) {
   .home-admissions-desktop { grid-template-columns: minmax(0, 1fr) minmax(320px, .72fr); }
+  .advisor-carousel { margin-right: clamp(-24px, -2vw, -16px); }
 }
-.home-admissions-trigger { font-size: .72rem; }
+.home-admissions-trigger {
+  position: fixed;
+  top: clamp(10rem, 24vh, 15rem);
+  right: 0;
+  font-size: .72rem;
+}
 .home-admissions-copy { max-width: 650px; padding: 18px 0 32px; }
 .home-admissions-kicker {
   color: #eed58a;
