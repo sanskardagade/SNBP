@@ -15,6 +15,32 @@ import NewsletterSection from "../components/home/NewsletterSection.jsx";
 import LoadingExperience from "../components/common/LoadingExperience.jsx";
 import { programPages } from "../content/programs.js";
 
+const diwaliConfetti = Array.from({ length: 28 }, (_, index) => ({
+  x: `${(index * 37) % 100}%`,
+  drift: `${(index % 2 === 0 ? 1 : -1) * (30 + (index * 7) % 70)}px`,
+  delay: `${(index % 8) * 0.09}s`,
+  duration: `${2.5 + (index % 5) * 0.24}s`,
+}));
+
+function DiwaliCelebration() {
+  return (
+    <div className="diwali-celebration" aria-hidden="true">
+      {diwaliConfetti.map((piece, index) => (
+        <span
+          className="diwali-confetti-piece"
+          key={index}
+          style={{
+            "--confetti-x": piece.x,
+            "--confetti-drift": piece.drift,
+            "--confetti-delay": piece.delay,
+            "--confetti-duration": piece.duration,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 function normalizeProgramName(name) {
   return String(name).toLocaleLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
@@ -53,7 +79,12 @@ export default function Home() {
   const { content, loading } = useHomeContent();
 
   if (loading && !content) {
-    return <LoadingExperience />;
+    return (
+      <>
+        <DiwaliCelebration />
+        <LoadingExperience />
+      </>
+    );
   }
 
   const data = {
@@ -82,21 +113,24 @@ export default function Home() {
   };
 
   return (
-    <div className="home-page ai-tadka">
-      <AdmissionsTeaser admissions={data.admissions} />
-      <StatsSection stats={data.stats} />
-      <AboutSection about={data.about} />
-      <SchoolsSection schools={data.schools} />
-      <PillarsSection pillars={data.pillars} />
-      <LeadershipSection leadership={data.leadership} />
-      <PartnershipSection
-        partnershipTabs={data.partnershipTabs}
-      />
-      <CentreOfExcellenceSection items={data.centreOfExcellence} />
-      <RecognitionSection recognitions={data.recognitions} />
-      <CampusLifeSection campusGalleries={data.campusGalleries} />
-      <FaqSection faqs={data.faqs} />
-      <NewsletterSection />
-    </div>
+    <>
+      <DiwaliCelebration />
+      <div className="home-page ai-tadka">
+        <AdmissionsTeaser admissions={data.admissions} />
+        <StatsSection stats={data.stats} />
+        <AboutSection about={data.about} />
+        <SchoolsSection schools={data.schools} />
+        <PillarsSection pillars={data.pillars} />
+        <LeadershipSection leadership={data.leadership} />
+        <PartnershipSection
+          partnershipTabs={data.partnershipTabs}
+        />
+        <CentreOfExcellenceSection items={data.centreOfExcellence} />
+        <RecognitionSection recognitions={data.recognitions} />
+        <CampusLifeSection campusGalleries={data.campusGalleries} />
+        <FaqSection faqs={data.faqs} />
+        <NewsletterSection />
+      </div>
+    </>
   );
 }

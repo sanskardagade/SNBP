@@ -422,6 +422,36 @@ main [id] { scroll-margin-top: 6rem; }
 }
 
 /* Homepage editorial system */
+.diwali-celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  overflow: hidden;
+  pointer-events: none;
+}
+.diwali-confetti-piece {
+  position: absolute;
+  top: -14px;
+  left: var(--confetti-x);
+  width: 7px;
+  height: 12px;
+  border-radius: 2px;
+  background: #d7ad35;
+  box-shadow: 0 0 10px rgba(255, 190, 65, .55);
+  opacity: 0;
+  animation: diwali-confetti-fall var(--confetti-duration) var(--confetti-delay) ease-in forwards;
+}
+.diwali-confetti-piece:nth-child(3n) { width: 5px; height: 5px; border-radius: 50%; background: #fff0a8; }
+.diwali-confetti-piece:nth-child(3n + 1) { background: #e85d45; }
+.diwali-confetti-piece:nth-child(3n + 2) { background: #d7ad35; }
+@keyframes diwali-confetti-fall {
+  0% { opacity: 0; transform: translate3d(0, -4vh, 0) rotate(0deg); }
+  10% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(var(--confetti-drift), 110vh, 0) rotate(620deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .diwali-celebration { display: none; }
+}
 .home-page {
   --home-plum: #302047;
   --home-wine: #7d2939;
