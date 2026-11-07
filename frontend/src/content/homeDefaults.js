@@ -49,7 +49,7 @@ export const homeDefaults = {
       id: "arts-commerce-science",
       name: "School of Business Management",
       to: "/school-of-management",
-      brochure: asset("/assets/school-of-management-SNBP-University-BqD54UwP.pdf"),
+      brochure: "/assets/main.pdf",
       programs: [
         { name: "BBA", to: "/school-of-management/bba" },
         { name: "BCA", to: "/school-of-management/bca" },

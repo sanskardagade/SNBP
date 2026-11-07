@@ -66,18 +66,21 @@ export default function Footer({ meta = defaultMeta }) {
           </ul>
           <p className="mt-4 text-xs text-white/55">Office Hours: {hours}</p>
           <div className="mt-5 flex gap-3">
-            {socialLinks.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                aria-label={s.label}
-                target="_blank"
-                rel="noreferrer"
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/20 text-xs font-bold hover:border-gold hover:text-gold"
-              >
-                {s.label[0]}
-              </a>
-            ))}
+            {socialLinks.map((s) => {
+              const Icon = s.icon;
+              return (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/20 text-gold hover:border-gold hover:text-gold"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

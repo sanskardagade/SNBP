@@ -73,14 +73,18 @@ export const regulatoryLinks = [
   { label: "Fee Structure", href: "/scholarships" }
 ];
 
+import { Facebook, Instagram, Linkedin } from "lucide-react";
+
 export const socialLinks = [
   {
     label: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=61596119767381"
+    href: "https://www.facebook.com/profile.php?id=61596119767381",
+    icon: Facebook
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/snbpwakadcampus/"
+    href: "https://www.instagram.com/snbpwakadcampus/",
+    icon: Instagram
   },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/snbp-wakad-9565b2449/" }
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/snbp-wakad-9565b2449/", icon: Linkedin }
 ];

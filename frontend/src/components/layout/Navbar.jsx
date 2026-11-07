@@ -194,18 +194,21 @@ export default function Navbar() {
         <div className="container-width flex min-h-10 items-center justify-between gap-4 text-xs">
           <span className="font-medium tracking-wide">Connect with us :-</span>
           <div className="flex items-center gap-2">
-            {socialLinks.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
-                className="grid h-7 w-7 place-items-center rounded-full bg-[#802030] text-[#d9c077] ring-1 ring-[#d9c077]/40 hover:opacity-90"
-              >
-                {s.label[0]}
-              </a>
-            ))}
+            {socialLinks.map((s) => {
+              const Icon = s.icon;
+              return (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="grid h-7 w-7 place-items-center rounded-full bg-[#802030] text-[#d9c077] ring-1 ring-[#d9c077]/40 hover:opacity-90"
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
