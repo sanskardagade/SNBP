@@ -1,4 +1,4 @@
-const schoolPath = "/school-of-arts-commerce-science";
+const schoolPath = "/school-of-management";
 
 export const aiPrograms = {
   bba: {

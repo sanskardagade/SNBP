@@ -6,7 +6,7 @@ export const staticPages = {
     title: "About SNBP University",
     eyebrow: "About Us",
     lead: "A legacy of educational excellence rooted in Indian values and modern, world-class learning.",
-    image: asset("/assets/School-Of-Arts-Commerce-Science-SNBP-University-BqD54UwP.webp"),
+    image: asset("/assets/school-of-management-SNBP-University-BqD54UwP.webp"),
     sections: [
       {
         heading: "A Legacy of Excellence, A Vision for Tomorrow",

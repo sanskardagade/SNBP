@@ -20,7 +20,7 @@ import {
 import { asset } from "../constants/assets.js";
 
 const brochureUrl = asset(
-  "/assets/School-Of-Arts-Commerce-Science-SNBP-University-BqD54UwP.pdf"
+  "/assets/school-of-management-SNBP-University-BqD54UwP.pdf"
 );
 const heroImage = asset("/assets/SOA%20pgms-HLybrV_l.png");
 const campusImage = asset("/assets/Untitled%20design-CYPUEzTN.webp");

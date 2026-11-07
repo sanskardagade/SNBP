@@ -3,7 +3,7 @@ import { asset } from "../constants/assets.js";
 const techImage = asset(
   "/assets/shot-young-student-with-college-certifiicate-standing-studio-high-quality-photo-D1Z7fejE.webp"
 );
-const artsImage = asset("/assets/School-Of-Arts-Commerce-Science-SNBP-University-BqD54UwP.webp");
+const artsImage = asset("/assets/school-of-management-SNBP-University-BqD54UwP.webp");
 
 function program(slug, title, school, summary, highlights = []) {
   return { slug, title, school, summary, highlights, heroImage: school.includes("Technology") ? techImage : artsImage };
@@ -24,7 +24,7 @@ export const schoolPages = {
     ]
   },
   */
-  "/school-of-arts-commerce-science": {
+  "/school-of-management": {
     title: "School of Arts, Commerce & Science",
     eyebrow: "Programs",
     lead: "Four AI-first programs for future business leaders, developers, AI engineers and managers.",
@@ -75,28 +75,28 @@ export const programPages = {
     ["Security fundamentals", "Network defence", "Compliance & governance basics"]
   ),
   */
-  "/school-of-arts-commerce-science/bba": program(
+  "/school-of-management/bba": program(
     "bba",
     "BBA: Business + AI",
     "School of Arts, Commerce & Science",
     "Lead tomorrow’s businesses with today’s AI.",
     ["AI startup studio", "Marketing with AI", "Data-driven decisions", "Business simulation games"]
   ),
-  "/school-of-arts-commerce-science/bca": program(
+  "/school-of-management/bca": program(
     "bca",
     "BCA: Code + AI",
     "School of Arts, Commerce & Science",
     "Learn to code. Then teach machines to think.",
     ["Python and web development", "AI pair-programming", "Semester hackathons", "Applied AI mini projects"]
   ),
-  "/school-of-arts-commerce-science/mca": program(
+  "/school-of-management/mca": program(
     "mca",
     "MCA: Advanced Computing + AI",
     "School of Arts, Commerce & Science",
     "From developer to AI architect.",
     ["Generative AI and LLM lab", "MLOps and cloud", "Research track", "Industry capstone"]
   ),
-  "/school-of-arts-commerce-science/mba": program(
+  "/school-of-management/mba": program(
     "mba",
     "MBA: Management + AI",
     "School of Arts, Commerce & Science",
@@ -104,49 +104,49 @@ export const programPages = {
     ["AI for managers", "Live case lab", "Business analytics studio", "Leadership lab"]
   ),
   /*
-  "/school-of-arts-commerce-science/bsc-computer-science": program(
+  "/school-of-management/bsc-computer-science": program(
     "bsc-computer-science",
     "B.Sc. Computer Science",
     "School of Arts, Commerce & Science",
     "Strong computing foundations with flexibility for higher studies and industry roles.",
     ["Core CS & mathematics", "Software development", "Research orientation"]
   ),
-  "/school-of-arts-commerce-science/ba-psychology": program(
+  "/school-of-management/ba-psychology": program(
     "ba-psychology",
     "BA Psychology",
     "School of Arts, Commerce & Science",
     "Understand behaviour, cognition, and wellbeing with applied learning.",
     ["Counselling basics", "Research methods", "Community projects"]
   ),
-  "/school-of-arts-commerce-science/ba-english": program(
+  "/school-of-management/ba-english": program(
     "ba-english",
     "BA English",
     "School of Arts, Commerce & Science",
     "Develop communication, literature, and critical thinking for diverse careers.",
     ["Language & literature", "Media & communication", "Creative writing"]
   ),
-  "/school-of-arts-commerce-science/ba-economics": program(
+  "/school-of-management/ba-economics": program(
     "ba-economics",
     "BA Economics",
     "School of Arts, Commerce & Science",
     "Analyse markets, policy, and development with quantitative tools.",
     ["Micro & macroeconomics", "Data interpretation", "Policy perspectives"]
   ),
-  "/school-of-arts-commerce-science/bca": program(
+  "/school-of-management/bca": program(
     "bca",
     "BCA",
     "School of Arts, Commerce & Science",
     "Application-focused computing degree for software and IT careers.",
     ["Application development", "Web & mobile stacks", "Internship pathways"]
   ),
-  "/school-of-arts-commerce-science/bcom": program(
+  "/school-of-management/bcom": program(
     "bcom",
     "B.Com",
     "School of Arts, Commerce & Science",
     "Commerce education with finance, accounting, and business technology exposure.",
     ["Accounting & finance", "Business law", "Digital business tools"]
   ),
-  "/school-of-arts-commerce-science/mca": program(
+  "/school-of-management/mca": program(
     "mca",
     "MCA",
     "School of Arts, Commerce & Science",

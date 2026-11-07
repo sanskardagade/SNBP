@@ -30,12 +30,12 @@ export const programLinks = [
   // },
   {
     label: "School of Arts, Commerce & Science",
-    to: "/school-of-arts-commerce-science",
+    to: "/school-of-management",
     children: [
-      { label: "BBA", to: "/school-of-arts-commerce-science/bba" },
-      { label: "BCA", to: "/school-of-arts-commerce-science/bca" },
-      { label: "MCA", to: "/school-of-arts-commerce-science/mca" },
-      { label: "MBA", to: "/school-of-arts-commerce-science/mba" }
+      { label: "BBA", to: "/school-of-management/bba" },
+      { label: "BCA", to: "/school-of-management/bca" },
+      { label: "MCA", to: "/school-of-management/mca" },
+      { label: "MBA", to: "/school-of-management/mba" }
     ]
   }
 ];

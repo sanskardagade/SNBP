@@ -25,7 +25,7 @@ const MCAPage = lazy(() => import("./MCAPage.jsx"));
 export function SchoolPage({ pageKey }) {
   const school = schoolPages[pageKey];
   if (!school) return null;
-  if (pageKey === "/school-of-arts-commerce-science") return <AIProgramsLanding />;
+  if (pageKey === "/school-of-management") return <AIProgramsLanding />;
 
   return (
     <>
@@ -57,45 +57,45 @@ export default function ProgramPage({ pageKey }) {
     return <AIProgramPage pageKey={pageKey} />;
   }
   /*
-  if (pageKey === "/school-of-arts-commerce-science/bsc-computer-science") {
+  if (pageKey === "/school-of-management/bsc-computer-science") {
     return <BscComputerSciencePage />;
   }
-  if (pageKey === "/school-of-arts-commerce-science/ba-psychology") {
+  if (pageKey === "/school-of-management/ba-psychology") {
     return (
       <Suspense fallback={<LoadingExperience />}>
         <BAPsychologyPage />
       </Suspense>
     );
   }
-  if (pageKey === "/school-of-arts-commerce-science/ba-english") {
+  if (pageKey === "/school-of-management/ba-english") {
     return (
       <Suspense fallback={<LoadingExperience />}>
         <BAEnglishPage />
       </Suspense>
     );
   }
-  if (pageKey === "/school-of-arts-commerce-science/ba-economics") {
+  if (pageKey === "/school-of-management/ba-economics") {
     return (
       <Suspense fallback={<LoadingExperience />}>
         <BAEconomicsPage />
       </Suspense>
     );
   }
-  if (pageKey === "/school-of-arts-commerce-science/bca") {
+  if (pageKey === "/school-of-management/bca") {
     return (
       <Suspense fallback={<LoadingExperience />}>
         <BCAPage />
       </Suspense>
     );
   }
-  if (pageKey === "/school-of-arts-commerce-science/bcom") {
+  if (pageKey === "/school-of-management/bcom") {
     return (
       <Suspense fallback={<LoadingExperience />}>
         <BComPage />
       </Suspense>
     );
   }
-  if (pageKey === "/school-of-arts-commerce-science/mca") {
+  if (pageKey === "/school-of-management/mca") {
     return (
       <Suspense fallback={<LoadingExperience />}>
         <MCAPage />

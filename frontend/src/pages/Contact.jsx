@@ -2,8 +2,8 @@ import { Clock3, Globe2, Mail, MapPin, Phone } from "lucide-react";
 import AdmissionEnquiryForm from "../components/forms/AdmissionEnquiryForm.jsx";
 import { siteMeta } from "../constants/siteMeta.js";
 
-const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(siteMeta.address)}`;
-const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(siteMeta.address)}&output=embed`;
+const directionsUrl = "https://www.google.com/maps/dir//SNBP+School,+Wakad,+Shankar+Kalat+Nagar,+Wakad,+Pimpri-Chinchwad,+Maharashtra+411057/@19.8904508,74.4882176,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bc2b92cfbd4af6f:0xf78617dadf9d91d5!2m2!1d73.7549048!2d18.6018496?entry=ttu&g_ep=EgoyMDI2MTEwMi4wIKXMDSoASAFQAw%3D%3D";
+const mapUrl = "https://www.google.com/maps?q=SNBP+School,+Wakad,+Shankar+Kalat+Nagar,+Wakad,+Pimpri-Chinchwad,+Maharashtra+411057&output=embed";
 
 function ContactCard({ icon: Icon, label, children, className = "" }) {
   return (

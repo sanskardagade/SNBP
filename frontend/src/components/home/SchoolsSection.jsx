@@ -126,7 +126,7 @@ export default function SchoolsSection({ schools = [] }) {
                     </a>
                   ) : null}
                   <Link
-                    to={school.to || "/school-of-arts-commerce-science"}
+                    to={school.to || "/school-of-management"}
                     className="inline-flex items-center gap-2 text-sm font-bold text-purplebrand transition hover:text-bluebrand"
                   >
                     Explore more <ArrowUpRight size={17} />

@@ -270,7 +270,7 @@ export default function AboutUniversity() {
             <li><span>02</span><p><strong>Connect ideas to practice</strong> — consider how learning meets real questions and contexts.</p></li>
             <li><span>03</span><p><strong>Grow with others</strong> — bring empathy, integrity and curiosity to the work ahead.</p></li>
           </ul>
-          <Link to="/school-of-arts-commerce-science" className="about-inline-link">
+          <Link to="/school-of-management" className="about-inline-link">
             Explore academic programmes <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </div>
