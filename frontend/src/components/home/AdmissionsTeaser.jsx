@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import AdmissionEnquiryForm from "../forms/AdmissionEnquiryForm.jsx";
 import { asset } from "../../constants/assets.js";
+import AdvisorCarousel from "./AdvisorCarousel.jsx";
 
 const campusImage =
   'url("https://snbpuniversity.com/assets/SNBP%20Hero%20Image%20Mobile%202%20copy%202.jpg-DuRFS0g_.jpeg")';
@@ -77,7 +78,7 @@ export default function AdmissionsTeaser({ admissions }) {
         </p>
       </div>
 
-      <div className="home-admissions-desktop container-width hidden items-center gap-12 py-28 md:grid md:grid-cols-1 lg:py-32">
+      <div className="home-admissions-desktop container-width hidden items-center gap-12 py-28 md:grid lg:py-32">
         <div className="home-admissions-copy">
           <p className="home-admissions-kicker">{admissions?.eyebrow || "Admissions Open 2026"}</p>
           <h1 className="home-admissions-title heading-serif">
@@ -90,12 +91,13 @@ export default function AdmissionsTeaser({ admissions }) {
             Explore programmes <span aria-hidden="true">↓</span>
           </a>
         </div>
+        <AdvisorCarousel />
       </div>
 
       <button
         ref={enquiryButtonRef}
         type="button"
-        className="home-admissions-trigger absolute right-0 top-[44%] z-20 -translate-y-1/2 rounded-l-md bg-[#c9a326] px-4 py-4 font-semibold uppercase tracking-[.12em] text-[#2e1a47] shadow-lg transition hover:bg-[#dfbd45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="home-admissions-trigger absolute right-0 top-14 z-20 rounded-l-md bg-[#c9a326] px-4 py-4 font-semibold uppercase tracking-[.12em] text-[#2e1a47] shadow-lg transition hover:bg-[#dfbd45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         onClick={() => setIsFormOpen(true)}
         aria-haspopup="dialog"
         aria-expanded={isFormOpen}

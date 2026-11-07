@@ -4,7 +4,8 @@ export const aboutLinks = [
   { label: "Sponsoring Body", to: "/sponsoring-body" },
   { label: "Our Team", to: "/our-team" },
   { label: "Chancellor's Message", to: "/chancellor-message" },
-  { label: "Vice Chancellor's Message", to: "/vice-chancellor-message" }
+  { label: "Vice Chancellor's Message", to: "/vice-chancellor-message" },
+  { label: "Academic Advisory Board", to: "/academic-advisory-board" }
   // {
   //   label: "SNBP Leadership",
   //   to: "/snbp-leadership",

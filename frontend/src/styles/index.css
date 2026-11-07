@@ -532,6 +532,9 @@ main [id] { scroll-margin-top: 6rem; }
     linear-gradient(0deg, rgba(22, 16, 29, .45), transparent 55%);
 }
 .home-admissions-desktop { position: relative; z-index: 1; min-height: 440px; padding-top: 40px; padding-bottom: 40px; }
+@media (min-width: 1024px) {
+  .home-admissions-desktop { grid-template-columns: minmax(0, 1fr) minmax(320px, .72fr); }
+}
 .home-admissions-trigger { font-size: .72rem; }
 .home-admissions-copy { max-width: 650px; padding: 18px 0 32px; }
 .home-admissions-kicker {
@@ -580,6 +583,40 @@ main [id] { scroll-margin-top: 6rem; }
 .home-admissions-mobile-copy .home-admissions-kicker { text-shadow: 0 1px 12px rgba(20,12,30,.45); }
 .home-admissions-mobile-image { position: relative; }
 .home-admissions-mobile-image ~ .home-admissions-mobile-copy::before { content: ""; }
+
+.advisor-carousel {
+  position: relative;
+  width: min(100%, 390px);
+  justify-self: end;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.3);
+  background: rgba(36,24,51,.72);
+  box-shadow: 0 20px 60px rgba(13,8,20,.32);
+  backdrop-filter: blur(8px);
+}
+.advisor-carousel-slide { position: relative; min-height: 365px; overflow: hidden; animation: advisor-carousel-enter 280ms ease-out both; }
+.advisor-carousel-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 24%; }
+.advisor-carousel-shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(22,13,34,.96), rgba(22,13,34,.08) 72%); }
+.advisor-carousel-copy { position: absolute; right: 24px; bottom: 24px; left: 24px; color: white; }
+.advisor-carousel-eyebrow { color: #e6c96f; font-size: .64rem; font-weight: 800; letter-spacing: .12em; line-height: 1.5; text-transform: uppercase; }
+.advisor-carousel-copy h2 { margin-top: 7px; font-family: "Libre Baskerville", Georgia, serif; font-size: 1.45rem; line-height: 1.25; }
+.advisor-carousel-role { margin-top: 7px; font-size: .85rem; font-weight: 700; }
+.advisor-carousel-organization { margin-top: 3px; color: rgba(255,255,255,.78); font-size: .77rem; line-height: 1.5; }
+.advisor-carousel-controls { display: flex; min-height: 50px; align-items: center; justify-content: space-between; gap: 12px; padding: 0 18px; border-top: 1px solid rgba(255,255,255,.16); }
+.advisor-carousel-dots, .advisor-carousel-arrows { display: flex; align-items: center; gap: 8px; }
+.advisor-carousel-dot { width: 7px; height: 7px; border-radius: 999px; background: rgba(255,255,255,.42); transition: width 180ms ease, background 180ms ease; }
+.advisor-carousel-dot.is-active { width: 20px; background: #e6c96f; }
+.advisor-carousel-arrows button { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid rgba(255,255,255,.35); color: white; transition: background 180ms ease, border-color 180ms ease; }
+.advisor-carousel-arrows button:hover { border-color: #e6c96f; background: rgba(255,255,255,.1); }
+.advisor-carousel-link { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; gap: 8px; padding: 0 18px; color: #e6c96f; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.advisor-carousel-link:hover { color: white; }
+@keyframes advisor-carousel-enter { from { opacity: .65; transform: scale(1.015); } to { opacity: 1; transform: scale(1); } }
+@media (max-width: 1023px) {
+  .advisor-carousel { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .advisor-carousel-slide { animation: none; }
+}
 
 .home-stats { padding: 0 24px 12px; background: var(--home-paper); }
 .home-stats-inner { width: min(1120px, 100%); margin: 0 auto; border-top: 1px solid rgba(48,32,71,.18); border-bottom: 1px solid rgba(48,32,71,.18); }

@@ -26,6 +26,7 @@ const SponsoringBody = lazy(() => import("./pages/SponsoringBody.jsx"));
 const OurTeam = lazy(() => import("./pages/OurTeam.jsx"));
 const ChancellorMessage = lazy(() => import("./pages/ChancellorMessage.jsx"));
 const ViceChancellorMessage = lazy(() => import("./pages/ViceChancellorMessage.jsx"));
+const AcademicAdvisoryBoard = lazy(() => import("./pages/AcademicAdvisoryBoard.jsx"));
 
 const routeTitles = {
   "/": "SNBP University",
@@ -34,6 +35,7 @@ const routeTitles = {
   "/our-team": "Our Team",
   "/chancellor-message": "Chancellor’s Message",
   "/vice-chancellor-message": "Vice Chancellor’s Message",
+  "/academic-advisory-board": "Academic Advisory Board",
   "/placements": "Placements",
   "/scholarships": "Scholarships",
   "/admissions": "Admissions",
@@ -220,6 +222,7 @@ export default function App() {
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/chancellor-message" element={<ChancellorMessage />} />
             <Route path="/vice-chancellor-message" element={<ViceChancellorMessage />} />
+            <Route path="/academic-advisory-board" element={<AcademicAdvisoryBoard />} />
             <Route path="/placements" element={<Placements />} />
             <Route path="/life-at-snbp" element={<StaticPage pageKey="/life-at-snbp" />} />
             <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
