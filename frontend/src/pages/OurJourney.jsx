@@ -29,7 +29,7 @@ const milestones = [
   },
   {
     year: "2026",
-    text: "SNBP University was officially established as a UGC-approved State Private University located in Chikhali, Pune.",
+    text: "SNBP University was officially established as a UGC-approved State Private University located in Wakad, Pune.",
     image: aboutCampusImage,
     imageAlt: "SNBP University campus building",
   },

@@ -58,7 +58,7 @@ const milestones = [
   {
     year: "2026",
     title: "A university joins the story",
-    description: "SNBP University is established in Chikhali, Pune.",
+    description: "SNBP University is established in Wakad, Pune.",
   },
 ];
 
@@ -146,7 +146,7 @@ export default function AboutUniversity() {
           />
           <figcaption>
             <span>SNBP University</span>
-            <span>Chikhali · Pune</span>
+            <span>Wakad · Pune</span>
           </figcaption>
           <span className="about-opening-number" aria-hidden="true">01</span>
         </figure>

@@ -41,7 +41,7 @@ export const staticPages = {
         heading: "Campus experience",
         body: [
           "Smart classrooms, labs, library resources, sports facilities, and cultural activities create unforgettable student experiences.",
-          "Browse campus galleries for infrastructure highlights and moments from student life at SNBP University, Chikhali, Pune."
+          "Browse campus galleries for infrastructure highlights and moments from student life at SNBP University, Wakad, Pune."
         ]
       }
     ]

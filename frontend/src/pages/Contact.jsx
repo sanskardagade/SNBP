@@ -51,7 +51,7 @@ export default function Contact() {
               Reach The Campus
             </h2>
             <p className="mt-4 max-w-[52ch] text-[15px] font-normal leading-[1.8] text-[#3a3a3a] md:text-base">
-              Our campus sits on the Dehu–Alandi Road in Chikhali, Pimpri–Chinchwad, well connected to Pune&apos;s
+              Our campus sits on the Dehu–Alandi Road in Wakad, Pimpri–Chinchwad, well connected to Pune&apos;s
               education and technology corridor.
             </p>
 
