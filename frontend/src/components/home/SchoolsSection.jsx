@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Download, GraduationCap, Search, X } from "lucide-react";
 import SectionHeading from "../common/SectionHeading.jsx";
@@ -6,6 +7,84 @@ import SectionHeading from "../common/SectionHeading.jsx";
 export default function SchoolsSection({ schools = [] }) {
   const [query, setQuery] = useState("");
   const [activeSchool, setActiveSchool] = useState("all");
+  const [selectedBrochure, setSelectedBrochure] = useState(null);
+  const [brochureForm, setBrochureForm] = useState({ name: "", email: "", phone: "" });
+  const [brochureError, setBrochureError] = useState("");
+  const brochureNameRef = useRef(null);
+  const brochureTriggerRef = useRef(null);
+
+  useEffect(() => {
+    if (!selectedBrochure) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    brochureNameRef.current?.focus();
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") closeBrochureDialog();
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      brochureTriggerRef.current?.focus();
+    };
+  }, [selectedBrochure]);
+
+  function openBrochureDialog(school, trigger) {
+    brochureTriggerRef.current = trigger;
+    setBrochureForm({ name: "", email: "", phone: "" });
+    setBrochureError("");
+    setSelectedBrochure({ url: school.brochure, name: school.name });
+  }
+
+  function closeBrochureDialog() {
+    setSelectedBrochure(null);
+  }
+
+  function submitBrochureRequest(event) {
+    event.preventDefault();
+    if (!selectedBrochure) return;
+
+    const details = {
+      name: brochureForm.name.trim(),
+      email: brochureForm.email.trim(),
+      phone: brochureForm.phone.trim()
+    };
+    if (!details.name || !details.email || !details.phone) {
+      setBrochureError("Please fill in your name, email, and mobile number.");
+      return;
+    }
+
+    const brochureWindow = window.open(selectedBrochure.url, "_blank");
+    if (!brochureWindow) {
+      setBrochureError("Please allow pop-ups to open your brochure in a new tab.");
+      return;
+    }
+
+    brochureWindow.opener = null;
+    closeBrochureDialog();
+  }
+
+  function trapBrochureDialogTab(event) {
+    if (event.key !== "Tab") return;
+
+    const focusableElements = event.currentTarget.querySelectorAll(
+      'button:not([disabled]), input:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement?.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement?.focus();
+    }
+  }
+
   const visibleSchools = useMemo(() => {
     const search = query.trim().toLocaleLowerCase();
     return schools
@@ -116,14 +195,13 @@ export default function SchoolsSection({ schools = [] }) {
                 </ul>
                 <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
                   {school.brochure ? (
-                    <a
-                      href={school.brochure}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      type="button"
+                      onClick={(event) => openBrochureDialog(school, event.currentTarget)}
                       className="inline-flex items-center gap-2 text-sm font-bold text-purplebrand transition hover:text-bluebrand"
                     >
                       <Download size={16} /> Download brochure
-                    </a>
+                    </button>
                   ) : null}
                   <Link
                     to={school.to || "/school-of-management"}
@@ -141,6 +219,100 @@ export default function SchoolsSection({ schools = [] }) {
           )}
         </div>
       </div>
+      {selectedBrochure
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-[#160f20]/75 p-3 backdrop-blur-sm sm:p-6"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) closeBrochureDialog();
+              }}
+            >
+              <section
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="brochure-dialog-title"
+                className="relative flex max-h-[calc(100dvh-1.5rem)] w-full max-w-3xl flex-col overflow-hidden rounded-lg bg-white shadow-2xl sm:max-h-[calc(100dvh-3rem)]"
+                onKeyDown={trapBrochureDialogTab}
+              >
+                <header className="flex items-start justify-between gap-4 border-b border-slate-200 px-5 py-4 sm:px-7">
+                  <div>
+                    <h2 id="brochure-dialog-title" className="text-xl font-bold text-purplebrand">
+                      Get the brochure
+                    </h2>
+                    <p className="mt-1 text-sm text-slate-600">
+                      Enter your details to open the {selectedBrochure.name} brochure in a new tab.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={closeBrochureDialog}
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-slate-600 transition hover:bg-slate-100 hover:text-purplebrand"
+                    aria-label="Close brochure dialog"
+                  >
+                    <X size={20} aria-hidden="true" />
+                  </button>
+                </header>
+
+                <form onSubmit={submitBrochureRequest} className="grid gap-4 p-5 sm:grid-cols-2 sm:p-7">
+                    <label className="text-sm font-semibold text-slate-700 sm:col-span-2">
+                      Full name
+                      <input
+                        ref={brochureNameRef}
+                        required
+                        maxLength={120}
+                        autoComplete="name"
+                        value={brochureForm.name}
+                        onChange={(event) =>
+                          setBrochureForm((form) => ({ ...form, name: event.target.value }))
+                        }
+                        className="mt-1.5 w-full rounded-lg border border-slate-300 px-3 py-2.5 font-normal outline-none focus:border-purplebrand"
+                      />
+                    </label>
+                    <label className="text-sm font-semibold text-slate-700">
+                      Email
+                      <input
+                        required
+                        type="email"
+                        maxLength={254}
+                        autoComplete="email"
+                        value={brochureForm.email}
+                        onChange={(event) =>
+                          setBrochureForm((form) => ({ ...form, email: event.target.value }))
+                        }
+                        className="mt-1.5 w-full rounded-lg border border-slate-300 px-3 py-2.5 font-normal outline-none focus:border-purplebrand"
+                      />
+                    </label>
+                    <label className="text-sm font-semibold text-slate-700">
+                      Mobile number
+                      <input
+                        required
+                        type="tel"
+                        maxLength={40}
+                        autoComplete="tel"
+                        value={brochureForm.phone}
+                        onChange={(event) =>
+                          setBrochureForm((form) => ({ ...form, phone: event.target.value }))
+                        }
+                        className="mt-1.5 w-full rounded-lg border border-slate-300 px-3 py-2.5 font-normal outline-none focus:border-purplebrand"
+                      />
+                    </label>
+                    {brochureError ? (
+                      <p role="alert" className="text-sm text-red-700 sm:col-span-2">
+                        {brochureError}
+                      </p>
+                    ) : null}
+                    <button
+                      type="submit"
+                      className="rounded-lg bg-[#c9a326] px-5 py-3 text-sm font-bold uppercase tracking-wide text-[#2e1a47] transition hover:bg-[#dfbd45] sm:col-span-2"
+                    >
+                      Submit and view brochure
+                    </button>
+                </form>
+              </section>
+            </div>,
+            document.body
+          )
+        : null}
     </section>
   );
 }
