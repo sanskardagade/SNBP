@@ -102,7 +102,7 @@ function OpeningExperience({ stage, onAdvance }) {
             <span className="opening-curtain-panel opening-curtain-panel-left" />
             <span className="opening-curtain-panel opening-curtain-panel-right" />
           </div>
-          <span className="opening-curtain-hint">Click to open the invitation</span>
+          <span className="opening-curtain-hint">Click to open</span>
         </button>
       ) : stage === "opening" ? (
         <div className="opening-curtain-reveal" aria-hidden="true">
