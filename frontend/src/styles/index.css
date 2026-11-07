@@ -466,7 +466,7 @@ main [id] { scroll-margin-top: 6rem; }
   background: #fff2b0;
   box-shadow: 0 0 16px 5px rgba(255, 202, 73, .95);
   opacity: 0;
-  animation: diwali-firework-launch 2s ease-out var(--firework-delay) 3 both;
+  animation: diwali-firework-launch 5s ease-out var(--firework-delay) 5 both;
 }
 .diwali-firework-spark {
   position: absolute;
@@ -478,7 +478,7 @@ main [id] { scroll-margin-top: 6rem; }
   background: #ffe28a;
   box-shadow: 0 0 14px 3px rgba(255, 190, 65, .9);
   opacity: 0;
-  animation: diwali-firework-burst 2s ease-out var(--firework-delay) 3 both;
+  animation: diwali-firework-burst 5s ease-out var(--firework-delay) 5 both;
 }
 .diwali-firework:nth-of-type(even) .diwali-firework-spark { background: #ff9a76; }
 @keyframes diwali-firework-launch {
@@ -1511,10 +1511,10 @@ main [id] { scroll-margin-top: 6rem; }
   inset: 0;
 }
 .opening-experience-opening .opening-curtain-panel-left {
-  animation: opening-curtain-left 1.8s cubic-bezier(.72, 0, .28, 1) forwards;
+  animation: opening-curtain-left 3s cubic-bezier(.72, 0, .28, 1) forwards;
 }
 .opening-experience-opening .opening-curtain-panel-right {
-  animation: opening-curtain-right 1.8s cubic-bezier(.72, 0, .28, 1) forwards;
+  animation: opening-curtain-right 3s cubic-bezier(.72, 0, .28, 1) forwards;
 }
 @keyframes opening-curtain-left {
   to { transform: translateX(-100%) scaleX(.72); }

@@ -182,7 +182,7 @@ export default function App() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const timeoutId = window.setTimeout(
       () => setOpeningStage("invitation"),
-      reducedMotion ? 50 : 1850
+      reducedMotion ? 50 : 3050
     );
 
     return () => window.clearTimeout(timeoutId);
