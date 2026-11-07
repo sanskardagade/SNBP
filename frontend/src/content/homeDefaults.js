@@ -47,7 +47,7 @@ export const homeDefaults = {
     */
     {
       id: "arts-commerce-science",
-      name: "School of Arts, Commerce & Science",
+      name: "School of Business Management",
       to: "/school-of-management",
       brochure: asset("/assets/school-of-management-SNBP-University-BqD54UwP.pdf"),
       programs: [
@@ -221,7 +221,7 @@ export const homeDefaults = {
       question:
         "Which programmes can I explore at SNBP University?",
       answer:
-        "Explore four AI-first programs at the School of Arts, Commerce & Science: BBA, BCA, MCA and MBA.",
+        "Explore four AI-first programs at the School of Business Management: BBA, BCA, MCA and MBA.",
     },
     {
       question: "What is my first step toward applying?",

@@ -25,7 +25,7 @@ export const schoolPages = {
   },
   */
   "/school-of-management": {
-    title: "School of Arts, Commerce & Science",
+    title: "School of Business Management",
     eyebrow: "Programs",
     lead: "Four AI-first programs for future business leaders, developers, AI engineers and managers.",
     bullets: [
@@ -78,28 +78,28 @@ export const programPages = {
   "/school-of-management/bba": program(
     "bba",
     "BBA: Business + AI",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Lead tomorrow’s businesses with today’s AI.",
     ["AI startup studio", "Marketing with AI", "Data-driven decisions", "Business simulation games"]
   ),
   "/school-of-management/bca": program(
     "bca",
     "BCA: Code + AI",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Learn to code. Then teach machines to think.",
     ["Python and web development", "AI pair-programming", "Semester hackathons", "Applied AI mini projects"]
   ),
   "/school-of-management/mca": program(
     "mca",
     "MCA: Advanced Computing + AI",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "From developer to AI architect.",
     ["Generative AI and LLM lab", "MLOps and cloud", "Research track", "Industry capstone"]
   ),
   "/school-of-management/mba": program(
     "mba",
     "MBA: Management + AI",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Management for the age of intelligent machines.",
     ["AI for managers", "Live case lab", "Business analytics studio", "Leadership lab"]
   ),
@@ -107,49 +107,49 @@ export const programPages = {
   "/school-of-management/bsc-computer-science": program(
     "bsc-computer-science",
     "B.Sc. Computer Science",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Strong computing foundations with flexibility for higher studies and industry roles.",
     ["Core CS & mathematics", "Software development", "Research orientation"]
   ),
   "/school-of-management/ba-psychology": program(
     "ba-psychology",
     "BA Psychology",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Understand behaviour, cognition, and wellbeing with applied learning.",
     ["Counselling basics", "Research methods", "Community projects"]
   ),
   "/school-of-management/ba-english": program(
     "ba-english",
     "BA English",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Develop communication, literature, and critical thinking for diverse careers.",
     ["Language & literature", "Media & communication", "Creative writing"]
   ),
   "/school-of-management/ba-economics": program(
     "ba-economics",
     "BA Economics",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Analyse markets, policy, and development with quantitative tools.",
     ["Micro & macroeconomics", "Data interpretation", "Policy perspectives"]
   ),
   "/school-of-management/bca": program(
     "bca",
     "BCA",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Application-focused computing degree for software and IT careers.",
     ["Application development", "Web & mobile stacks", "Internship pathways"]
   ),
   "/school-of-management/bcom": program(
     "bcom",
     "B.Com",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Commerce education with finance, accounting, and business technology exposure.",
     ["Accounting & finance", "Business law", "Digital business tools"]
   ),
   "/school-of-management/mca": program(
     "mca",
     "MCA",
-    "School of Arts, Commerce & Science",
+    "School of Business Management",
     "Postgraduate programme for advanced software, systems, and leadership roles.",
     ["Advanced programming", "Enterprise architecture", "Placement support"]
   )

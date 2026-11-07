@@ -29,7 +29,7 @@ export const programLinks = [
   //   ]
   // },
   {
-    label: "School of Arts, Commerce & Science",
+    label: "School of Business Management",
     to: "/school-of-management",
     children: [
       { label: "BBA", to: "/school-of-management/bba" },

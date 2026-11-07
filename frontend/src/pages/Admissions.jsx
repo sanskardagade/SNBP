@@ -294,7 +294,7 @@ export default function Admissions() {
           />
           */}
           <EligibilityTable
-            title="Eligibility Criteria — School of Arts, Commerce & Science"
+            title="Eligibility Criteria — School of Business Management"
             headers={artsHeaders}
             rows={artsPrograms}
             minWidth="min-w-[920px]"
